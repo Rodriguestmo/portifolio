@@ -1,22 +1,17 @@
 import type { Metadata } from "next";
-import { Manrope, Syne } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 
-const manrope = Manrope({
-  variable: "--font-body",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
-});
-
-const syne = Syne({
-  variable: "--font-display",
-  subsets: ["latin"],
-  weight: ["600", "700", "800"],
+  weight: ["400", "500", "600", "700", "900"],
 });
 
 export const metadata: Metadata = {
-  title: "Thales | Landing pages, tráfego pago e automações de IA",
+  title: "Thales Miguel | Soluções de Tecnologia e Marketing",
   description:
-    "Landing pages com foco em conversão, gestão de tráfego pago e automações de IA conectadas ao seu funil.",
+    "Landing pages de alta conversão, tráfego pago estratégico e automações com IA para transformar cliques em leads qualificados.",
 };
 
 export default function RootLayout({
@@ -25,8 +20,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className={`${manrope.variable} ${syne.variable}`}>
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="pt-BR" className={inter.variable}>
+      <body>{children}</body>
     </html>
   );
 }
