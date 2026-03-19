@@ -7,15 +7,15 @@ import StaggerContainer, { staggerItem } from "./StaggerContainer";
 
 const projects = [
   {
-    name: "Clínica Dra. Camila",
-    category: "Landing Page",
+    name: "Dra. Camila Sutilo",
+    category: "Gerenciamento ponta a ponta",
     gradient: "from-amber-900 to-amber-800",
     preview: "/images/preview-camila.png",
     url: "https://camilasutilo.com",
   },
   {
-    name: "Geovanna LP",
-    category: "Landing Page",
+    name: "Geovanna Romeiro",
+    category: "Gerenciamento ponta a ponta",
     gradient: "from-rose-900 to-rose-800",
     preview: "/images/preview-geovanna.png",
     url: "https://geovanna-lp.web.app",

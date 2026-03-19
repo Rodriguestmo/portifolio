@@ -23,9 +23,9 @@ export default function TestimonialQuote() {
             </div>
             <div className="text-left">
               <p className="text-sm font-semibold text-black">
-                Dra. Camila S.
+                Dra. Camila Sutilo
               </p>
-              <p className="text-sm text-gray-500">Nutróloga</p>
+              <p className="text-sm text-gray-500">Médica</p>
             </div>
           </div>
         </AnimateIn>

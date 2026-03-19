@@ -52,8 +52,8 @@ export default function Hero() {
                 </div>
                 <div className="h-10 w-px bg-black/10" />
                 <div>
-                  <p className="font-bold text-black">3x</p>
-                  <p className="text-gray-400">mais leads com IA</p>
+                  <p className="text-gray-400"><span className="font-bold text-black">mais</span> resultado com</p>
+                  <p className="text-gray-400"><span className="font-bold text-black">menor</span> custo possível</p>
                 </div>
               </div>
             </AnimateIn>
