@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import AnimateIn from "./AnimateIn";
 
 const socialLinks = [
@@ -100,16 +101,16 @@ export default function About() {
           {/* Right — Bio */}
           <div>
             <AnimateIn variant="slideRight" delay={0.2}>
-              {/* Photo placeholder */}
-              <div className="mb-8 h-[320px] w-full max-w-[400px] overflow-hidden rounded-2xl bg-gradient-to-br from-sky-100 to-blue-200">
-                <div className="flex h-full items-center justify-center">
-                  <div className="text-center">
-                    <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-white/60 text-2xl font-black text-gray-400">
-                      TM
-                    </div>
-                    <p className="mt-3 text-sm text-gray-500">Foto do Thales</p>
-                  </div>
-                </div>
+              {/* Photo */}
+              <div className="mb-8 h-[320px] w-full max-w-[400px] overflow-hidden rounded-2xl">
+                <Image
+                  src="/images/thales.jpg"
+                  alt="Thales Miguel"
+                  width={400}
+                  height={320}
+                  className="h-full w-full object-cover object-top"
+                  priority
+                />
               </div>
             </AnimateIn>
 
