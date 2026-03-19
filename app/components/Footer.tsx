@@ -107,7 +107,7 @@ export default function Footer() {
             </div>
 
             {/* Copyright */}
-            <p className="text-sm text-gray-500">&copy; 2026 RTMO — Marketing Digital & Tecnologia</p>
+            <p className="text-sm text-gray-500">&copy; 2026 Thales Miguel — Marketing Digital & Tecnologia</p>
           </div>
         </div>
 
@@ -117,7 +117,7 @@ export default function Footer() {
             className="text-center font-black leading-none tracking-tighter text-gray-900 select-none"
             style={{ fontSize: "clamp(100px, 15vw, 220px)" }}
           >
-            RTMO
+            THALES
           </p>
         </div>
       </div>
