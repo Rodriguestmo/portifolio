@@ -42,7 +42,7 @@ export default function Hero() {
             <AnimateIn variant="slideLeft" delay={0.6}>
               <div className="mt-10 flex flex-wrap gap-6 text-sm">
                 <div>
-                  <p className="font-bold text-black">+R$ 500K</p>
+                  <p className="font-bold text-black">+R$ 18M</p>
                   <p className="text-gray-400">em mídia gerenciada</p>
                 </div>
                 <div className="h-10 w-px bg-black/10" />
