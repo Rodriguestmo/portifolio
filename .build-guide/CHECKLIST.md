@@ -41,8 +41,8 @@
 - [x] Testar visual no browser local (preview OK — todas secoes renderizando)
 
 ## Etapa 3 — Deploy
-- [ ] git add + commit
-- [ ] git push origin main
+- [x] git add + commit (00d00c0)
+- [x] git push origin main
 - [ ] Verificar deploy no Vercel
 
 ## Etapa 4 — Refinamentos (futuro)

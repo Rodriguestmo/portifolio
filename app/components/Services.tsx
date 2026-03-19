@@ -1,6 +1,12 @@
+"use client";
+
+import { motion } from "framer-motion";
+import AnimateIn from "./AnimateIn";
+import StaggerContainer, { staggerFadeUp } from "./StaggerContainer";
+
 const services = [
   {
-    name: "Landing Pages",
+    name: "Landing Pages de Alta Conversão",
     icon: (
       <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25" />
@@ -8,7 +14,7 @@ const services = [
     ),
   },
   {
-    name: "Tráfego Pago (Meta & Google)",
+    name: "Tráfego Pago Estratégico",
     icon: (
       <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
@@ -24,10 +30,10 @@ const services = [
     ),
   },
   {
-    name: "WhatsApp Business",
+    name: "Prospecção Ativa Automatizada",
     icon: (
       <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M8.625 9.75a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375m-13.5 3.01c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.184-4.183a1.14 1.14 0 01.778-.332 48.294 48.294 0 005.83-.498c1.585-.233 2.708-1.626 2.708-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
       </svg>
     ),
   },
@@ -67,39 +73,52 @@ export default function Services() {
         <div className="grid gap-16 lg:grid-cols-2">
           {/* Left — Heading + Stack */}
           <div>
-            <h2 className="text-5xl leading-[1.05] tracking-tight md:text-6xl">
-              <span className="heading-muted">
-                Serviços que
+            <AnimateIn variant="slideLeft">
+              <h2 className="text-5xl leading-[1.05] tracking-tight md:text-6xl">
+                <span className="heading-muted">
+                  Serviços que
+                  <br />
+                  aceleram seu
+                </span>
                 <br />
-                aceleram seu
-              </span>
-              <br />
-              <span className="heading-bold">negócio.</span>
-            </h2>
+                <span className="heading-bold">negócio.</span>
+              </h2>
+            </AnimateIn>
 
-            <div className="mt-12">
-              <p className="text-sm font-medium tracking-wide text-gray-400 uppercase">
-                Minha stack
+            <AnimateIn variant="fadeUp" delay={0.2}>
+              <p className="mt-6 max-w-md text-lg leading-relaxed text-gray-500">
+                Cada peça é desenhada para funcionar dentro de um sistema — porque
+                design sem tecnologia é só estética, e tecnologia sem design não
+                converte.
               </p>
-              <div className="mt-4 flex flex-wrap gap-3">
-                {stack.map((item) => (
-                  <div
-                    key={item}
-                    className="flex h-11 w-11 items-center justify-center rounded-xl border border-black/8 bg-white text-xs font-bold text-gray-600 transition-colors hover:border-black/20"
-                    title={item}
-                  >
-                    {item.slice(0, 2).toUpperCase()}
-                  </div>
-                ))}
+            </AnimateIn>
+
+            <AnimateIn variant="fadeUp" delay={0.3}>
+              <div className="mt-12">
+                <p className="text-sm font-medium tracking-wide text-gray-400 uppercase">
+                  Minha stack
+                </p>
+                <div className="mt-4 flex flex-wrap gap-3">
+                  {stack.map((item) => (
+                    <div
+                      key={item}
+                      className="flex h-11 w-11 items-center justify-center rounded-xl border border-black/8 bg-white text-xs font-bold text-gray-600 transition-colors hover:border-black/20"
+                      title={item}
+                    >
+                      {item.slice(0, 2).toUpperCase()}
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
+            </AnimateIn>
           </div>
 
           {/* Right — Service List */}
-          <div className="space-y-1">
+          <StaggerContainer className="space-y-1" staggerDelay={0.08}>
             {services.map((service) => (
-              <div
+              <motion.div
                 key={service.name}
+                variants={staggerFadeUp}
                 className="flex items-center gap-4 rounded-xl px-4 py-5 transition-colors hover:bg-gray-50"
               >
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-black text-white">
@@ -108,9 +127,9 @@ export default function Services() {
                 <span className="text-lg font-semibold text-black">
                   {service.name}
                 </span>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </div>
     </section>

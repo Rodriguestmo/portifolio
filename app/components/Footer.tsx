@@ -17,40 +17,46 @@ export default function Footer() {
           <span className="text-gray-600">resultados incríveis juntos.</span>
         </h2>
 
-        {/* Contact info — 3 columns */}
-        <div className="mt-16 grid gap-8 md:grid-cols-3">
+        {/* Contact info — 4 columns */}
+        <div className="mt-16 grid gap-8 md:grid-cols-4">
           <div>
             <p className="text-sm text-gray-500">E-mail</p>
             <a
-              href="mailto:contato@thalesmiguel.com"
+              href="mailto:rtmopublicidade@gmail.com"
               className="mt-1 text-white transition-opacity hover:opacity-70"
             >
-              contato@thalesmiguel.com
+              rtmopublicidade@gmail.com
             </a>
           </div>
           <div>
             <p className="text-sm text-gray-500">WhatsApp</p>
             <a
-              href="#"
+              href="https://wa.me/5535984128420"
+              target="_blank"
+              rel="noopener noreferrer"
               className="mt-1 text-white transition-opacity hover:opacity-70"
             >
               Fale agora
             </a>
           </div>
           <div>
+            <p className="text-sm text-gray-500">Agendar reunião</p>
+            <a
+              href="https://calendar.app.google/v7s5H975BGwnriuZA"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-1 text-white transition-opacity hover:opacity-70"
+            >
+              Marcar horário
+            </a>
+          </div>
+          <div>
             <p className="text-sm text-gray-500">Social</p>
             <div className="mt-1 flex gap-4">
               <a
-                href="#"
-                className="flex items-center gap-2 text-white transition-opacity hover:opacity-70"
-              >
-                <div className="flex h-5 w-5 items-center justify-center rounded-full bg-white/10 text-[9px] font-bold">
-                  IG
-                </div>
-                Instagram
-              </a>
-              <a
-                href="#"
+                href="https://www.linkedin.com/in/thales-oliveira-rodrigues/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-2 text-white transition-opacity hover:opacity-70"
               >
                 <div className="flex h-5 w-5 items-center justify-center rounded-full bg-white/10 text-[9px] font-bold">
@@ -101,7 +107,7 @@ export default function Footer() {
             </div>
 
             {/* Copyright */}
-            <p className="text-sm text-gray-500">&copy; 2026 Thales Miguel</p>
+            <p className="text-sm text-gray-500">&copy; 2026 RTMO — Marketing Digital & Tecnologia</p>
           </div>
         </div>
 
@@ -111,7 +117,7 @@ export default function Footer() {
             className="text-center font-black leading-none tracking-tighter text-gray-900 select-none"
             style={{ fontSize: "clamp(100px, 15vw, 220px)" }}
           >
-            THALES
+            RTMO
           </p>
         </div>
       </div>
