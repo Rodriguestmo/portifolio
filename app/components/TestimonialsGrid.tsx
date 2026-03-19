@@ -57,11 +57,9 @@ export default function TestimonialsGrid() {
         <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <h2 className="text-5xl leading-[1.05] tracking-tight md:text-6xl">
             <span className="heading-muted">
-              Veja o que meus
-              <br />
-              clientes têm a
+              Veja o que estão
             </span>{" "}
-            <span className="heading-bold">dizer.</span>
+            <span className="heading-bold">dizendo.</span>
           </h2>
 
           <div className="flex items-center gap-3">

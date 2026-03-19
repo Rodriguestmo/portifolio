@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import AnimateIn from "./AnimateIn";
 import StaggerContainer, { staggerItem } from "./StaggerContainer";
@@ -9,28 +10,28 @@ const projects = [
     name: "Clínica Dra. Camila",
     category: "Landing Page",
     gradient: "from-amber-900 to-amber-800",
-    icon: "🏥",
+    preview: "/images/preview-camila.png",
     url: "https://camilasutilo.com",
   },
   {
     name: "Geovanna LP",
     category: "Landing Page",
     gradient: "from-rose-900 to-rose-800",
-    icon: "✨",
+    preview: "/images/preview-geovanna.png",
     url: "https://geovanna-lp.web.app",
   },
   {
     name: "Prospector Bot",
     category: "Automação com IA",
     gradient: "from-gray-900 to-gray-800",
-    icon: "🤖",
+    preview: null,
     url: "#",
   },
   {
     name: "Atendimento Inteligente",
     category: "WhatsApp + IA",
     gradient: "from-emerald-900 to-emerald-800",
-    icon: "💬",
+    preview: null,
     url: "#",
   },
 ] as const;
@@ -58,21 +59,31 @@ export default function Projects() {
             >
               {/* Project mockup area */}
               <div
-                className={`relative h-[280px] bg-gradient-to-br ${project.gradient} p-8`}
+                className={`relative h-[280px] overflow-hidden bg-gradient-to-br ${project.gradient}`}
               >
-                <div className="mb-4 flex gap-1.5">
-                  <div className="h-2.5 w-2.5 rounded-full bg-white/20" />
-                  <div className="h-2.5 w-2.5 rounded-full bg-white/20" />
-                  <div className="h-2.5 w-2.5 rounded-full bg-white/20" />
-                </div>
-                <div className="flex h-full items-center justify-center">
-                  <span className="text-6xl opacity-30">
-                    {project.icon}
-                  </span>
-                </div>
-                {/* Overlay text */}
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/40 to-transparent p-6">
-                  <span className="text-4xl font-black tracking-tight text-white/20 uppercase">
+                {project.preview ? (
+                  <Image
+                    src={project.preview}
+                    alt={project.name}
+                    width={640}
+                    height={400}
+                    className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                  />
+                ) : (
+                  <div className="flex h-full flex-col p-8">
+                    <div className="mb-4 flex gap-1.5">
+                      <div className="h-2.5 w-2.5 rounded-full bg-white/20" />
+                      <div className="h-2.5 w-2.5 rounded-full bg-white/20" />
+                      <div className="h-2.5 w-2.5 rounded-full bg-white/20" />
+                    </div>
+                    <div className="flex flex-1 items-center justify-center">
+                      <span className="text-sm font-medium text-white/40">Em breve</span>
+                    </div>
+                  </div>
+                )}
+                {/* Overlay gradient */}
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/50 to-transparent p-6">
+                  <span className="text-4xl font-black tracking-tight text-white/25 uppercase">
                     {project.name.split(" ")[0]}
                   </span>
                 </div>

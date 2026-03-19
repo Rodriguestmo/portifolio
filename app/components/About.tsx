@@ -118,26 +118,24 @@ export default function About() {
             <AnimateIn variant="fadeUp" delay={0.3}>
               <div className="space-y-6 text-lg leading-relaxed text-gray-500">
                 <p>
-                  Eu{" "}
+                  A maioria das empresas{" "}
                   <span className="font-semibold text-black">
-                    foco em unir design e tecnologia para resolver problemas reais
-                    de marketing,
+                    trata marketing e tecnologia como coisas separadas.
                   </span>{" "}
-                  garantindo que cada projeto não seja apenas bonito, mas que gere
-                  resultado mensurável.
+                  Eu junto as duas. Porque uma landing page bonita que não converte
+                  é desperdício, e uma automação poderosa sem design é invisível.
                 </p>
                 <p>
-                  De landing pages orientadas por dados a automações com
-                  inteligência artificial, cada solução é desenhada para encurtar o
-                  caminho entre o primeiro clique e a conversão.
+                  Construo landing pages que vendem, campanhas que escalam e
+                  automações com IA que trabalham enquanto você dorme. Tudo
+                  integrado, tudo mensurável.
                 </p>
                 <p>
                   <span className="font-semibold text-black">
-                    Sou perfeccionista quando se trata dos detalhes,
+                    Não entrego projeto pela metade.
                   </span>{" "}
-                  porque acredito que é a execução cuidadosa — no copy, no pixel,
-                  na automação — que separa um projeto mediano de um que realmente
-                  performa.
+                  Se o copy não convence, refaço. Se a automação trava, corrijo.
+                  O resultado final é o que importa, não o processo.
                 </p>
               </div>
             </AnimateIn>

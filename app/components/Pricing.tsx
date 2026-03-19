@@ -6,7 +6,7 @@ const steps = [
       </svg>
     ),
     title: "Converse",
-    description: "Me conta seu desafio — entendo seu contexto antes de propor qualquer solução.",
+    description: "Me conta seu desafio. Entendo seu contexto antes de propor qualquer solução.",
   },
   {
     icon: (
@@ -25,7 +25,7 @@ const steps = [
       </svg>
     ),
     title: "Execute",
-    description: "Entrego tudo funcionando — design, tech e automação conectados.",
+    description: "Entrego tudo funcionando. Design, tech e automação conectados.",
   },
 ];
 
@@ -183,9 +183,9 @@ export default function Pricing() {
         {/* Bottom CTA bar */}
         <div className="mt-6 flex flex-col items-center justify-between gap-6 rounded-2xl bg-black p-8 md:flex-row">
           <div>
-            <h3 className="text-2xl font-bold text-white">Quer saber quanto custa?</h3>
+            <h3 className="text-2xl font-bold text-white">Precisa de algo específico ou quer um projeto completo?</h3>
             <p className="mt-1 text-sm text-gray-400">
-              Cada projeto tem um escopo único. Me conta o que você precisa e eu monto uma proposta.
+              Me conta o que você precisa e eu monto a melhor solução pro seu momento.
             </p>
           </div>
 

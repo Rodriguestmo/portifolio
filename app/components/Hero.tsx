@@ -28,7 +28,7 @@ export default function Hero() {
             <AnimateIn variant="fadeUp" delay={0.5}>
               <p className="mt-8 max-w-xl text-lg leading-relaxed">
                 <span className="font-semibold text-black">
-                  Landing pages, tráfego pago e automações com IA — tudo conectado
+                  Landing pages, tráfego pago e automações com IA. Tudo conectado
                   para transformar clique em lead qualificado.
                 </span>{" "}
                 <span className="text-gray-500">

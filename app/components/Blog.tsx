@@ -23,11 +23,9 @@ export default function Blog() {
         <div className="flex items-end justify-between">
           <h2 className="text-5xl leading-[1.05] tracking-tight md:text-6xl">
             <span className="heading-muted">
-              Do meu blog,
-              <br />
-              insights de
+              Insights de
             </span>{" "}
-            <span className="heading-bold">marketing.</span>
+            <span className="heading-bold">tecnologia e marketing.</span>
           </h2>
 
           <a

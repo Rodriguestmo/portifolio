@@ -55,16 +55,6 @@ const services = [
   },
 ] as const;
 
-const stack = [
-  "Meta Ads",
-  "Google Ads",
-  "WhatsApp",
-  "Notion",
-  "Claude AI",
-  "Python",
-  "Vercel",
-  "Figma",
-];
 
 export default function Services() {
   return (
@@ -87,30 +77,12 @@ export default function Services() {
 
             <AnimateIn variant="fadeUp" delay={0.2}>
               <p className="mt-6 max-w-md text-lg leading-relaxed text-gray-500">
-                Cada peça é desenhada para funcionar dentro de um sistema — porque
+                Cada peça é desenhada para funcionar dentro de um sistema, porque
                 design sem tecnologia é só estética, e tecnologia sem design não
                 converte.
               </p>
             </AnimateIn>
 
-            <AnimateIn variant="fadeUp" delay={0.3}>
-              <div className="mt-12">
-                <p className="text-sm font-medium tracking-wide text-gray-400 uppercase">
-                  Minha stack
-                </p>
-                <div className="mt-4 flex flex-wrap gap-3">
-                  {stack.map((item) => (
-                    <div
-                      key={item}
-                      className="flex h-11 w-11 items-center justify-center rounded-xl border border-black/8 bg-white text-xs font-bold text-gray-600 transition-colors hover:border-black/20"
-                      title={item}
-                    >
-                      {item.slice(0, 2).toUpperCase()}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </AnimateIn>
           </div>
 
           {/* Right — Service List */}
