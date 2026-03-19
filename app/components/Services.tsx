@@ -1,10 +1,16 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState, useEffect, useCallback, type ReactNode } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import AnimateIn from "./AnimateIn";
-import StaggerContainer, { staggerFadeUp } from "./StaggerContainer";
 
-const services = [
+interface Service {
+  name: string;
+  description: string;
+  icon: ReactNode;
+}
+
+const services: Service[] = [
   {
     name: "Landing Pages de Alta Conversão",
     description:
@@ -65,14 +71,44 @@ const services = [
       </svg>
     ),
   },
-] as const;
+];
+
+const AUTOPLAY_DURATION = 5000;
 
 export default function Services() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [progress, setProgress] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+  const goToNext = useCallback(() => {
+    setActiveIndex((prev) => (prev + 1) % services.length);
+    setProgress(0);
+  }, []);
+
+  useEffect(() => {
+    if (isPaused) return;
+    const interval = setInterval(() => {
+      setProgress((prev) => {
+        const next = prev + 100 / (AUTOPLAY_DURATION / 50);
+        if (next >= 100) {
+          goToNext();
+          return 0;
+        }
+        return next;
+      });
+    }, 50);
+    return () => clearInterval(interval);
+  }, [isPaused, activeIndex, goToNext]);
+
+  const handleClick = (index: number) => {
+    setActiveIndex(index);
+    setProgress(0);
+  };
+
   return (
     <section id="servicos" className="section-border px-6 py-24 lg:px-8 lg:py-32">
       <div className="mx-auto max-w-[1160px]">
         <div className="grid gap-16 lg:grid-cols-2">
-          {/* Left — Heading */}
           <div>
             <AnimateIn variant="slideLeft">
               <h2 className="text-5xl leading-[1.05] tracking-tight md:text-6xl">
@@ -85,7 +121,6 @@ export default function Services() {
                 <span className="heading-bold">negócio.</span>
               </h2>
             </AnimateIn>
-
             <AnimateIn variant="fadeUp" delay={0.2}>
               <p className="mt-6 max-w-md text-lg leading-relaxed text-gray-500">
                 Cada peça é desenhada para funcionar dentro de um sistema, porque
@@ -95,28 +130,61 @@ export default function Services() {
             </AnimateIn>
           </div>
 
-          {/* Right — Service List with descriptions */}
-          <StaggerContainer className="divide-y divide-black/6" staggerDelay={0.08}>
-            {services.map((service) => (
-              <motion.div
-                key={service.name}
-                variants={staggerFadeUp}
-                className="group flex gap-4 py-6 first:pt-0 last:pb-0"
-              >
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-black text-white">
-                  {service.icon}
+          <div
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+          >
+            {services.map((service, index) => {
+              const isActive = index === activeIndex;
+              return (
+                <div key={service.name}>
+                  <button
+                    onClick={() => handleClick(index)}
+                    className="flex w-full items-center gap-4 py-4 text-left"
+                  >
+                    <div
+                      className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full transition-colors duration-300 ${
+                        isActive ? "bg-black text-white" : "bg-gray-100 text-gray-400"
+                      }`}
+                    >
+                      {service.icon}
+                    </div>
+                    <h3
+                      className={`text-lg font-semibold transition-colors duration-300 ${
+                        isActive ? "text-black" : "text-gray-400"
+                      }`}
+                    >
+                      {service.name}
+                    </h3>
+                  </button>
+                  <div className="h-[2px] bg-black/5">
+                    <div
+                      className="h-full bg-black"
+                      style={{
+                        width: isActive ? `${progress}%` : "0%",
+                        transition: isActive ? "none" : "width 0.3s ease",
+                      }}
+                    />
+                  </div>
+                  <AnimatePresence initial={false}>
+                    {isActive && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3, ease: [0.25, 0.4, 0.25, 1] }}
+                        className="overflow-hidden"
+                      >
+                        <p className="pb-4 pl-14 text-sm leading-relaxed text-gray-500">
+                          {service.description}
+                        </p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-black">
-                    {service.name}
-                  </h3>
-                  <p className="mt-1.5 text-sm leading-relaxed text-gray-500">
-                    {service.description}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </StaggerContainer>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>

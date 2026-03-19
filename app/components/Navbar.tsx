@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
 const links = [
   { label: "Projetos", href: "#projetos" },
@@ -18,7 +19,10 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav
+    <motion.nav
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ type: "spring", damping: 25, stiffness: 200, delay: 0.1 }}
       className={`fixed top-4 left-1/2 z-50 -translate-x-1/2 flex items-center gap-8 rounded-full border px-5 py-3 transition-all duration-300 ${
         scrolled
           ? "border-black/8 bg-white/90 shadow-lg backdrop-blur-md"
@@ -49,6 +53,6 @@ export default function Navbar() {
           Contato
         </a>
       </div>
-    </nav>
+    </motion.nav>
   );
 }
