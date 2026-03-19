@@ -3,36 +3,26 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
-const words = [
-  "resolvendo",
-  "problemas",
-  "reais",
-  "\n",
-  "de",
-  "pessoas",
-  "reais.",
-];
+const text = "resolvendo problemas reais\nde pessoas reais.";
 
-function Word({
+// Bold these words
+const boldWords = new Set(["reais", "reais."]);
+
+function Character({
   progress,
   start,
   end,
   children,
-  bold,
 }: {
   progress: import("framer-motion").MotionValue<number>;
   start: number;
   end: number;
   children: React.ReactNode;
-  bold?: boolean;
 }) {
-  const color = useTransform(progress, [start, end], ["#d1d5db", "#000000"]);
+  const color = useTransform(progress, [start, end], ["#d4d4d4", "#000000"]);
 
   return (
-    <motion.span
-      style={{ color }}
-      className={`inline-block ${bold ? "font-bold" : ""}`}
-    >
+    <motion.span style={{ color }} className="inline">
       {children}
     </motion.span>
   );
@@ -42,48 +32,73 @@ export default function TextReveal() {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start 0.8", "start 0.2"],
+    offset: ["start 0.9", "start 0.25"],
   });
 
-  // Filter out line breaks for word count
-  const visibleWords = words.filter((w) => w !== "\n");
-  const totalWords = visibleWords.length;
-  let wordIndex = 0;
+  // Split into lines, then words, then characters
+  const lines = text.split("\n");
+
+  // Count total characters (excluding whitespace/newlines for progress mapping)
+  const allChars = text.replace(/[\n ]/g, "");
+  const totalChars = allChars.length;
+
+  let charIndex = 0;
 
   return (
     <section ref={containerRef} className="px-6 py-32 lg:px-8 lg:py-44">
-      <div className="mx-auto max-w-[900px]">
-        <p className="text-5xl leading-[1.15] tracking-tight md:text-7xl lg:text-8xl">
-          {words.map((word, i) => {
-            if (word === "\n") {
-              return <br key={i} />;
-            }
+      <div className="mx-auto max-w-[900px] text-center">
+        <p className="text-5xl leading-[1.2] tracking-tight md:text-7xl lg:text-[5.5rem]">
+          {lines.map((line, lineIdx) => (
+            <span key={lineIdx}>
+              {lineIdx > 0 && <br />}
+              {line.split(" ").map((word, wordIdx) => {
+                const isBold = boldWords.has(word);
+                const chars = word.split("");
 
-            const currentIndex = wordIndex;
-            wordIndex++;
+                const wordEl = (
+                  <span
+                    key={wordIdx}
+                    className={`inline-block ${isBold ? "font-bold" : ""}`}
+                  >
+                    {chars.map((char, cIdx) => {
+                      const currentCharIndex = charIndex;
+                      charIndex++;
 
-            const start = currentIndex / totalWords;
-            const end = (currentIndex + 1) / totalWords;
+                      const start = currentCharIndex / totalChars;
+                      const end = Math.min(
+                        (currentCharIndex + 1) / totalChars,
+                        1
+                      );
 
-            // Bold the key words: "reais" (first line) and "reais." (second line)
-            const isBold = word === "reais" || word === "reais.";
+                      return (
+                        <Character
+                          key={cIdx}
+                          progress={scrollYProgress}
+                          start={start}
+                          end={end}
+                        >
+                          {char}
+                        </Character>
+                      );
+                    })}
+                  </span>
+                );
 
-            return (
-              <span key={i}>
-                <Word
-                  progress={scrollYProgress}
-                  start={start}
-                  end={end}
-                  bold={isBold}
-                >
-                  {word}
-                </Word>
-                {word !== "\n" && words[i + 1] !== "\n" && i < words.length - 1
-                  ? " "
-                  : ""}
-              </span>
-            );
-          })}
+                // Add space after word (except last word in line)
+                const wordsInLine = line.split(" ");
+                if (wordIdx < wordsInLine.length - 1) {
+                  return (
+                    <span key={wordIdx}>
+                      {wordEl}
+                      <span> </span>
+                    </span>
+                  );
+                }
+
+                return wordEl;
+              })}
+            </span>
+          ))}
         </p>
       </div>
     </section>
