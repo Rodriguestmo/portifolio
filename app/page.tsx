@@ -4,6 +4,7 @@ import SocialProof from "./components/SocialProof";
 import Projects from "./components/Projects";
 import TestimonialQuote from "./components/TestimonialQuote";
 import Services from "./components/Services";
+import TextReveal from "./components/TextReveal";
 import About from "./components/About";
 import Pricing from "./components/Pricing";
 import LogoTicker from "./components/LogoTicker";
@@ -23,6 +24,7 @@ export default function Home() {
         <Projects />
         <TestimonialQuote />
         <Services />
+        <TextReveal />
         <About />
         <Pricing />
         <LogoTicker />

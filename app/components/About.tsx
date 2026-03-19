@@ -20,18 +20,6 @@ export default function About() {
   return (
     <section className="section-border px-6 py-24 lg:px-8 lg:py-32">
       <div className="mx-auto max-w-[1160px]">
-        <AnimateIn variant="genie">
-          <h2 className="mb-16 text-5xl leading-[1.05] tracking-tight md:text-6xl">
-            <span className="heading-muted">
-              Criando experiências
-              <br />
-              que resolvem
-            </span>
-            <br />
-            <span className="heading-bold">problemas reais.</span>
-          </h2>
-        </AnimateIn>
-
         <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr]">
           {/* Left — Identity */}
           <AnimateIn variant="slideLeft" delay={0.1}>
