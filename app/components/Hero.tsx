@@ -10,14 +10,14 @@ export default function Hero() {
         <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
           {/* Left */}
           <div>
-            <AnimateIn variant="fadeIn" delay={0.2}>
+            <AnimateIn variant="fadeIn" delay={0.2} trigger="mount">
               <div className="inline-flex items-center gap-2.5 rounded-full border border-black/8 bg-white/80 px-4 py-2 text-xs font-medium tracking-wide text-black uppercase">
                 <span className="h-2 w-2 rounded-full bg-green-500" />
                 Disponível para projetos
               </div>
             </AnimateIn>
 
-            <AnimateIn variant="genie" delay={0.3}>
+            <AnimateIn variant="genie" delay={0.3} trigger="mount">
               <h1 className="mt-8 text-5xl leading-[1.05] tracking-tight md:text-7xl">
                 <span className="heading-muted">Tecnologia que</span>
                 <br />
@@ -25,7 +25,7 @@ export default function Hero() {
               </h1>
             </AnimateIn>
 
-            <AnimateIn variant="fadeUp" delay={0.5}>
+            <AnimateIn variant="fadeUp" delay={0.5} trigger="mount">
               <p className="mt-8 max-w-xl text-lg leading-relaxed">
                 <span className="font-semibold text-black">
                   Landing pages, tráfego pago e automações com IA. Tudo conectado
@@ -39,7 +39,7 @@ export default function Hero() {
             </AnimateIn>
 
             {/* Stats bar */}
-            <AnimateIn variant="slideLeft" delay={0.6}>
+            <AnimateIn variant="slideLeft" delay={0.6} trigger="mount">
               <div className="mt-10 flex flex-wrap gap-6 text-sm">
                 <div>
                   <p className="font-bold text-black">+R$ 18M</p>
@@ -59,7 +59,7 @@ export default function Hero() {
             </AnimateIn>
 
             {/* CTAs */}
-            <AnimateIn variant="fadeUp" delay={0.7}>
+            <AnimateIn variant="fadeUp" delay={0.7} trigger="mount">
               <div className="mt-10 flex flex-wrap gap-4">
                 <a
                   href="https://wa.me/5535984128420?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto"
@@ -102,9 +102,8 @@ export default function Hero() {
             <div className="relative h-[460px]">
               {/* Card 1 - back */}
               <motion.div
-                initial={{ opacity: 0, x: 80, rotate: 8 }}
-                whileInView={{ opacity: 1, x: 0, rotate: 3 }}
-                viewport={{ once: true, amount: 0.2 }}
+                initial={false}
+                animate={{ opacity: 1, x: 0, rotate: 3 }}
                 transition={{ type: "spring", damping: 25, stiffness: 180, delay: 0.4 }}
                 className="absolute top-4 right-0 h-[280px] w-[380px] overflow-hidden rounded-2xl border border-black/8 bg-gradient-to-br from-gray-900 to-gray-800 p-6 shadow-2xl"
               >
@@ -129,9 +128,8 @@ export default function Hero() {
 
               {/* Card 2 - middle */}
               <motion.div
-                initial={{ opacity: 0, x: 80, rotate: -6 }}
-                whileInView={{ opacity: 1, x: 0, rotate: -2 }}
-                viewport={{ once: true, amount: 0.2 }}
+                initial={false}
+                animate={{ opacity: 1, x: 0, rotate: -2 }}
                 transition={{ type: "spring", damping: 25, stiffness: 180, delay: 0.55 }}
                 className="absolute top-12 left-8 h-[280px] w-[380px] overflow-hidden rounded-2xl border border-black/8 bg-gradient-to-br from-emerald-900 to-emerald-800 p-6 shadow-2xl"
               >
@@ -164,9 +162,8 @@ export default function Hero() {
 
               {/* Card 3 - front */}
               <motion.div
-                initial={{ opacity: 0, x: 80, rotate: 5 }}
-                whileInView={{ opacity: 1, x: 0, rotate: 1 }}
-                viewport={{ once: true, amount: 0.2 }}
+                initial={false}
+                animate={{ opacity: 1, x: 0, rotate: 1 }}
                 transition={{ type: "spring", damping: 25, stiffness: 180, delay: 0.7 }}
                 className="absolute bottom-0 left-0 h-[280px] w-[380px] overflow-hidden rounded-2xl border border-black/8 bg-gradient-to-br from-gray-800 to-gray-900 p-6 shadow-2xl"
               >

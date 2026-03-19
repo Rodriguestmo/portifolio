@@ -10,7 +10,6 @@ import Pricing from "./components/Pricing";
 import LogoTicker from "./components/LogoTicker";
 import TestimonialsGrid from "./components/TestimonialsGrid";
 import FAQ from "./components/FAQ";
-import Blog from "./components/Blog";
 import Footer from "./components/Footer";
 import ContactBar from "./components/ContactBar";
 
@@ -30,7 +29,6 @@ export default function Home() {
         <LogoTicker />
         <TestimonialsGrid />
         <FAQ />
-        <Blog />
       </main>
       <Footer />
       <ContactBar />

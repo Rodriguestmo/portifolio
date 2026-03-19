@@ -47,7 +47,7 @@ const iaFeatures = [
 
 export default function Pricing() {
   return (
-    <section id="precos" className="section-border px-6 py-24 lg:px-8 lg:py-32">
+    <section id="solucoes" className="section-border px-6 py-24 lg:px-8 lg:py-32">
       <div className="mx-auto max-w-[1160px]">
         {/* Header */}
         <div className="grid gap-6 lg:grid-cols-2">

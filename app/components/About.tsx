@@ -16,6 +16,25 @@ const socialLinks = [
   },
 ];
 
+const specialties = [
+  {
+    title: "Landing Pages",
+    description: "Estrutura, copy e design para conversão.",
+  },
+  {
+    title: "Tráfego Pago",
+    description: "Meta Ads e Google Ads com leitura de funil.",
+  },
+  {
+    title: "Automações com IA",
+    description: "Qualificação, CRM e follow-up conectados.",
+  },
+  {
+    title: "WhatsApp + CRM",
+    description: "Atendimento, contexto e handoff bem amarrados.",
+  },
+] as const;
+
 export default function About() {
   return (
     <section className="section-border px-6 py-24 lg:px-8 lg:py-32">
@@ -50,38 +69,28 @@ export default function About() {
                 </p>
               </div>
 
-              {/* Work history */}
+              {/* Specialties */}
               <div className="mt-8">
                 <p className="text-sm font-medium tracking-wide text-gray-400 uppercase">
-                  Minha trajetória
+                  Especialidades
                 </p>
-                <div className="mt-4 space-y-1">
-                  <div className="flex items-center justify-between rounded-xl border border-black/6 bg-white px-5 py-4">
-                    <div>
-                      <p className="font-semibold text-black">RTMO</p>
-                      <p className="text-sm text-gray-500">
-                        Marketing Digital & Tecnologia
+                <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                  {specialties.map((item) => (
+                    <div
+                      key={item.title}
+                      className="rounded-xl border border-black/6 bg-white px-5 py-4"
+                    >
+                      <p className="font-semibold text-black">{item.title}</p>
+                      <p className="mt-1 text-sm leading-relaxed text-gray-500">
+                        {item.description}
                       </p>
                     </div>
-                    <span className="text-sm text-gray-400">2024-presente</span>
-                  </div>
+                  ))}
                 </div>
-                <button className="mt-3 flex items-center gap-1 text-sm font-medium text-gray-400 transition-colors hover:text-black">
-                  Ver mais
-                  <svg
-                    className="h-3 w-3"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-                    />
-                  </svg>
-                </button>
+                <p className="mt-4 max-w-md text-sm leading-relaxed text-gray-400">
+                  O foco aqui é unir design, mídia e tecnologia numa operação
+                  que realmente gere demanda e venda.
+                </p>
               </div>
             </div>
           </AnimateIn>

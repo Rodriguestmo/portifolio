@@ -20,6 +20,7 @@ interface AnimateInProps {
   once?: boolean;
   amount?: number;
   as?: "div" | "span" | "section" | "article" | "header" | "footer" | "p";
+  trigger?: "view" | "mount";
 }
 
 const hidden: Record<AnimationVariant, TargetAndTransition> = {
@@ -69,14 +70,16 @@ export default function AnimateIn({
   once = true,
   amount = 0.2,
   as = "div",
+  trigger = "view",
 }: AnimateInProps) {
   const Tag = motion[as] as typeof motion.div;
 
   return (
     <Tag
-      initial={hidden[variant]}
-      whileInView={visible[variant]}
-      viewport={{ once, amount }}
+      initial={trigger === "mount" ? false : hidden[variant]}
+      animate={trigger === "mount" ? visible[variant] : undefined}
+      whileInView={trigger === "view" ? visible[variant] : undefined}
+      viewport={trigger === "view" ? { once, amount } : undefined}
       transition={getTransition(variant, duration, delay)}
       className={className}
     >

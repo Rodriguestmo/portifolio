@@ -1,7 +1,7 @@
 const menuLinks = [
   { label: "Projetos", href: "#projetos" },
   { label: "Serviços", href: "#servicos" },
-  { label: "Preços", href: "#precos" },
+  { label: "Soluções", href: "#solucoes" },
 ];
 
 export default function Footer() {

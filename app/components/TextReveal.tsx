@@ -32,8 +32,9 @@ export default function TextReveal() {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start 0.9", "start 0.25"],
+    offset: ["start 0.78", "start 0.15"],
   });
+  const delayedProgress = useTransform(scrollYProgress, [0.3, 1], [0, 1]);
 
   // Split into lines, then words, then characters
   const lines = text.split("\n");
@@ -46,8 +47,8 @@ export default function TextReveal() {
 
   return (
     <section ref={containerRef} className="px-6 py-32 lg:px-8 lg:py-44">
-      <div className="mx-auto max-w-[900px] text-center">
-        <p className="text-5xl leading-[1.2] tracking-tight md:text-7xl lg:text-[5.5rem]">
+      <div className="mx-auto max-w-[1120px] text-center">
+        <p className="text-4xl leading-[1.12] tracking-tight md:text-6xl lg:text-[5rem]">
           {lines.map((line, lineIdx) => (
             <span key={lineIdx}>
               {lineIdx > 0 && <br />}
@@ -73,7 +74,7 @@ export default function TextReveal() {
                       return (
                         <Character
                           key={cIdx}
-                          progress={scrollYProgress}
+                          progress={delayedProgress}
                           start={start}
                           end={end}
                         >

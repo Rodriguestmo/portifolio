@@ -134,56 +134,68 @@ export default function Services() {
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
           >
-            {services.map((service, index) => {
-              const isActive = index === activeIndex;
-              return (
-                <div key={service.name}>
-                  <button
-                    onClick={() => handleClick(index)}
-                    className="flex w-full items-center gap-4 py-4 text-left"
-                  >
-                    <div
-                      className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full transition-colors duration-300 ${
-                        isActive ? "bg-black text-white" : "bg-gray-100 text-gray-400"
+            <div className="overflow-hidden rounded-[1.75rem] border border-black/6 bg-white">
+              <div className="divide-y divide-black/6">
+                {services.map((service, index) => {
+                  const isActive = index === activeIndex;
+                  return (
+                    <button
+                      key={service.name}
+                      onClick={() => handleClick(index)}
+                      className={`relative block w-full px-6 py-5 text-left transition-colors duration-300 ${
+                        isActive ? "bg-black/[0.02]" : "bg-white"
                       }`}
                     >
-                      {service.icon}
-                    </div>
-                    <h3
-                      className={`text-lg font-semibold transition-colors duration-300 ${
-                        isActive ? "text-black" : "text-gray-400"
-                      }`}
+                      <div className="absolute inset-x-0 top-0 h-px bg-black/8" />
+                      <div
+                        className="absolute top-0 left-0 h-[2px] bg-black"
+                        style={{
+                          width: isActive ? `${progress}%` : "0%",
+                          transition: isActive ? "none" : "width 0.3s ease",
+                        }}
+                      />
+                      <div className="flex items-center gap-4">
+                        <div
+                          className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full transition-colors duration-300 ${
+                            isActive
+                              ? "bg-black text-white"
+                              : "bg-gray-100 text-gray-400"
+                          }`}
+                        >
+                          {service.icon}
+                        </div>
+                        <h3
+                          className={`text-lg font-semibold transition-colors duration-300 ${
+                            isActive ? "text-black" : "text-gray-400"
+                          }`}
+                        >
+                          {service.name}
+                        </h3>
+                      </div>
+                    </button>
+                  );
+                })}
+              </div>
+
+              <div className="border-t border-black/6 px-6 py-6">
+                <div className="min-h-[148px] md:min-h-[120px]">
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={services[activeIndex].name}
+                      initial={{ opacity: 0, y: 16 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -16 }}
+                      transition={{ duration: 0.28, ease: [0.25, 0.4, 0.25, 1] }}
+                      className="h-full"
                     >
-                      {service.name}
-                    </h3>
-                  </button>
-                  <div className="h-[2px] bg-black/5">
-                    <div
-                      className="h-full bg-black"
-                      style={{
-                        width: isActive ? `${progress}%` : "0%",
-                        transition: isActive ? "none" : "width 0.3s ease",
-                      }}
-                    />
-                  </div>
-                  <AnimatePresence initial={false}>
-                    {isActive && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3, ease: [0.25, 0.4, 0.25, 1] }}
-                        className="overflow-hidden"
-                      >
-                        <p className="pb-4 pl-14 text-sm leading-relaxed text-gray-500">
-                          {service.description}
-                        </p>
-                      </motion.div>
-                    )}
+                      <p className="text-sm leading-relaxed text-gray-500">
+                        {services[activeIndex].description}
+                      </p>
+                    </motion.div>
                   </AnimatePresence>
                 </div>
-              );
-            })}
+              </div>
+            </div>
           </div>
         </div>
       </div>

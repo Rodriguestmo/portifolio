@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 const links = [
   { label: "Projetos", href: "#projetos" },
   { label: "Serviços", href: "#servicos" },
-  { label: "Preços", href: "#precos" },
+  { label: "Soluções", href: "#solucoes" },
 ];
 
 export default function Navbar() {
@@ -20,7 +20,7 @@ export default function Navbar() {
 
   return (
     <motion.nav
-      initial={{ opacity: 0, y: -20 }}
+      initial={false}
       animate={{ opacity: 1, y: 0 }}
       transition={{ type: "spring", damping: 25, stiffness: 200, delay: 0.1 }}
       className={`fixed top-4 left-1/2 z-50 -translate-x-1/2 flex items-center gap-8 rounded-full border px-5 py-3 transition-all duration-300 ${
@@ -34,6 +34,13 @@ export default function Navbar() {
           TM
         </div>
         <span className="text-sm font-semibold text-black">Thales Miguel</span>
+      </a>
+
+      <a
+        href="#contato"
+        className="rounded-full border border-black bg-black px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-gray-800 md:hidden"
+      >
+        Contato
       </a>
 
       <div className="hidden items-center gap-6 md:flex">
