@@ -34,7 +34,10 @@ export default function Navbar() {
         <div className="relative h-9 w-9 shrink-0 overflow-hidden rounded-full">
           <Image src="/images/perfil.png" alt="Thales Miguel" fill className="object-cover object-[center_20%]" />
         </div>
-        <span className="text-sm font-semibold text-black">Thales Miguel</span>
+        <span className="text-sm font-semibold text-black">
+          <span className="sm:hidden">Thales</span>
+          <span className="hidden sm:inline">Thales Miguel</span>
+        </span>
       </a>
 
       <a

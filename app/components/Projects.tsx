@@ -4,6 +4,8 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import AnimateIn from "./AnimateIn";
 import StaggerContainer, { staggerItem } from "./StaggerContainer";
+import TiltCard from "./TiltCard";
+import { openContactModal } from "@/app/utils/contactModal";
 
 const projects = [
   {
@@ -144,27 +146,29 @@ export default function Projects() {
 
             if (project.url) {
               return (
-                <motion.a
-                  key={project.name}
-                  variants={staggerItem}
-                  href={project.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={cardClassName}
-                >
-                  {cardContent}
-                </motion.a>
+                <TiltCard key={project.name} intensity={4}>
+                  <motion.a
+                    variants={staggerItem}
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={cardClassName}
+                  >
+                    {cardContent}
+                  </motion.a>
+                </TiltCard>
               );
             }
 
             return (
-              <motion.article
-                key={project.name}
-                variants={staggerItem}
-                className={cardClassName}
-              >
-                {cardContent}
-              </motion.article>
+              <TiltCard key={project.name} intensity={4}>
+                <motion.article
+                  variants={staggerItem}
+                  className={cardClassName}
+                >
+                  {cardContent}
+                </motion.article>
+              </TiltCard>
             );
           })}
         </StaggerContainer>
@@ -174,27 +178,15 @@ export default function Projects() {
             <p className="text-sm text-gray-500">
               Quer ver mais bastidores, dashboards e automações rodando em operação real?
             </p>
-            <a
-              href="https://wa.me/5535984128420?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20quero%20ver%20mais%20cases%20e%20bastidores%20dos%20projetos"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={() => openContactModal()}
               className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-black transition-opacity hover:opacity-60"
             >
               Pedir mais cases no WhatsApp
-              <svg
-                className="h-3.5 w-3.5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
-                />
+              <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
               </svg>
-            </a>
+            </button>
           </div>
         </AnimateIn>
       </div>

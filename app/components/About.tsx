@@ -3,15 +3,16 @@
 import Image from "next/image";
 import AnimateIn from "./AnimateIn";
 import { openContactModal } from "@/app/utils/contactModal";
+import { motion } from "framer-motion";
 
-const socialLinks = [
-  {
-    name: "WhatsApp",
-    label: "WA",
-    href: "#",
-    onClick: true,
-  },
-];
+const cardVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { type: "spring" as const, damping: 22, stiffness: 180, delay: i * 0.09 },
+  }),
+};
 
 const specialties = [
   {
@@ -44,7 +45,7 @@ export default function About() {
               <div className="flex gap-3">
                 <button
                   onClick={() => openContactModal()}
-                  className="flex h-11 items-center gap-2 rounded-full border border-black/8 px-4 text-sm text-gray-500 transition-colors hover:border-black/20 hover:text-black"
+                  className="flex h-11 items-center gap-2 rounded-full border border-black/8 px-4 text-sm text-gray-500 transition-colors hover:border-black/20 hover:text-black active:scale-95"
                 >
                   <div className="flex h-5 w-5 items-center justify-center rounded-full bg-black text-[9px] font-bold text-white">
                     WA
@@ -66,19 +67,26 @@ export default function About() {
                 <p className="text-sm font-medium tracking-wide text-gray-400 uppercase">
                   Especialidades
                 </p>
-                <div className="mt-4 grid gap-3 sm:grid-cols-2">
-                  {specialties.map((item) => (
-                    <div
+                <motion.div
+                  className="mt-4 grid gap-3 sm:grid-cols-2"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.2 }}
+                >
+                  {specialties.map((item, i) => (
+                    <motion.div
                       key={item.title}
-                      className="rounded-xl border border-black/6 bg-white px-5 py-4"
+                      custom={i}
+                      variants={cardVariants}
+                      className="rounded-xl border border-black/6 bg-white px-5 py-4 transition-shadow hover:shadow-md"
                     >
                       <p className="font-semibold text-black">{item.title}</p>
                       <p className="mt-1 text-sm leading-relaxed text-gray-500">
                         {item.description}
                       </p>
-                    </div>
+                    </motion.div>
                   ))}
-                </div>
+                </motion.div>
                 <p className="mt-4 max-w-md text-sm leading-relaxed text-gray-400">
                   O foco aqui é unir design, mídia e tecnologia numa operação
                   que realmente gere demanda e venda.
