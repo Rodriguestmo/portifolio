@@ -112,7 +112,7 @@ export default function Footer() {
         </div>
 
         {/* Giant name — only top half visible, fading out */}
-        <div className="relative mt-16 overflow-hidden" style={{ height: "clamp(60px, 8vw, 120px)" }}>
+        <div className="relative mt-16 overflow-hidden" style={{ height: "clamp(90px, 11vw, 160px)" }}>
           <p
             className="text-center font-black leading-none tracking-tighter text-gray-800 select-none"
             style={{ fontSize: "clamp(120px, 18vw, 280px)" }}
