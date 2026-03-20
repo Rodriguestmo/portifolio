@@ -2,12 +2,14 @@
 
 import Image from "next/image";
 import AnimateIn from "./AnimateIn";
+import { openContactModal } from "@/app/utils/contactModal";
 
 const socialLinks = [
   {
     name: "WhatsApp",
     label: "WA",
-    href: "https://wa.me/5535984128420",
+    href: "#",
+    onClick: true,
   },
 ];
 
@@ -40,20 +42,15 @@ export default function About() {
             <div>
               {/* Social links */}
               <div className="flex gap-3">
-                {socialLinks.map((link) => (
-                  <a
-                    key={link.name}
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex h-11 items-center gap-2 rounded-full border border-black/8 px-4 text-sm text-gray-500 transition-colors hover:border-black/20 hover:text-black"
-                  >
-                    <div className="flex h-5 w-5 items-center justify-center rounded-full bg-black text-[9px] font-bold text-white">
-                      {link.label}
-                    </div>
-                    {link.name}
-                  </a>
-                ))}
+                <button
+                  onClick={() => openContactModal()}
+                  className="flex h-11 items-center gap-2 rounded-full border border-black/8 px-4 text-sm text-gray-500 transition-colors hover:border-black/20 hover:text-black"
+                >
+                  <div className="flex h-5 w-5 items-center justify-center rounded-full bg-black text-[9px] font-bold text-white">
+                    WA
+                  </div>
+                  WhatsApp
+                </button>
               </div>
 
               {/* Name & title */}

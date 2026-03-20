@@ -31,8 +31,8 @@ export default function Navbar() {
       }`}
     >
       <a href="#" className="flex items-center gap-3">
-        <div className="relative h-9 w-9 overflow-hidden rounded-full">
-          <Image src="/images/perfil.png" alt="Thales Miguel" fill className="object-cover object-top" />
+        <div className="relative h-9 w-9 shrink-0 overflow-hidden rounded-full">
+          <Image src="/images/perfil.png" alt="Thales Miguel" fill className="object-cover object-[center_20%]" />
         </div>
         <span className="text-sm font-semibold text-black">Thales Miguel</span>
       </a>

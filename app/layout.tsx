@@ -12,7 +12,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Thales Miguel | Soluções de Tecnologia e Marketing",
   description:
-    "Landing pages de alta conversão, tráfego pago estratégico e automações com IA para transformar cliques em leads qualificados.",
+    "Landing pages de alta conversão, tráfego pago estratégico e IA personalizada para transformar cliques em leads qualificados.",
 };
 
 export default function RootLayout({

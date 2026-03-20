@@ -13,10 +13,14 @@ import FAQ from "./components/FAQ";
 import Footer from "./components/Footer";
 import ContactBar from "./components/ContactBar";
 import ContactModal from "./components/ContactModal";
+import SmoothScroll from "./components/SmoothScroll";
+import CustomCursor from "./components/CustomCursor";
 
 export default function Home() {
   return (
     <>
+      <SmoothScroll />
+      <CustomCursor />
       <ContactModal />
       <Navbar />
       <main>

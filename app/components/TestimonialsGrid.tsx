@@ -120,7 +120,7 @@ export default function TestimonialsGrid() {
               </p>
             </div>
             <div className="flex flex-wrap gap-2">
-              {["Landing", "Tráfego", "WhatsApp", "CRM", "IA"].map((item) => (
+              {["Landing", "Tráfego", "WhatsApp", "CRM", "IA Personalizada"].map((item) => (
                 <span
                   key={item}
                   className="rounded-full border border-black/8 bg-white px-3 py-1 text-sm text-gray-500"

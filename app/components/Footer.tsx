@@ -1,3 +1,7 @@
+"use client";
+
+import { openContactModal } from "@/app/utils/contactModal";
+
 const menuLinks = [
   { label: "Projetos", href: "#projetos" },
   { label: "Serviços", href: "#servicos" },
@@ -30,14 +34,12 @@ export default function Footer() {
           </div>
           <div>
             <p className="text-sm text-gray-500">WhatsApp</p>
-            <a
-              href="https://wa.me/5535984128420"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={() => openContactModal()}
               className="mt-1 text-white transition-opacity hover:opacity-70"
             >
               Fale agora
-            </a>
+            </button>
           </div>
           <div>
             <p className="text-sm text-gray-500">Agendar reunião</p>
@@ -100,10 +102,10 @@ export default function Footer() {
         </div>
 
         {/* Giant name — only top half visible, fading out */}
-        <div className="relative mt-16 overflow-hidden" style={{ height: "clamp(90px, 11vw, 160px)" }}>
+        <div className="relative mt-16 overflow-hidden" style={{ height: "clamp(70px, 11vw, 160px)" }}>
           <p
-            className="text-center font-black leading-none tracking-tighter text-gray-800 select-none"
-            style={{ fontSize: "clamp(120px, 18vw, 280px)" }}
+            className="text-center font-black leading-none tracking-tighter text-gray-800 select-none whitespace-nowrap"
+            style={{ fontSize: "clamp(80px, 18vw, 280px)" }}
           >
             THALES
           </p>
