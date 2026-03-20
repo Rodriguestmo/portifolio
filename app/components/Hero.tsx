@@ -97,121 +97,124 @@ export default function Hero() {
             </AnimateIn>
           </div>
 
-          {/* Right — Framer-inspired mini hero cards */}
+          {/* Right — Screenshot-style mini hero cards (scaled from 1920px) */}
           <div className="relative hidden lg:block">
             <div className="relative h-[490px]">
 
-              {/* Card 1 — Educore style: dark bg, big white headline, profile photos, purple CTA */}
+              {/* Card 1 — Educore: screenshot crop */}
               <motion.div
                 initial={false}
                 animate={{ opacity: 1, x: 0, rotate: 3 }}
                 transition={{ type: "spring", damping: 25, stiffness: 180, delay: 0.4 }}
-                className="absolute top-3 right-0 h-[300px] w-[390px] overflow-hidden rounded-[2rem] border border-white/6 bg-[#0e0e10] p-5 shadow-2xl"
+                className="absolute top-3 right-0 h-[300px] w-[390px] overflow-hidden rounded-[2rem] border border-white/6 shadow-2xl"
               >
-                {/* subtle purple glow top-left */}
-                <div className="absolute top-0 left-0 h-40 w-40 rounded-full bg-[#5e41e4]/20 blur-3xl" />
-
-                {/* navbar row */}
-                <div className="relative flex items-center justify-between">
-                  <div className="flex items-center gap-1.5">
-                    <div className="h-5 w-5 rounded-md bg-white/90" />
-                    <span className="text-[11px] font-semibold text-white/80">Educore</span>
-                  </div>
-                  <span className="rounded-full bg-[#5e41e4] px-3 py-1 text-[10px] font-semibold text-white">
-                    Matricule-se
-                  </span>
-                </div>
-
-                {/* badge */}
-                <div className="relative mt-4 inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/6 px-3 py-1">
-                  <span className="rounded-full bg-[#5e41e4] px-1.5 py-0.5 text-[8px] font-bold text-white uppercase">Novo</span>
-                  <span className="text-[10px] text-white/60">Vagas abertas para 2025</span>
-                </div>
-
-                {/* headline */}
-                <div className="relative mt-3 grid grid-cols-[1fr_auto] gap-3">
-                  <div>
-                    <p className="text-[1.6rem] leading-[1.0] font-bold tracking-tight text-white">
-                      Domine UI Design<br />do Zero.
-                    </p>
-                    <p className="mt-2 text-[11px] leading-relaxed text-white/50">
-                      O único curso de design que você precisa para estar entre os top 1%.
-                    </p>
-                    <div className="mt-3 flex items-center gap-2">
-                      <span className="rounded-full bg-[#5e41e4] px-3 py-1.5 text-[10px] font-semibold text-white">
-                        Matricule-se
-                      </span>
-                      <span className="rounded-full border border-white/15 px-3 py-1.5 text-[10px] font-medium text-white/70">
-                        Ver grade
-                      </span>
+                {/* inner "full-size" screenshot at 975x750, scaled to 390x300 (scale 0.4) */}
+                <div style={{ width: 975, height: 750, transform: "scale(0.4)", transformOrigin: "top left" }} className="bg-[#0e0e10]">
+                  {/* glow */}
+                  <div className="absolute top-0 left-0 h-[360px] w-[360px] rounded-full bg-[#5e41e4]/18 blur-[80px]" />
+                  {/* nav */}
+                  <div className="relative flex items-center justify-between px-10 py-6 border-b border-white/6">
+                    <div className="flex items-center gap-3">
+                      <div className="h-9 w-9 rounded-lg bg-white/90" />
+                      <span className="text-xl font-semibold text-white/80">Educore</span>
                     </div>
-                    <div className="mt-3 flex gap-3 text-[9px] font-medium text-white/40 uppercase tracking-wider">
-                      <span>● Online</span>
-                      <span>✓ Prático</span>
-                      <span>◆ Certificado</span>
+                    <div className="flex items-center gap-8 text-sm text-white/50">
+                      <span>Visão geral</span><span>Grade</span><span>Instrutor</span><span>Depoimentos</span><span>Preços</span>
+                    </div>
+                    <div className="flex items-center gap-3 rounded-full bg-[#5e41e4] px-6 py-3 text-sm font-semibold text-white">
+                      Matricule-se
+                      <div className="flex h-5 w-5 items-center justify-center rounded-full bg-white/20 text-xs">↗</div>
                     </div>
                   </div>
-
-                  {/* floating student photo cards */}
-                  <div className="flex flex-col gap-2 pt-1">
-                    {[
-                      { color: "bg-[#3a2a5c]", name: "Ana Lima", role: "Designer @ Adobe" },
-                      { color: "bg-[#1a2a3c]", name: "Erin R.", role: "UX @ Google" },
-                    ].map((s) => (
-                      <div key={s.name} className="w-[100px] overflow-hidden rounded-2xl border border-white/8 bg-white/5">
-                        <div className={`h-14 ${s.color}`} />
-                        <div className="p-2">
-                          <p className="text-[9px] font-semibold text-white leading-tight">{s.name}</p>
-                          <p className="text-[8px] text-white/45 leading-tight">{s.role}</p>
+                  {/* hero */}
+                  <div className="relative grid grid-cols-[1fr_420px] gap-8 px-10 pt-14">
+                    <div>
+                      <div className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-5 py-2.5 mb-8">
+                        <span className="rounded-full bg-[#5e41e4] px-3 py-1 text-xs font-bold text-white uppercase">Novo</span>
+                        <span className="text-sm text-white/60">Vagas abertas para 2025</span>
+                      </div>
+                      <h1 className="text-[72px] leading-[1.0] font-bold tracking-tight text-white mb-6">
+                        Domine UI Design<br />Do Zero.
+                      </h1>
+                      <p className="text-lg text-white/50 mb-8 max-w-[38ch]">
+                        O único curso de design que você precisa para estar entre os top 1% dos designers.
+                      </p>
+                      <div className="flex items-center gap-4 mb-10">
+                        <div className="flex items-center gap-3 rounded-full bg-[#5e41e4] px-8 py-4 text-base font-semibold text-white">
+                          Matricule-se
+                          <div className="flex h-6 w-6 items-center justify-center rounded-full bg-white/20">↗</div>
+                        </div>
+                        <div className="rounded-full border border-white/15 px-8 py-4 text-base font-medium text-white/70">
+                          Ver grade
                         </div>
                       </div>
-                    ))}
+                      <div className="flex gap-8 text-sm font-medium text-white/40 uppercase tracking-widest">
+                        <span>📷 Online</span><span>✓ Prático</span><span>◆ Certificado</span>
+                      </div>
+                    </div>
+                    {/* photo cards */}
+                    <div className="flex gap-4 pt-4">
+                      {[
+                        { bg: "bg-[#2a1f45]", name: "Erin Rhiel Madsen", role: "Designer júnior @ Facebook" },
+                        { bg: "bg-[#1a2535]", name: "Jakob Geisl", role: "UI designer @ Microsoft" },
+                        { bg: "bg-[#1f2a1e]", name: "Allison Press", role: "Designer @ Apple" },
+                      ].map((s) => (
+                        <div key={s.name} className="w-[120px] overflow-hidden rounded-[20px] border border-white/8 bg-white/4">
+                          <div className={`h-[200px] ${s.bg}`} />
+                          <div className="p-3">
+                            <p className="text-sm font-semibold text-white leading-tight">{s.name}</p>
+                            <p className="mt-1 text-xs text-white/45 leading-tight">{s.role}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </motion.div>
 
-              {/* Card 2 — FitFlix style: full dark photo bg, white text, green CTA, award badges */}
+              {/* Card 2 — FitFlix: screenshot crop */}
               <motion.div
                 initial={false}
                 animate={{ opacity: 1, x: 0, rotate: -2 }}
                 transition={{ type: "spring", damping: 25, stiffness: 180, delay: 0.55 }}
                 className="absolute top-16 left-10 h-[300px] w-[390px] overflow-hidden rounded-[2rem] shadow-2xl"
               >
-                {/* photo-like dark gradient bg */}
-                <div className="absolute inset-0 bg-[linear-gradient(135deg,#1a1f14_0%,#2b3320_30%,#1c2418_60%,#0e1209_100%)]" />
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_60%_0%,rgba(255,255,255,0.07),transparent_50%)]" />
-                {/* subtle texture overlay */}
-                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.1)_0%,rgba(0,0,0,0.55)_100%)]" />
-
-                <div className="relative flex h-full flex-col justify-between p-6 text-white">
-                  {/* top nav */}
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm font-bold tracking-widest text-white/90 uppercase">FITFLIX</span>
-                    <span className="text-[11px] font-medium text-[#c3ee5e]">Começar →</span>
+                <div style={{ width: 975, height: 750, transform: "scale(0.4)", transformOrigin: "top left" }} className="relative">
+                  {/* full-bleed photo-like bg */}
+                  <div className="absolute inset-0 bg-[linear-gradient(160deg,#252f1c_0%,#1a2316_25%,#111910_55%,#0a0e08_100%)]" />
+                  <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_65%_10%,rgba(200,220,160,0.08),transparent_45%)]" />
+                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.05)_0%,rgba(0,0,0,0.5)_100%)]" />
+                  {/* silhouette runners hint */}
+                  <div className="absolute right-0 top-0 h-full w-[55%] bg-[radial-gradient(ellipse_at_70%_40%,rgba(80,100,60,0.25),transparent_60%)]" />
+                  {/* nav */}
+                  <div className="relative flex items-center justify-between px-10 py-6">
+                    <span className="text-2xl font-bold tracking-[0.2em] text-white/90 uppercase">FITFLIX</span>
+                    <div className="flex items-center gap-8 text-sm text-white/50">
+                      <span>Recursos</span><span>Comunidade</span><span>Preços</span><span>Blog</span>
+                    </div>
+                    <span className="text-base font-medium text-[#c3ee5e]">Começar →</span>
                   </div>
-
-                  {/* main content — bottom left like Fitflix */}
-                  <div>
-                    <p className="max-w-[18ch] text-[1.7rem] leading-[1.05] font-bold tracking-tight text-white">
-                      Treine como o 1%.<br />No seu ritmo.
+                  {/* hero text — bottom left */}
+                  <div className="relative px-10 pt-28">
+                    <h1 className="text-[72px] leading-[1.05] font-bold tracking-tight text-white mb-6 max-w-[16ch]">
+                      Treine como o 1%,<br />no seu ritmo.
+                    </h1>
+                    <p className="text-lg text-white/60 mb-10 max-w-[36ch]">
+                      Coaching humano deixou de ser luxo. Tenha um coach Fitflix para manter a consistência. Ganhe R$100 off no primeiro mês.
                     </p>
-                    <p className="mt-2 max-w-[26ch] text-[11px] leading-relaxed text-white/60">
-                      Coaching humano deixou de ser luxo. Ganhe R$100 off no primeiro mês.
-                    </p>
-                    <div className="mt-4 flex items-center gap-3">
-                      <span className="rounded-full bg-[#c3ee5e] px-4 py-2 text-[11px] font-bold text-black">
+                    <div className="flex items-center gap-6">
+                      <div className="rounded-full bg-[#c3ee5e] px-8 py-4 text-base font-bold text-black">
                         Começar agora
-                      </span>
+                      </div>
                       {/* award badges */}
-                      <div className="flex gap-2">
-                        {["Melhor\nApp", "Fitness\nApp"].map((b) => (
-                          <div key={b} className="flex flex-col items-center rounded-xl border border-white/15 bg-white/8 px-2.5 py-1.5 text-center backdrop-blur-sm">
-                            <span className="text-[9px] leading-tight text-white/50 whitespace-pre-line">{b}</span>
-                            <div className="mt-0.5 flex gap-0.5">
-                              {[...Array(5)].map((_, i) => (
-                                <span key={i} className="text-[7px] text-[#c3ee5e]">★</span>
-                              ))}
+                      <div className="flex gap-3">
+                        {[["Melhor", "App"], ["Melhor", "Fitness App"]].map(([l1, l2], i) => (
+                          <div key={i} className="flex flex-col items-center rounded-2xl border border-white/15 bg-white/5 px-5 py-3 backdrop-blur-sm">
+                            <div className="flex gap-0.5 mb-1">
+                              {[...Array(5)].map((_, j) => <span key={j} className="text-[#c3ee5e] text-base">★</span>)}
                             </div>
+                            <span className="text-xs text-white/50">{l1}</span>
+                            <span className="text-xs text-white/50">{l2}</span>
                           </div>
                         ))}
                       </div>
@@ -220,74 +223,78 @@ export default function Hero() {
                 </div>
               </motion.div>
 
-              {/* Card 3 — Flowline style: lavender bg, stars badge, dark purple headline, app mockup */}
+              {/* Card 3 — Flowline: screenshot crop */}
               <motion.div
                 initial={false}
                 animate={{ opacity: 1, x: 0, rotate: 1 }}
                 transition={{ type: "spring", damping: 25, stiffness: 180, delay: 0.7 }}
-                className="absolute bottom-0 left-0 h-[300px] w-[392px] overflow-hidden rounded-[2rem] border border-[#d5c8f0] bg-[#f0eaf8] shadow-2xl"
+                className="absolute bottom-0 left-0 h-[300px] w-[392px] overflow-hidden rounded-[2rem] shadow-2xl"
               >
-                {/* soft radial orbs */}
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_0%,rgba(157,128,218,0.22),transparent_40%),radial-gradient(circle_at_80%_90%,rgba(168,100,240,0.14),transparent_40%)]" />
-
-                <div className="relative flex h-full flex-col gap-3 p-5">
-                  {/* stars badge */}
-                  <div className="flex items-center gap-2">
-                    <div className="flex gap-0.5">
-                      {[...Array(5)].map((_, i) => (
-                        <span key={i} className="text-[11px] text-amber-400">★</span>
-                      ))}
+                <div style={{ width: 980, height: 750, transform: "scale(0.4)", transformOrigin: "top left" }} className="relative bg-[#f0eaf8]">
+                  {/* orbs */}
+                  <div className="absolute top-0 left-[20%] h-[500px] w-[500px] rounded-full bg-[#c4aee0]/20 blur-[100px]" />
+                  <div className="absolute bottom-0 right-[10%] h-[400px] w-[400px] rounded-full bg-[#b89fd8]/15 blur-[80px]" />
+                  {/* nav */}
+                  <div className="relative flex items-center justify-between px-10 py-6">
+                    <div className="flex items-center gap-2.5">
+                      <div className="h-7 w-7 rounded-md bg-[#7d5f92]" />
+                      <span className="text-lg font-semibold text-[#271f36]">Flowline</span>
                     </div>
-                    <span className="text-[10px] text-[#7d5f92]">Confiado por 2.500+ equipes</span>
+                    <div className="flex items-center gap-8 text-sm text-[#7d5f92]">
+                      <span>Home</span><span>Recursos</span><span>Comparar</span><span>Avaliações</span><span>FAQ</span>
+                    </div>
+                    <span className="text-base font-medium text-[#7d5f92]">Acessar Flowline — É Grátis</span>
                   </div>
-
-                  {/* headline */}
-                  <p className="max-w-[18ch] text-[1.75rem] leading-[1.02] font-bold tracking-tight text-[#271f36]">
-                    Trabalho chato.<br />Feito simples.
-                  </p>
-                  <p className="max-w-[28ch] text-[11px] leading-relaxed text-[#7d5f92]">
-                    Conecta nos seus fluxos existentes. Automatiza o repetitivo. Foca no crescimento.
-                  </p>
-
-                  {/* CTAs */}
-                  <div className="flex items-center gap-2">
-                    <span className="rounded-full bg-[#7d5f92] px-4 py-2 text-[10px] font-semibold text-white">
-                      Começar grátis →
-                    </span>
-                    <span className="rounded-full border border-[#c4aee0] px-4 py-2 text-[10px] font-medium text-[#7d5f92]">
-                      Saiba mais
-                    </span>
-                  </div>
-
-                  {/* trust badges */}
-                  <div className="flex gap-4 text-[9px] text-[#9f80da]">
-                    <span>⏱ 7 min setup</span>
-                    <span>🔒 LGPD</span>
-                    <span>👥 23.027 usuários</span>
-                  </div>
-
-                  {/* app mockup preview */}
-                  <div className="flex-1 overflow-hidden rounded-2xl border border-[#c4aee0]/60 bg-white/70 p-3 backdrop-blur-sm shadow-[0_8px_30px_rgba(125,95,146,0.12)]">
-                    <div className="grid grid-cols-[56px_1fr] gap-2 h-full">
-                      {/* sidebar */}
-                      <div className="space-y-1.5">
-                        <div className="h-2 w-full rounded bg-[#ddd3f0]" />
-                        {["Dashboard", "Público", "Fluxos"].map((item) => (
-                          <div key={item} className="flex items-center gap-1 rounded-md px-1 py-1">
-                            <div className="h-1.5 w-1.5 rounded-full bg-[#c4aee0]" />
-                            <div className="h-1.5 flex-1 rounded bg-[#e8dff5]" />
-                          </div>
-                        ))}
+                  {/* hero — centered */}
+                  <div className="relative flex flex-col items-center px-10 pt-10 text-center">
+                    {/* stars */}
+                    <div className="flex items-center gap-3 mb-8">
+                      <div className="flex gap-0.5">
+                        {[...Array(5)].map((_, i) => <span key={i} className="text-2xl text-amber-400">★</span>)}
                       </div>
-                      {/* main area — flow nodes */}
-                      <div className="relative">
-                        <div className="absolute top-2 left-8 rounded-lg border border-[#d5c8f0] bg-white px-2.5 py-1.5 shadow-sm">
-                          <div className="h-1.5 w-16 rounded bg-[#c4b5fd]" />
-                          <div className="mt-1 h-1 w-10 rounded bg-[#e8dff5]" />
+                      <span className="text-base text-[#7d5f92]">Confiado por 2.500+ equipes</span>
+                    </div>
+                    <h1 className="text-[68px] leading-[1.05] font-bold tracking-tight text-[#271f36] mb-6 max-w-[18ch]">
+                      Trabalho chato feito simples com IA
+                    </h1>
+                    <p className="text-lg text-[#7d5f92] mb-8 max-w-[42ch]">
+                      O Flowline conecta nos seus fluxos existentes para você abandonar o trabalho repetitivo e focar no crescimento.
+                    </p>
+                    <div className="flex items-center gap-4 mb-8">
+                      <div className="flex items-center gap-3 rounded-full bg-[#7d5f92] px-8 py-4 text-base font-semibold text-white">
+                        Começar Grátis →
+                      </div>
+                      <div className="rounded-full border border-[#c4aee0] px-8 py-4 text-base font-medium text-[#7d5f92]">
+                        Saiba como
+                      </div>
+                    </div>
+                    <div className="flex gap-8 text-sm text-[#9f80da]">
+                      <span>⏱ 7 min setup</span><span>🔒 LGPD</span><span>👥 23.027 usuários</span>
+                    </div>
+                    {/* app mockup */}
+                    <div className="mt-8 w-[700px] overflow-hidden rounded-[24px] border border-[#c4aee0]/50 bg-white/80 shadow-[0_20px_80px_rgba(125,95,146,0.15)] backdrop-blur-sm">
+                      <div className="flex items-center gap-2 border-b border-[#e8dff5] px-6 py-4">
+                        <div className="h-4 w-4 rounded-full bg-[#c4aee0]" />
+                        <span className="text-sm text-[#7d5f92]">Logalpusm</span>
+                      </div>
+                      <div className="grid grid-cols-[160px_1fr] h-[140px]">
+                        <div className="border-r border-[#e8dff5] p-4 space-y-3">
+                          {["Dashboard","Público","Fluxos"].map(item => (
+                            <div key={item} className="flex items-center gap-2">
+                              <div className="h-2 w-2 rounded-full bg-[#c4aee0]" />
+                              <div className="h-2 flex-1 rounded bg-[#e8dff5]" />
+                            </div>
+                          ))}
                         </div>
-                        <div className="absolute top-10 left-2 rounded-lg border border-[#d5c8f0] bg-white px-2.5 py-1.5 shadow-sm">
-                          <div className="h-1.5 w-12 rounded bg-[#a78bfa]" />
-                          <div className="mt-1 h-1 w-8 rounded bg-[#e8dff5]" />
+                        <div className="relative p-6">
+                          <div className="absolute top-6 left-20 rounded-xl border border-[#d5c8f0] bg-white px-5 py-3 shadow-md">
+                            <div className="h-3 w-28 rounded bg-[#c4b5fd] mb-2" />
+                            <div className="h-2 w-20 rounded bg-[#e8dff5]" />
+                          </div>
+                          <div className="absolute top-16 left-6 rounded-xl border border-[#d5c8f0] bg-white px-5 py-3 shadow-md">
+                            <div className="h-3 w-24 rounded bg-[#a78bfa] mb-2" />
+                            <div className="h-2 w-16 rounded bg-[#e8dff5]" />
+                          </div>
                         </div>
                       </div>
                     </div>
