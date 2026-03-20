@@ -97,207 +97,199 @@ export default function Hero() {
             </AnimateIn>
           </div>
 
-          {/* Right — Project Mockups Stack */}
+          {/* Right — Framer-inspired mini hero cards */}
           <div className="relative hidden lg:block">
             <div className="relative h-[490px]">
-              {/* Card 1 - back */}
+
+              {/* Card 1 — Educore style: dark bg, big white headline, profile photos, purple CTA */}
               <motion.div
                 initial={false}
                 animate={{ opacity: 1, x: 0, rotate: 3 }}
                 transition={{ type: "spring", damping: 25, stiffness: 180, delay: 0.4 }}
-                className="absolute top-3 right-0 h-[300px] w-[390px] overflow-hidden rounded-[2rem] border border-black/8 bg-[#0a0b11] p-5 shadow-2xl"
+                className="absolute top-3 right-0 h-[300px] w-[390px] overflow-hidden rounded-[2rem] border border-white/6 bg-[#0e0e10] p-5 shadow-2xl"
               >
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(124,58,237,0.24),transparent_32%),radial-gradient(circle_at_bottom_right,rgba(56,189,248,0.18),transparent_34%)]" />
-                <div className="relative flex items-center justify-between rounded-full border border-white/10 bg-white/6 px-4 py-2 text-[10px] font-medium tracking-[0.18em] text-white/70 uppercase">
-                  <div className="flex items-center gap-2">
-                    <span className="h-2 w-2 rounded-full bg-violet-400" />
-                    Landing page
+                {/* subtle purple glow top-left */}
+                <div className="absolute top-0 left-0 h-40 w-40 rounded-full bg-[#5e41e4]/20 blur-3xl" />
+
+                {/* navbar row */}
+                <div className="relative flex items-center justify-between">
+                  <div className="flex items-center gap-1.5">
+                    <div className="h-5 w-5 rounded-md bg-white/90" />
+                    <span className="text-[11px] font-semibold text-white/80">Educore</span>
                   </div>
-                  <span className="rounded-full bg-white/10 px-2.5 py-1 text-[9px] text-white/75">
-                    Inspirado em produto
+                  <span className="rounded-full bg-[#5e41e4] px-3 py-1 text-[10px] font-semibold text-white">
+                    Matricule-se
                   </span>
                 </div>
 
-                <div className="relative mt-5 grid grid-cols-[1fr_0.88fr] gap-4">
+                {/* badge */}
+                <div className="relative mt-4 inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/6 px-3 py-1">
+                  <span className="rounded-full bg-[#5e41e4] px-1.5 py-0.5 text-[8px] font-bold text-white uppercase">Novo</span>
+                  <span className="text-[10px] text-white/60">Vagas abertas para 2025</span>
+                </div>
+
+                {/* headline */}
+                <div className="relative mt-3 grid grid-cols-[1fr_auto] gap-3">
                   <div>
-                    <span className="inline-flex rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[10px] font-medium text-white/70">
-                      Oferta clara + CTA forte
-                    </span>
-                    <p className="mt-4 max-w-[12ch] text-[2rem] leading-[0.96] font-semibold tracking-tight text-white">
-                      Páginas feitas para vender.
+                    <p className="text-[1.6rem] leading-[1.0] font-bold tracking-tight text-white">
+                      Domine UI Design<br />do Zero.
                     </p>
-                    <p className="mt-3 max-w-[18ch] text-sm leading-relaxed text-white/60">
-                      Estrutura comercial, prova e agenda pensadas para tráfego.
+                    <p className="mt-2 text-[11px] leading-relaxed text-white/50">
+                      O único curso de design que você precisa para estar entre os top 1%.
                     </p>
-                    <div className="mt-5 flex gap-2">
-                      <span className="rounded-full bg-violet-500 px-3 py-2 text-[11px] font-medium text-white">
-                        Ver estrutura
+                    <div className="mt-3 flex items-center gap-2">
+                      <span className="rounded-full bg-[#5e41e4] px-3 py-1.5 text-[10px] font-semibold text-white">
+                        Matricule-se
                       </span>
-                      <span className="rounded-full border border-white/12 px-3 py-2 text-[11px] font-medium text-white/72">
-                        Agendar
+                      <span className="rounded-full border border-white/15 px-3 py-1.5 text-[10px] font-medium text-white/70">
+                        Ver grade
                       </span>
+                    </div>
+                    <div className="mt-3 flex gap-3 text-[9px] font-medium text-white/40 uppercase tracking-wider">
+                      <span>● Online</span>
+                      <span>✓ Prático</span>
+                      <span>◆ Certificado</span>
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-3 pt-2">
-                    <div className="overflow-hidden rounded-[1.5rem] border border-white/8 bg-white/6">
-                      <div className="h-[150px] bg-[radial-gradient(circle_at_50%_35%,rgba(255,255,255,0.22),transparent_30%),linear-gradient(180deg,#263248_0%,#10141f_100%)]" />
-                      <div className="px-3 py-3">
-                        <p className="text-xs font-medium text-white">Oferta</p>
-                        <p className="mt-1 text-[11px] text-white/55">Headline e CTA</p>
+                  {/* floating student photo cards */}
+                  <div className="flex flex-col gap-2 pt-1">
+                    {[
+                      { color: "bg-[#3a2a5c]", name: "Ana Lima", role: "Designer @ Adobe" },
+                      { color: "bg-[#1a2a3c]", name: "Erin R.", role: "UX @ Google" },
+                    ].map((s) => (
+                      <div key={s.name} className="w-[100px] overflow-hidden rounded-2xl border border-white/8 bg-white/5">
+                        <div className={`h-14 ${s.color}`} />
+                        <div className="p-2">
+                          <p className="text-[9px] font-semibold text-white leading-tight">{s.name}</p>
+                          <p className="text-[8px] text-white/45 leading-tight">{s.role}</p>
+                        </div>
                       </div>
-                    </div>
-                    <div className="mt-6 overflow-hidden rounded-[1.5rem] border border-white/8 bg-white/6">
-                      <div className="h-[150px] bg-[radial-gradient(circle_at_50%_30%,rgba(255,255,255,0.26),transparent_28%),linear-gradient(180deg,#4a1d2d_0%,#12151f_100%)]" />
-                      <div className="px-3 py-3">
-                        <p className="text-xs font-medium text-white">Prova</p>
-                        <p className="mt-1 text-[11px] text-white/55">Autoridade visual</p>
-                      </div>
-                    </div>
+                    ))}
                   </div>
                 </div>
               </motion.div>
 
-              {/* Card 2 - middle */}
+              {/* Card 2 — FitFlix style: full dark photo bg, white text, green CTA, award badges */}
               <motion.div
                 initial={false}
                 animate={{ opacity: 1, x: 0, rotate: -2 }}
                 transition={{ type: "spring", damping: 25, stiffness: 180, delay: 0.55 }}
-                className="absolute top-16 left-10 h-[300px] w-[390px] overflow-hidden rounded-[2rem] border border-[#ece7ff] bg-[#f7f3ff] p-5 shadow-2xl"
+                className="absolute top-16 left-10 h-[300px] w-[390px] overflow-hidden rounded-[2rem] shadow-2xl"
               >
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_center,rgba(168,85,247,0.16),transparent_34%),radial-gradient(circle_at_bottom_left,rgba(59,130,246,0.14),transparent_40%)]" />
-                <div className="relative flex items-center justify-between px-2 text-[11px] font-medium text-[#5b4e77]">
-                  <div className="flex gap-6">
-                    <span>Painel</span>
-                    <span>Campanhas</span>
-                    <span>Leads</span>
-                  </div>
-                  <span className="rounded-full bg-white/80 px-3 py-1 text-[#8b5cf6]">
-                    ao vivo
-                  </span>
-                </div>
+                {/* photo-like dark gradient bg */}
+                <div className="absolute inset-0 bg-[linear-gradient(135deg,#1a1f14_0%,#2b3320_30%,#1c2418_60%,#0e1209_100%)]" />
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_60%_0%,rgba(255,255,255,0.07),transparent_50%)]" />
+                {/* subtle texture overlay */}
+                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.1)_0%,rgba(0,0,0,0.55)_100%)]" />
 
-                <div className="relative mt-7 text-center">
-                  <div className="flex items-center justify-center gap-2 text-[11px] font-medium text-[#8b5cf6]">
-                    <span>★★★</span>
-                    <span>dados organizados em tempo real</span>
+                <div className="relative flex h-full flex-col justify-between p-6 text-white">
+                  {/* top nav */}
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm font-bold tracking-widest text-white/90 uppercase">FITFLIX</span>
+                    <span className="text-[11px] font-medium text-[#c3ee5e]">Começar →</span>
                   </div>
-                  <p className="mx-auto mt-4 max-w-[10ch] text-[2.45rem] leading-[0.92] font-semibold tracking-tight text-[#3c3153]">
-                    Mídia sob controle.
-                  </p>
-                  <p className="mx-auto mt-3 max-w-[24ch] text-sm leading-relaxed text-[#8b82a0]">
-                    Dashboard, leitura de funil e operação guiada por dados.
-                  </p>
-                </div>
 
-                <div className="relative mt-7 overflow-hidden rounded-[1.7rem] border border-white/80 bg-white/75 p-4 shadow-[0_22px_50px_rgba(157,120,255,0.14)] backdrop-blur">
-                  <div className="grid grid-cols-[70px_1fr] gap-4">
-                    <div className="rounded-[1.2rem] bg-[#f4f0ff] p-3">
-                      <div className="h-4 w-9 rounded bg-[#ddd3ff]" />
-                      <div className="mt-3 space-y-2">
-                        <div className="h-2 w-full rounded bg-[#e7defd]" />
-                        <div className="h-2 w-4/5 rounded bg-[#e7defd]" />
-                        <div className="h-2 w-3/5 rounded bg-[#e7defd]" />
-                      </div>
-                    </div>
-                    <div>
-                      <div className="grid grid-cols-3 gap-2">
-                        <div className="rounded-2xl bg-[#f6f1ff] p-3">
-                          <div className="h-2 w-10 rounded bg-[#c4b5fd]" />
-                          <div className="mt-3 h-11 rounded-xl bg-[#ddd6fe]" />
-                        </div>
-                        <div className="rounded-2xl bg-[#f8f5ff] p-3">
-                          <div className="h-2 w-10 rounded bg-[#c4b5fd]" />
-                          <div className="mt-3 h-11 rounded-xl bg-[#ede9fe]" />
-                        </div>
-                        <div className="rounded-2xl bg-[#f6f1ff] p-3">
-                          <div className="h-2 w-10 rounded bg-[#c4b5fd]" />
-                          <div className="mt-3 h-11 rounded-xl bg-[#ddd6fe]" />
-                        </div>
-                      </div>
-                      <div className="mt-3 rounded-[1.3rem] bg-[#faf7ff] p-3">
-                        <div className="h-2 w-24 rounded bg-[#d8ccff]" />
-                        <div className="mt-4 flex items-end gap-2">
-                          <div className="h-10 w-7 rounded-t-xl bg-[#ddd6fe]" />
-                          <div className="h-16 w-7 rounded-t-xl bg-[#c4b5fd]" />
-                          <div className="h-12 w-7 rounded-t-xl bg-[#a78bfa]" />
-                          <div className="h-20 w-7 rounded-t-xl bg-[#8b5cf6]" />
-                          <div className="h-14 w-7 rounded-t-xl bg-[#c4b5fd]" />
-                        </div>
+                  {/* main content — bottom left like Fitflix */}
+                  <div>
+                    <p className="max-w-[18ch] text-[1.7rem] leading-[1.05] font-bold tracking-tight text-white">
+                      Treine como o 1%.<br />No seu ritmo.
+                    </p>
+                    <p className="mt-2 max-w-[26ch] text-[11px] leading-relaxed text-white/60">
+                      Coaching humano deixou de ser luxo. Ganhe R$100 off no primeiro mês.
+                    </p>
+                    <div className="mt-4 flex items-center gap-3">
+                      <span className="rounded-full bg-[#c3ee5e] px-4 py-2 text-[11px] font-bold text-black">
+                        Começar agora
+                      </span>
+                      {/* award badges */}
+                      <div className="flex gap-2">
+                        {["Melhor\nApp", "Fitness\nApp"].map((b) => (
+                          <div key={b} className="flex flex-col items-center rounded-xl border border-white/15 bg-white/8 px-2.5 py-1.5 text-center backdrop-blur-sm">
+                            <span className="text-[9px] leading-tight text-white/50 whitespace-pre-line">{b}</span>
+                            <div className="mt-0.5 flex gap-0.5">
+                              {[...Array(5)].map((_, i) => (
+                                <span key={i} className="text-[7px] text-[#c3ee5e]">★</span>
+                              ))}
+                            </div>
+                          </div>
+                        ))}
                       </div>
                     </div>
                   </div>
                 </div>
               </motion.div>
 
-              {/* Card 3 - front */}
+              {/* Card 3 — Flowline style: lavender bg, stars badge, dark purple headline, app mockup */}
               <motion.div
                 initial={false}
                 animate={{ opacity: 1, x: 0, rotate: 1 }}
                 transition={{ type: "spring", damping: 25, stiffness: 180, delay: 0.7 }}
-                className="absolute bottom-0 left-0 h-[300px] w-[392px] overflow-hidden rounded-[2rem] border border-black/8 bg-[#131826] shadow-2xl"
+                className="absolute bottom-0 left-0 h-[300px] w-[392px] overflow-hidden rounded-[2rem] border border-[#d5c8f0] bg-[#f0eaf8] shadow-2xl"
               >
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_18%,rgba(163,230,53,0.18),transparent_20%),radial-gradient(circle_at_75%_16%,rgba(59,130,246,0.22),transparent_24%),radial-gradient(circle_at_52%_75%,rgba(45,212,191,0.18),transparent_34%)]" />
-                <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(255,255,255,0.08),transparent_35%),linear-gradient(180deg,rgba(19,24,38,0.12),rgba(19,24,38,0.88))]" />
-                <div className="absolute top-20 left-[-30px] h-32 w-32 rounded-full bg-white/12 blur-3xl" />
-                <div className="absolute bottom-14 right-0 h-40 w-40 rounded-full bg-cyan-400/10 blur-3xl" />
+                {/* soft radial orbs */}
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_0%,rgba(157,128,218,0.22),transparent_40%),radial-gradient(circle_at_80%_90%,rgba(168,100,240,0.14),transparent_40%)]" />
 
-                <div className="relative flex h-full flex-col justify-between p-6 text-white">
-                  <div className="flex items-center justify-between text-[10px] font-semibold tracking-[0.18em] text-white/60 uppercase">
-                    <span>Automação IA</span>
-                    <span className="rounded-full border border-white/10 bg-white/6 px-3 py-1 text-[9px] text-white/72">
-                      fluxo ativo
+                <div className="relative flex h-full flex-col gap-3 p-5">
+                  {/* stars badge */}
+                  <div className="flex items-center gap-2">
+                    <div className="flex gap-0.5">
+                      {[...Array(5)].map((_, i) => (
+                        <span key={i} className="text-[11px] text-amber-400">★</span>
+                      ))}
+                    </div>
+                    <span className="text-[10px] text-[#7d5f92]">Confiado por 2.500+ equipes</span>
+                  </div>
+
+                  {/* headline */}
+                  <p className="max-w-[18ch] text-[1.75rem] leading-[1.02] font-bold tracking-tight text-[#271f36]">
+                    Trabalho chato.<br />Feito simples.
+                  </p>
+                  <p className="max-w-[28ch] text-[11px] leading-relaxed text-[#7d5f92]">
+                    Conecta nos seus fluxos existentes. Automatiza o repetitivo. Foca no crescimento.
+                  </p>
+
+                  {/* CTAs */}
+                  <div className="flex items-center gap-2">
+                    <span className="rounded-full bg-[#7d5f92] px-4 py-2 text-[10px] font-semibold text-white">
+                      Começar grátis →
+                    </span>
+                    <span className="rounded-full border border-[#c4aee0] px-4 py-2 text-[10px] font-medium text-[#7d5f92]">
+                      Saiba mais
                     </span>
                   </div>
 
-                  <div className="max-w-[18rem]">
-                    <p className="text-[2.15rem] leading-[0.94] font-semibold tracking-tight">
-                      Atendimento sem travar a operação.
-                    </p>
-                    <p className="mt-3 text-sm leading-relaxed text-white/66">
-                      IA qualificando, respondendo e empurrando o lead para a próxima etapa.
-                    </p>
-                    <div className="mt-5 flex flex-wrap gap-2">
-                      <span className="rounded-full border border-white/10 bg-white/8 px-3 py-1.5 text-[11px] text-white/80">
-                        Qualifica
-                      </span>
-                      <span className="rounded-full border border-white/10 bg-white/8 px-3 py-1.5 text-[11px] text-white/80">
-                        Agenda
-                      </span>
-                      <span className="rounded-full border border-white/10 bg-white/8 px-3 py-1.5 text-[11px] text-white/80">
-                        Faz follow-up
-                      </span>
-                    </div>
+                  {/* trust badges */}
+                  <div className="flex gap-4 text-[9px] text-[#9f80da]">
+                    <span>⏱ 7 min setup</span>
+                    <span>🔒 LGPD</span>
+                    <span>👥 23.027 usuários</span>
                   </div>
 
-                  <div className="grid grid-cols-[1.05fr_0.85fr] gap-4">
-                    <div className="rounded-[1.5rem] border border-white/10 bg-black/20 p-4 backdrop-blur-sm">
-                      <div className="flex items-center gap-2">
-                        <div className="h-8 w-8 rounded-full bg-lime-400/30" />
-                        <div>
-                          <p className="text-xs font-medium text-white">Lead qualificado</p>
-                          <p className="text-[11px] text-white/48">pronto para atendimento</p>
+                  {/* app mockup preview */}
+                  <div className="flex-1 overflow-hidden rounded-2xl border border-[#c4aee0]/60 bg-white/70 p-3 backdrop-blur-sm shadow-[0_8px_30px_rgba(125,95,146,0.12)]">
+                    <div className="grid grid-cols-[56px_1fr] gap-2 h-full">
+                      {/* sidebar */}
+                      <div className="space-y-1.5">
+                        <div className="h-2 w-full rounded bg-[#ddd3f0]" />
+                        {["Dashboard", "Público", "Fluxos"].map((item) => (
+                          <div key={item} className="flex items-center gap-1 rounded-md px-1 py-1">
+                            <div className="h-1.5 w-1.5 rounded-full bg-[#c4aee0]" />
+                            <div className="h-1.5 flex-1 rounded bg-[#e8dff5]" />
+                          </div>
+                        ))}
+                      </div>
+                      {/* main area — flow nodes */}
+                      <div className="relative">
+                        <div className="absolute top-2 left-8 rounded-lg border border-[#d5c8f0] bg-white px-2.5 py-1.5 shadow-sm">
+                          <div className="h-1.5 w-16 rounded bg-[#c4b5fd]" />
+                          <div className="mt-1 h-1 w-10 rounded bg-[#e8dff5]" />
+                        </div>
+                        <div className="absolute top-10 left-2 rounded-lg border border-[#d5c8f0] bg-white px-2.5 py-1.5 shadow-sm">
+                          <div className="h-1.5 w-12 rounded bg-[#a78bfa]" />
+                          <div className="mt-1 h-1 w-8 rounded bg-[#e8dff5]" />
                         </div>
                       </div>
-                      <div className="mt-4 space-y-2">
-                        <div className="h-2.5 w-full rounded-full bg-white/12" />
-                        <div className="h-2.5 w-4/5 rounded-full bg-white/10" />
-                        <div className="h-2.5 w-3/5 rounded-full bg-white/10" />
-                      </div>
-                    </div>
-                    <div className="rounded-[1.5rem] border border-white/10 bg-white/8 p-4 backdrop-blur-sm">
-                      <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-white/55">
-                        Performance
-                      </p>
-                      <div className="mt-4 flex items-end gap-2">
-                        <div className="h-10 w-7 rounded-t-xl bg-white/18" />
-                        <div className="h-14 w-7 rounded-t-xl bg-white/22" />
-                        <div className="h-20 w-7 rounded-t-xl bg-lime-400/45" />
-                        <div className="h-12 w-7 rounded-t-xl bg-cyan-400/35" />
-                      </div>
-                      <p className="mt-4 text-xs leading-relaxed text-white/58">
-                        mais velocidade, menos atrito e melhor aproveitamento dos leads
-                      </p>
                     </div>
                   </div>
                 </div>
