@@ -12,10 +12,12 @@ import TestimonialsGrid from "./components/TestimonialsGrid";
 import FAQ from "./components/FAQ";
 import Footer from "./components/Footer";
 import ContactBar from "./components/ContactBar";
+import ContactModal from "./components/ContactModal";
 
 export default function Home() {
   return (
     <>
+      <ContactModal />
       <Navbar />
       <main>
         <Hero />

@@ -131,35 +131,9 @@ export default function Projects() {
                 </div>
 
                 <div className="bg-white px-6 py-5">
-                  <div className="flex items-start justify-between gap-6">
-                    <div>
-                      <h3 className="font-semibold text-black">{project.name}</h3>
-                      <p className="mt-1 text-sm text-gray-500">{project.category}</p>
-                    </div>
-                    <span
-                      className={`flex shrink-0 items-center gap-1 text-sm ${
-                        project.url
-                          ? "text-gray-400 transition-colors group-hover:text-black"
-                          : "text-gray-300"
-                      }`}
-                    >
-                      {project.actionLabel}
-                      {project.url ? (
-                        <svg
-                          className="h-3.5 w-3.5"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                          strokeWidth={2}
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
-                          />
-                        </svg>
-                      ) : null}
-                    </span>
+                  <div>
+                    <h3 className="font-semibold text-black">{project.name}</h3>
+                    <p className="mt-1 text-sm text-gray-500">{project.category}</p>
                   </div>
                   <p className="mt-3 max-w-[36ch] text-sm leading-relaxed text-gray-500">
                     {project.description}

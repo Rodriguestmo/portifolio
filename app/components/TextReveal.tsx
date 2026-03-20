@@ -32,9 +32,9 @@ export default function TextReveal() {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start 0.55", "start -0.1"],
+    offset: ["start 0.8", "start -0.1"],
   });
-  const delayedProgress = useTransform(scrollYProgress, [0.4, 1], [0, 1]);
+  const delayedProgress = useTransform(scrollYProgress, [0.15, 1], [0, 1]);
 
   // Split into lines, then words, then characters
   const lines = text.split("\n");
@@ -46,7 +46,7 @@ export default function TextReveal() {
   let charIndex = 0;
 
   return (
-    <section ref={containerRef} className="px-6 py-32 lg:px-8 lg:py-44">
+    <section ref={containerRef} className="px-6 py-16 lg:px-8 lg:py-44">
       <div className="mx-auto max-w-[1120px] text-center">
         <p className="text-4xl leading-[1.12] tracking-tight md:text-6xl lg:text-[5rem]">
           {lines.map((line, lineIdx) => (

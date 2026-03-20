@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { openContactModal } from "@/app/utils/contactModal";
 
 export default function ContactBar() {
   const [visible, setVisible] = useState(false);
@@ -19,7 +20,7 @@ export default function ContactBar() {
       }`}
     >
       <div className="flex items-center gap-4 rounded-full border border-black/8 bg-white/95 px-5 py-3 shadow-xl backdrop-blur-md">
-        <div>
+        <div className="hidden sm:block">
           <p className="text-sm font-semibold text-black">Fale comigo</p>
           <p className="text-xs text-gray-400">WhatsApp ou agende uma call</p>
         </div>

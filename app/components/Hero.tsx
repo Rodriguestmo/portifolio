@@ -13,7 +13,7 @@ export default function Hero() {
             <AnimateIn variant="fadeIn" delay={0.2} trigger="mount">
               <div className="inline-flex items-center gap-2.5 rounded-full border border-black/8 bg-white/80 px-4 py-2 text-xs font-medium tracking-wide text-black uppercase">
                 <span className="h-2 w-2 rounded-full bg-green-500" />
-                Disponível para projetos
+                Disponível para o seu projeto
               </div>
             </AnimateIn>
 
@@ -28,7 +28,7 @@ export default function Hero() {
             <AnimateIn variant="fadeUp" delay={0.5} trigger="mount">
               <p className="mt-8 max-w-xl text-lg leading-relaxed">
                 <span className="font-semibold text-black">
-                  Landing pages, tráfego pago e automações com IA. Tudo conectado
+                  Landing pages, tráfego pago e IA personalizada para o seu negócio. Tudo conectado
                   para transformar clique em lead qualificado.
                 </span>{" "}
                 <span className="text-gray-500">
@@ -44,11 +44,6 @@ export default function Hero() {
                 <div>
                   <p className="font-bold text-black">+R$ 18M</p>
                   <p className="text-gray-400">em mídia gerenciada</p>
-                </div>
-                <div className="h-10 w-px bg-black/10" />
-                <div>
-                  <p className="font-bold text-black">+50</p>
-                  <p className="text-gray-400">projetos entregues</p>
                 </div>
                 <div className="h-10 w-px bg-black/10" />
                 <div>
@@ -116,13 +111,13 @@ export default function Hero() {
                   <div className="relative flex items-center justify-between px-10 py-6 border-b border-white/6">
                     <div className="flex items-center gap-3">
                       <div className="h-9 w-9 rounded-lg bg-white/90" />
-                      <span className="text-xl font-semibold text-white/80">Educore</span>
+                      <span className="text-xl font-semibold text-white/80">Aleph</span>
                     </div>
                     <div className="flex items-center gap-8 text-sm text-white/50">
-                      <span>Visão geral</span><span>Grade</span><span>Instrutor</span><span>Depoimentos</span><span>Preços</span>
+                      <span>Programa</span><span>Grade</span><span>Mentores</span><span>Resultados</span><span>Preços</span>
                     </div>
                     <div className="flex items-center gap-3 rounded-full bg-[#5e41e4] px-6 py-3 text-sm font-semibold text-white">
-                      Matricule-se
+                      Garantir vaga
                       <div className="flex h-5 w-5 items-center justify-center rounded-full bg-white/20 text-xs">↗</div>
                     </div>
                   </div>
@@ -130,18 +125,18 @@ export default function Hero() {
                   <div className="relative grid grid-cols-[1fr_420px] gap-8 px-10 pt-14">
                     <div>
                       <div className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-5 py-2.5 mb-8">
-                        <span className="rounded-full bg-[#5e41e4] px-3 py-1 text-xs font-bold text-white uppercase">Novo</span>
-                        <span className="text-sm text-white/60">Vagas abertas para 2025</span>
+                        <span className="rounded-full bg-[#5e41e4] px-3 py-1 text-xs font-bold text-white uppercase">Turma 4</span>
+                        <span className="text-sm text-white/60">Últimas vagas abertas</span>
                       </div>
                       <h1 className="text-[72px] leading-[1.0] font-bold tracking-tight text-white mb-6">
-                        Domine UI Design<br />Do Zero.
+                        De zero a dev<br />em 6 meses.
                       </h1>
                       <p className="text-lg text-white/50 mb-8 max-w-[38ch]">
-                        O único curso de design que você precisa para estar entre os top 1% dos designers.
+                        Bootcamp intensivo com projeto real desde o primeiro dia. Sem enrolação, sem teoria inútil.
                       </p>
                       <div className="flex items-center gap-4 mb-10">
                         <div className="flex items-center gap-3 rounded-full bg-[#5e41e4] px-8 py-4 text-base font-semibold text-white">
-                          Matricule-se
+                          Garantir vaga
                           <div className="flex h-6 w-6 items-center justify-center rounded-full bg-white/20">↗</div>
                         </div>
                         <div className="rounded-full border border-white/15 px-8 py-4 text-base font-medium text-white/70">
@@ -149,15 +144,15 @@ export default function Hero() {
                         </div>
                       </div>
                       <div className="flex gap-8 text-sm font-medium text-white/40 uppercase tracking-widest">
-                        <span>📷 Online</span><span>✓ Prático</span><span>◆ Certificado</span>
+                        <span>💻 100% Online</span><span>✓ Prático</span><span>◆ Certificado</span>
                       </div>
                     </div>
                     {/* photo cards */}
                     <div className="flex gap-4 pt-4">
                       {[
-                        { bg: "bg-[#2a1f45]", name: "Erin Rhiel Madsen", role: "Designer júnior @ Facebook" },
-                        { bg: "bg-[#1a2535]", name: "Jakob Geisl", role: "UI designer @ Microsoft" },
-                        { bg: "bg-[#1f2a1e]", name: "Allison Press", role: "Designer @ Apple" },
+                        { bg: "bg-[#2a1f45]", name: "Rafael Mendes", role: "Dev Pleno @ Nubank" },
+                        { bg: "bg-[#1a2535]", name: "Priya Anand", role: "Engenheira @ iFood" },
+                        { bg: "bg-[#1f2a1e]", name: "Lucas Ferreira", role: "Frontend @ Conta Azul" },
                       ].map((s) => (
                         <div key={s.name} className="w-[120px] overflow-hidden rounded-[20px] border border-white/8 bg-white/4">
                           <div className={`h-[200px] ${s.bg}`} />
@@ -238,12 +233,12 @@ export default function Hero() {
                   <div className="relative flex items-center justify-between px-10 py-6">
                     <div className="flex items-center gap-2.5">
                       <div className="h-7 w-7 rounded-md bg-[#7d5f92]" />
-                      <span className="text-lg font-semibold text-[#271f36]">Flowline</span>
+                      <span className="text-lg font-semibold text-[#271f36]">Flow</span>
                     </div>
                     <div className="flex items-center gap-8 text-sm text-[#7d5f92]">
                       <span>Home</span><span>Recursos</span><span>Comparar</span><span>Avaliações</span><span>FAQ</span>
                     </div>
-                    <span className="text-base font-medium text-[#7d5f92]">Acessar Flowline — É Grátis</span>
+                    <span className="text-base font-medium text-[#7d5f92]">Acessar Flow — É Grátis</span>
                   </div>
                   {/* hero — centered */}
                   <div className="relative flex flex-col items-center px-10 pt-10 text-center">
@@ -255,10 +250,10 @@ export default function Hero() {
                       <span className="text-base text-[#7d5f92]">Confiado por 2.500+ equipes</span>
                     </div>
                     <h1 className="text-[68px] leading-[1.05] font-bold tracking-tight text-[#271f36] mb-6 max-w-[18ch]">
-                      Trabalho chato feito simples com IA
+                      Automatize seu trabalho de forma simples
                     </h1>
                     <p className="text-lg text-[#7d5f92] mb-8 max-w-[42ch]">
-                      O Flowline conecta nos seus fluxos existentes para você abandonar o trabalho repetitivo e focar no crescimento.
+                      Flow conecta nos seus fluxos existentes para você abandonar o trabalho repetitivo e focar no que importa.
                     </p>
                     <div className="flex items-center gap-4 mb-8">
                       <div className="flex items-center gap-3 rounded-full bg-[#7d5f92] px-8 py-4 text-base font-semibold text-white">

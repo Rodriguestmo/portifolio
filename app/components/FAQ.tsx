@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 
 const faqs = [
   {
@@ -82,8 +83,8 @@ export default function FAQ() {
           <div className="lg:sticky lg:top-24">
             <div className="rounded-2xl border border-black/6 bg-white p-8">
               {/* Avatar */}
-              <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-sky-100 to-blue-200 text-lg font-bold text-gray-500">
-                TM
+              <div className="relative h-16 w-16 overflow-hidden rounded-full">
+                <Image src="/images/perfil.png" alt="Thales Miguel" fill className="object-cover" />
               </div>
 
               <p className="mt-5 text-2xl text-gray-300">Ainda com dúvidas?</p>

@@ -51,20 +51,8 @@ export default function Footer() {
             </a>
           </div>
           <div>
-            <p className="text-sm text-gray-500">Social</p>
-            <div className="mt-1 flex gap-4">
-              <a
-                href="https://www.linkedin.com/in/thales-oliveira-rodrigues/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-white transition-opacity hover:opacity-70"
-              >
-                <div className="flex h-5 w-5 items-center justify-center rounded-full bg-white/10 text-[9px] font-bold">
-                  LI
-                </div>
-                LinkedIn
-              </a>
-            </div>
+            <p className="text-sm text-gray-500">Resposta rápida</p>
+            <p className="mt-1 text-gray-400 text-sm">Geralmente em menos de 1h</p>
           </div>
         </div>
 
@@ -120,7 +108,7 @@ export default function Footer() {
             THALES
           </p>
           {/* blur fade from middle down */}
-          <div className="absolute inset-x-0 bottom-0 h-full bg-gradient-to-t from-black via-black/60 to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black via-black/40 to-transparent" />
         </div>
       </div>
     </footer>

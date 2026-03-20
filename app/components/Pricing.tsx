@@ -38,7 +38,7 @@ const landingTrafegoFeatures = [
 
 const iaFeatures = [
   "Prospecção ativa automatizada",
-  "WhatsApp com IA",
+  "WhatsApp com IA Personalizada",
   "CRM integrado (Notion)",
   "Qualificação de leads 24/7",
   "Handoff inteligente para humano",
@@ -133,10 +133,10 @@ export default function Pricing() {
             </a>
           </div>
 
-          {/* Right — Automações com IA */}
+          {/* Right — IA Personalizada */}
           <div className="rounded-2xl border border-black/6 bg-white p-8">
             <span className="inline-flex items-center rounded-full border border-black/8 bg-gray-50 px-3 py-1.5 text-xs font-medium text-gray-500">
-              Automações com IA
+              IA Personalizada
             </span>
             <h3 className="mt-6 text-2xl font-bold text-black">
               Tecnologia que qualifica e converte no automático.

@@ -5,11 +5,6 @@ import AnimateIn from "./AnimateIn";
 
 const socialLinks = [
   {
-    name: "LinkedIn",
-    label: "LI",
-    href: "https://www.linkedin.com/in/thales-oliveira-rodrigues/",
-  },
-  {
     name: "WhatsApp",
     label: "WA",
     href: "https://wa.me/5535984128420",
@@ -26,8 +21,8 @@ const specialties = [
     description: "Meta Ads e Google Ads com leitura de funil.",
   },
   {
-    title: "Automações com IA",
-    description: "Qualificação, CRM e follow-up conectados.",
+    title: "IA Personalizada",
+    description: "Treinada com os dados do seu negócio. Não é chatbot genérico.",
   },
   {
     title: "WhatsApp + CRM",
@@ -124,7 +119,7 @@ export default function About() {
                 </p>
                 <p>
                   Construo landing pages que vendem, campanhas que escalam e
-                  automações com IA que trabalham enquanto você dorme. Tudo
+                  IA personalizada que trabalha enquanto você dorme. Tudo
                   integrado, tudo mensurável.
                 </p>
                 <p>
