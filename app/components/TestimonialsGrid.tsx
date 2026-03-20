@@ -26,16 +26,16 @@ const proofCards = [
     footer: "Landing Page ativa",
   },
   {
-    label: "Case interno",
-    title: "Operações com IA",
+    label: "Case fictício",
+    title: "Clínica NutriVita",
     summary:
-      "Automação aplicada em prospecção, CRM e follow-up como processo real de venda, não como demo isolada.",
+      "Clínica de nutrição com 3 unidades que tinha tráfego rodando mas perdia 60% dos leads por falta de resposta rápida.",
     points: [
-      "IA conectada ao WhatsApp e ao contexto do lead",
-      "CRM com histórico, estágio e handoff mais organizados",
-      "Menos trabalho repetitivo e mais velocidade operacional",
+      "Bot qualificou e agendou +180 consultas em 45 dias",
+      "Custo por agendamento caiu 38% sem aumentar verba",
+      "Time focou em atendimento, não em copiar e colar mensagens",
     ],
-    footer: "WhatsApp + IA + CRM",
+    footer: "Tráfego + WhatsApp IA + CRM",
   },
 ];
 

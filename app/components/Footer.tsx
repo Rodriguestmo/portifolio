@@ -111,14 +111,16 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Giant name */}
-        <div className="mt-16 overflow-hidden">
+        {/* Giant name — only top half visible, fading out */}
+        <div className="relative mt-16 overflow-hidden" style={{ height: "clamp(60px, 8vw, 120px)" }}>
           <p
-            className="text-center font-black leading-none tracking-tighter text-gray-900 select-none"
-            style={{ fontSize: "clamp(100px, 15vw, 220px)" }}
+            className="text-center font-black leading-none tracking-tighter text-gray-800 select-none"
+            style={{ fontSize: "clamp(120px, 18vw, 280px)" }}
           >
             THALES
           </p>
+          {/* blur fade from middle down */}
+          <div className="absolute inset-x-0 bottom-0 h-full bg-gradient-to-t from-black via-black/60 to-transparent" />
         </div>
       </div>
     </footer>

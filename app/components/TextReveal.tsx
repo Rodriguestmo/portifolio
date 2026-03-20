@@ -32,9 +32,9 @@ export default function TextReveal() {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start 0.78", "start 0.15"],
+    offset: ["start 0.55", "start -0.1"],
   });
-  const delayedProgress = useTransform(scrollYProgress, [0.3, 1], [0, 1]);
+  const delayedProgress = useTransform(scrollYProgress, [0.4, 1], [0, 1]);
 
   // Split into lines, then words, then characters
   const lines = text.split("\n");

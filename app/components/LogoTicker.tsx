@@ -2,6 +2,9 @@ const logos = [
   "Meta Ads",
   "Google Ads",
   "WhatsApp",
+  "HubSpot",
+  "RD Station",
+  "Pipedrive",
   "Notion",
   "Claude AI",
   "Python",
@@ -11,6 +14,8 @@ const logos = [
   "Supabase",
   "Node.js",
   "TypeScript",
+  "Make",
+  "Zapier",
 ];
 
 export default function LogoTicker() {

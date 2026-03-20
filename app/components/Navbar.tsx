@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const links = [
   { label: "Projetos", href: "#projetos" },
@@ -30,8 +31,8 @@ export default function Navbar() {
       }`}
     >
       <a href="#" className="flex items-center gap-3">
-        <div className="flex h-9 w-9 items-center justify-center rounded-full bg-black text-xs font-bold text-white">
-          TM
+        <div className="relative h-9 w-9 overflow-hidden rounded-full">
+          <Image src="/images/perfil.png" alt="Thales Miguel" fill className="object-cover" />
         </div>
         <span className="text-sm font-semibold text-black">Thales Miguel</span>
       </a>

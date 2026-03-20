@@ -30,31 +30,30 @@ const projects = [
     actionLabel: "Ver projeto",
     stack: [] as string[],
   },
-  {
-    name: "Prospector Bot",
-    category: "Automação com IA",
-    gradient: "from-gray-900 to-gray-800",
-    preview: null,
-    url: null,
-    badge: "Case interno",
-    description:
-      "Busca leads, organiza contexto no CRM e automatiza outreach com follow-up.",
-    actionLabel: "Case interno",
-    stack: ["Google Maps", "IA", "WhatsApp", "Notion CRM"],
-  },
-  {
-    name: "Atendimento Inteligente",
-    category: "WhatsApp + IA",
-    gradient: "from-emerald-900 to-emerald-800",
-    preview: null,
-    url: null,
-    badge: "Em estrutura",
-    description:
-      "Qualificação, contexto, agendamento e handoff humano dentro do mesmo fluxo.",
-    actionLabel: "Em construção",
-    stack: ["WhatsApp", "Qualificação", "Agenda", "Handoff"],
-  },
-] as const;
+  // hidden for now
+  // {
+  //   name: "Prospector Bot",
+  //   category: "Automação com IA",
+  //   gradient: "from-gray-900 to-gray-800",
+  //   preview: null,
+  //   url: null,
+  //   badge: "Case interno",
+  //   description: "Busca leads, organiza contexto no CRM e automatiza outreach com follow-up.",
+  //   actionLabel: "Case interno",
+  //   stack: ["Google Maps", "IA", "WhatsApp", "Notion CRM"],
+  // },
+  // {
+  //   name: "Atendimento Inteligente",
+  //   category: "WhatsApp + IA",
+  //   gradient: "from-emerald-900 to-emerald-800",
+  //   preview: null,
+  //   url: null,
+  //   badge: "Em estrutura",
+  //   description: "Qualificação, contexto, agendamento e handoff humano dentro do mesmo fluxo.",
+  //   actionLabel: "Em construção",
+  //   stack: ["WhatsApp", "Qualificação", "Agenda", "Handoff"],
+  // },
+];
 
 export default function Projects() {
   return (
