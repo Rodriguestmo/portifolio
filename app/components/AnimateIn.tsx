@@ -27,8 +27,8 @@ const hidden: Record<AnimationVariant, TargetAndTransition> = {
   genie: { opacity: 0, scale: 0.85, y: 60 },
   fadeUp: { opacity: 0, y: 40 },
   fadeIn: { opacity: 0 },
-  slideLeft: { opacity: 0, x: -60 },
-  slideRight: { opacity: 0, x: 60 },
+  slideLeft: { opacity: 0, x: -40 },
+  slideRight: { opacity: 0, x: 40 },
   scaleUp: { opacity: 0, scale: 0.9 },
 };
 
@@ -68,7 +68,7 @@ export default function AnimateIn({
   duration = 0.7,
   className,
   once = true,
-  amount = 0.2,
+  amount = 0.05,
   as = "div",
   trigger = "view",
 }: AnimateInProps) {
