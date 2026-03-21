@@ -30,7 +30,7 @@ export default function Navbar() {
           : "border-black/6 bg-white/70 backdrop-blur-sm"
       }`}
     >
-      <a href="#" className="flex items-center gap-3">
+      <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }} className="flex items-center gap-3">
         <div className="relative h-9 w-9 shrink-0 overflow-hidden rounded-full">
           <Image src="/images/perfil.png" alt="Thales Miguel" fill className="object-cover object-[center_20%]" />
         </div>

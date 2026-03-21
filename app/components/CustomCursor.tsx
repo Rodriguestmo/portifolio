@@ -76,7 +76,7 @@ export default function CustomCursor() {
 
   return (
     <>
-      {/* Outer ring — smooth follow */}
+      {/* Outer ring — smooth follow, mix-blend-mode inverts on dark bg */}
       <div
         ref={cursorRef}
         className="pointer-events-none fixed top-0 left-0 z-[9999] hidden lg:block"
@@ -85,14 +85,14 @@ export default function CustomCursor() {
           height: 40,
           opacity: hidden ? 0 : 1,
           transition: "width 0.3s, height 0.3s, opacity 0.3s",
+          mixBlendMode: "difference",
         }}
       >
         <div
-          className="h-full w-full rounded-full border border-black/30 transition-all duration-300"
+          className="h-full w-full rounded-full border border-white transition-all duration-300"
           style={{
             transform: hovering ? "scale(1.8)" : "scale(1)",
-            borderColor: hovering ? "rgba(0,0,0,0.6)" : "rgba(0,0,0,0.3)",
-            backgroundColor: hovering ? "rgba(0,0,0,0.04)" : "transparent",
+            backgroundColor: hovering ? "rgba(255,255,255,0.08)" : "transparent",
           }}
         />
       </div>
@@ -101,10 +101,14 @@ export default function CustomCursor() {
       <div
         ref={dotRef}
         className="pointer-events-none fixed top-0 left-0 z-[9999] hidden lg:block"
-        style={{ opacity: hidden ? 0 : 1, transition: "opacity 0.3s" }}
+        style={{
+          opacity: hidden ? 0 : 1,
+          transition: "opacity 0.3s",
+          mixBlendMode: "difference",
+        }}
       >
         <div
-          className="rounded-full bg-black transition-all duration-300"
+          className="rounded-full bg-white transition-all duration-300"
           style={{
             width: hovering ? 0 : 8,
             height: hovering ? 0 : 8,

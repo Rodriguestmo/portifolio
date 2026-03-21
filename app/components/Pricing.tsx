@@ -20,7 +20,7 @@ const steps = [
     ),
     title: "Planeje",
     description:
-      "Monto a estratégia e o escopo ideal para o seu momento.",
+      "Monto a estratégia e o escopo ideal para o estágio atual do seu negócio.",
   },
   {
     icon: (

@@ -57,9 +57,9 @@ export default function TestimonialsGrid() {
           <AnimateIn variant="fadeUp" delay={0.15}>
             <div className="lg:max-w-[38rem] lg:justify-self-end">
               <p className="text-lg leading-relaxed text-gray-500">
-                O ponto aqui não é parecer ocupado. É mostrar que as peças se conectam:
-                página, tráfego, CRM, WhatsApp e automação funcionando como operação de
-                verdade.
+                Cada peça funciona dentro de um sistema conectado — página,
+                tráfego, CRM, WhatsApp e automação trabalhando juntos como uma
+                operação real.
               </p>
             </div>
           </AnimateIn>

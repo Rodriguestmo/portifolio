@@ -47,7 +47,7 @@ export default function SocialProof() {
               prefix="+"
               className="font-bold text-base"
             />{" "}
-            <span className="text-gray-500">problemas de pessoas reais resolvidos</span>
+            <span className="text-gray-500">projetos entregues com resultado</span>
           </p>
         </div>
       </AnimateIn>

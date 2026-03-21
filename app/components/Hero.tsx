@@ -68,7 +68,7 @@ export default function Hero() {
                   para transformar clique em lead qualificado.
                 </span>{" "}
                 <span className="text-gray-500">
-                  Eu monto a operação digital completa que sua marca precisa para
+                  Monto a operação digital completa que sua marca precisa para
                   atrair, qualificar e converter.
                 </span>
               </p>

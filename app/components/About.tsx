@@ -88,8 +88,8 @@ export default function About() {
                   ))}
                 </motion.div>
                 <p className="mt-4 max-w-md text-sm leading-relaxed text-gray-400">
-                  O foco aqui é unir design, mídia e tecnologia numa operação
-                  que realmente gere demanda e venda.
+                  O foco é unir design, mídia e tecnologia numa operação que
+                  transforma clique em cliente.
                 </p>
               </div>
             </div>

@@ -26,10 +26,10 @@ export default function Footer() {
           <div>
             <p className="text-sm text-gray-500">E-mail</p>
             <a
-              href="mailto:rtmopublicidade@gmail.com"
+              href="mailto:thalesmiguel.tech@gmail.com"
               className="mt-1 text-white transition-opacity hover:opacity-70"
             >
-              rtmopublicidade@gmail.com
+              thalesmiguel.tech@gmail.com
             </a>
           </div>
           <div>
@@ -77,24 +77,7 @@ export default function Footer() {
               </div>
             </div>
 
-            {/* Legal */}
-            <div>
-              <p className="text-sm text-gray-500">Legal</p>
-              <div className="mt-2 flex gap-4">
-                <a
-                  href="#"
-                  className="text-sm text-gray-400 transition-colors hover:text-white"
-                >
-                  Termos de serviço
-                </a>
-                <a
-                  href="#"
-                  className="text-sm text-gray-400 transition-colors hover:text-white"
-                >
-                  Política de privacidade
-                </a>
-              </div>
-            </div>
+            {/* Legal - placeholder until pages are created */}
 
             {/* Copyright */}
             <p className="text-sm text-gray-500">&copy; 2026 Thales Miguel — Marketing Digital & Tecnologia</p>
