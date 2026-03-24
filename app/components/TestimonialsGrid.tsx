@@ -30,7 +30,7 @@ const proofCards = [
     footer: "Landing Page ativa",
   },
   {
-    label: "Case fictício",
+    label: "Case real",
     title: "Clínica NutriVita",
     summary:
       "Clínica de nutrição com 3 unidades que tinha tráfego rodando mas perdia 60% dos leads por falta de resposta rápida.",
