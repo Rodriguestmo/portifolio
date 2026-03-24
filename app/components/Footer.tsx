@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform, type Variants } from "framer-motion";
+import Aurora from "./Aurora";
 import { openContactModal } from "@/app/utils/contactModal";
 
 const footerHeadingVariants: Variants = {
@@ -29,7 +30,8 @@ export default function Footer() {
   const footerY = useTransform(scrollYProgress, [0.7, 1], ["30px", "0px"]);
 
   return (
-    <footer id="contato" className="bg-black px-6 py-20 text-white lg:px-8 lg:py-28">
+    <footer id="contato" className="relative bg-black px-6 py-20 text-white lg:px-8 lg:py-28 overflow-hidden">
+      <Aurora intensity={0.55} dark />
       <motion.div className="mx-auto max-w-[1160px]" style={{ y: footerY }}>
         {/* Big heading */}
         <motion.h2

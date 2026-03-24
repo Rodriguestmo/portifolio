@@ -2,9 +2,11 @@
 
 import AnimateIn from "./AnimateIn";
 import AnimatedCounter from "./AnimatedCounter";
+import Aurora from "./Aurora";
 import MagneticButton from "./MagneticButton";
+import TiltCard from "./TiltCard";
 import { openContactModal } from "@/app/utils/contactModal";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const wordVariants = {
   hidden: { opacity: 0, y: 60, skewY: 4 },
@@ -17,17 +19,29 @@ const wordVariants = {
 };
 
 
+
 export default function Hero() {
+  // Subtle parallax on scroll
+  const { scrollYProgress } = useScroll({ offset: ["start start", "end start"] });
+  const card1Y = useTransform(scrollYProgress, [0, 1], [0, -25]);
+  const card2Y = useTransform(scrollYProgress, [0, 1], [0, -40]);
+  const card3Y = useTransform(scrollYProgress, [0, 1], [0, -55]);
+
   return (
-    <section className="px-6 pt-28 pb-20 lg:px-8 lg:pt-36 lg:pb-28">
+    <section className="relative px-6 pt-28 pb-20 lg:px-8 lg:pt-36 lg:pb-28 overflow-hidden">
+      <Aurora intensity={0.18} />
       <div className="mx-auto max-w-[1160px]">
         <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
           {/* Left */}
           <div>
             <AnimateIn variant="fadeIn" delay={0.2} trigger="mount">
-              <div className="inline-flex items-center gap-2.5 rounded-full border border-black/8 bg-white/80 px-4 py-2 text-xs font-medium tracking-wide text-black uppercase">
-                <span className="h-2 w-2 rounded-full bg-green-500" />
-                Disponível para o seu projeto
+              <div className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-black/[0.04] px-4 py-2 text-xs font-medium text-black/70 backdrop-blur-sm">
+                <span className="relative flex h-2 w-2">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-60" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500" />
+                </span>
+                <span className="text-black/50">Disponível para</span>
+                <span className="text-black font-semibold">o seu projeto</span>
               </div>
             </AnimateIn>
 
@@ -55,6 +69,12 @@ export default function Hero() {
                     animate="visible"
                     variants={wordVariants}
                     className="heading-bold inline-block mr-[0.2em]"
+                    style={{
+                      background: "linear-gradient(135deg, #000000 30%, #6b6b6b 100%)",
+                      WebkitBackgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
+                      backgroundClip: "text",
+                    }}
                   >
                     {word}
                   </motion.span>
@@ -103,19 +123,28 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 1.5, ease: [0.25, 0.4, 0.25, 1] }}
             >
-              <div className="cta-pulse-wrapper">
-                <MagneticButton>
-                  <button
-                    onClick={() => openContactModal()}
-                    className="inline-flex items-center gap-3 rounded-full bg-black px-6 py-4 text-sm font-medium text-white transition-all hover:bg-gray-800 hover:shadow-xl hover:shadow-black/20 active:scale-95"
-                  >
-                    <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+              <MagneticButton>
+                {/* Layered pill button — outer border + inner pill + glow streak */}
+                <button
+                  onClick={() => openContactModal()}
+                  className="relative rounded-full p-[1px] active:scale-95 transition-transform"
+                  style={{ border: "0.6px solid rgba(0,0,0,0.25)" }}
+                >
+                  {/* Glow streak on top */}
+                  <span
+                    aria-hidden
+                    className="pointer-events-none absolute left-1/2 -translate-x-1/2 -top-px h-[10px] w-3/5 rounded-full blur-sm"
+                    style={{ background: "rgba(255,255,255,0.55)" }}
+                  />
+                  {/* Inner pill */}
+                  <span className="relative flex items-center gap-3 rounded-full bg-black px-6 py-4 text-sm font-medium text-white transition-colors hover:bg-gray-900">
+                    <svg className="h-5 w-5 shrink-0" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
                     </svg>
-                    <span>Fale comigo no WhatsApp</span>
-                  </button>
-                </MagneticButton>
-              </div>
+                    Fale comigo no WhatsApp
+                  </span>
+                </button>
+              </MagneticButton>
               <MagneticButton>
                 <a
                   href="https://calendar.app.google/v7s5H975BGwnriuZA"
@@ -146,8 +175,15 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 60, rotate: 6 }}
                 animate={{ opacity: 1, y: 0, rotate: 3 }}
                 transition={{ type: "spring", damping: 22, stiffness: 120, delay: 0.5 }}
-                className="absolute top-3 right-0 h-[300px] w-[390px] overflow-hidden rounded-[2rem] border border-white/6 shadow-2xl"
+                style={{ y: card1Y }}
+                className="absolute top-3 right-0 h-[300px] w-[390px]"
               >
+                <motion.div
+                  animate={{ y: [0, -10, 0] }}
+                  transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut" }}
+                  className="h-full w-full"
+                >
+                <TiltCard intensity={6} className="h-full w-full overflow-hidden rounded-[2rem] border border-white/6 shadow-2xl">
                 {/* inner "full-size" screenshot at 975x750, scaled to 390x300 (scale 0.4) */}
                 <div style={{ width: 975, height: 750, transform: "scale(0.4)", transformOrigin: "top left" }} className="bg-[#0e0e10]">
                   {/* glow */}
@@ -210,6 +246,8 @@ export default function Hero() {
                     </div>
                   </div>
                 </div>
+              </TiltCard>
+                </motion.div>
               </motion.div>
 
               {/* Card 2 — MOVX: screenshot crop */}
@@ -217,8 +255,15 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 80, rotate: -5 }}
                 animate={{ opacity: 1, y: 0, rotate: -2 }}
                 transition={{ type: "spring", damping: 22, stiffness: 120, delay: 0.7 }}
-                className="absolute top-16 left-10 h-[300px] w-[390px] overflow-hidden rounded-[2rem] shadow-2xl"
+                style={{ y: card2Y }}
+                className="absolute top-16 left-10 h-[300px] w-[390px]"
               >
+                <motion.div
+                  animate={{ y: [0, -14, 0] }}
+                  transition={{ duration: 6.8, repeat: Infinity, ease: "easeInOut", delay: 1.2 }}
+                  className="h-full w-full"
+                >
+                <TiltCard intensity={6} className="h-full w-full overflow-hidden rounded-[2rem] shadow-2xl">
                 <div style={{ width: 975, height: 750, transform: "scale(0.4)", transformOrigin: "top left" }} className="relative">
                   {/* full-bleed photo-like bg */}
                   <div className="absolute inset-0 bg-[linear-gradient(160deg,#252f1c_0%,#1a2316_25%,#111910_55%,#0a0e08_100%)]" />
@@ -261,6 +306,8 @@ export default function Hero() {
                     </div>
                   </div>
                 </div>
+              </TiltCard>
+                </motion.div>
               </motion.div>
 
               {/* Card 3 — Flow: screenshot crop */}
@@ -268,8 +315,15 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 100, rotate: 4 }}
                 animate={{ opacity: 1, y: 0, rotate: 1 }}
                 transition={{ type: "spring", damping: 22, stiffness: 120, delay: 0.9 }}
-                className="absolute bottom-0 left-0 h-[300px] w-[392px] overflow-hidden rounded-[2rem] shadow-2xl"
+                style={{ y: card3Y }}
+                className="absolute bottom-0 left-0 h-[300px] w-[392px]"
               >
+                <motion.div
+                  animate={{ y: [0, -8, 0] }}
+                  transition={{ duration: 4.9, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
+                  className="h-full w-full"
+                >
+                <TiltCard intensity={6} className="h-full w-full overflow-hidden rounded-[2rem] shadow-2xl">
                 <div style={{ width: 980, height: 750, transform: "scale(0.4)", transformOrigin: "top left" }} className="relative bg-[#f0eaf8]">
                   {/* orbs */}
                   <div className="absolute top-0 left-[20%] h-[500px] w-[500px] rounded-full bg-[#c4aee0]/20 blur-[100px]" />
@@ -340,6 +394,8 @@ export default function Hero() {
                     </div>
                   </div>
                 </div>
+              </TiltCard>
+                </motion.div>
               </motion.div>
             </div>
           </motion.div>

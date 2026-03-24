@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import Aurora from "./Aurora";
 
 const text = "resolvendo problemas reais\nde pessoas reais.";
 
@@ -46,7 +47,8 @@ export default function TextReveal() {
   let charIndex = 0;
 
   return (
-    <section ref={containerRef} className="px-6 py-16 lg:px-8 lg:py-44">
+    <section ref={containerRef} className="relative px-6 py-16 lg:px-8 lg:py-44 overflow-hidden">
+      <Aurora intensity={0.08} />
       <div className="mx-auto max-w-[1120px] text-center">
         <p className="text-4xl leading-[1.12] tracking-tight md:text-6xl lg:text-[5rem]">
           {lines.map((line, lineIdx) => (

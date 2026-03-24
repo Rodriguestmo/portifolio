@@ -118,34 +118,30 @@ export default function About() {
             </AnimateIn>
 
             {/* Bio text */}
-            <div className="space-y-6 text-lg leading-relaxed text-gray-500">
-              {[
-                "A maioria das empresas trata marketing e tecnologia como coisas separadas.",
-                "Eu junto as duas.",
-                "Porque uma landing page bonita que não converte é desperdício, e uma automação poderosa sem design é invisível.",
-                "Construo landing pages que vendem, campanhas que escalam e IA personalizada que trabalha enquanto você dorme.",
-                "Tudo integrado, tudo mensurável.",
-                "Não entrego projeto pela metade.",
-                "Se o copy não convence, refaço.",
-                "Se a automação trava, corrijo.",
-                "O resultado final é o que importa, não o processo.",
-              ].map((line, i) => (
-                <motion.span
-                  key={i}
-                  className="block"
-                  initial={{ opacity: 0, y: 18 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.5 }}
-                  transition={{
-                    duration: 0.6,
-                    delay: i * 0.12,
-                    ease: [0.25, 0.4, 0.25, 1],
-                  }}
-                >
-                  {line}{" "}
-                </motion.span>
-              ))}
-            </div>
+            <AnimateIn variant="fadeUp" delay={0.3}>
+              <div className="space-y-6 text-lg leading-relaxed text-gray-500">
+                <p>
+                  A maioria das empresas{" "}
+                  <span className="font-semibold text-black">
+                    trata marketing e tecnologia como coisas separadas.
+                  </span>{" "}
+                  Eu junto as duas. Porque uma landing page bonita que não converte
+                  é desperdício, e uma automação poderosa sem design é invisível.
+                </p>
+                <p>
+                  Construo landing pages que vendem, campanhas que escalam e
+                  IA personalizada que trabalha enquanto você dorme. Tudo
+                  integrado, tudo mensurável.
+                </p>
+                <p>
+                  <span className="font-semibold text-black">
+                    Não entrego projeto pela metade.
+                  </span>{" "}
+                  Se o copy não convence, refaço. Se a automação trava, corrijo.
+                  O resultado final é o que importa, não o processo.
+                </p>
+              </div>
+            </AnimateIn>
 
             {/* Signature */}
             <AnimateIn variant="fadeIn" delay={0.5}>
