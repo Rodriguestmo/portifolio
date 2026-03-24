@@ -1,6 +1,20 @@
 "use client";
 
+import { motion, useScroll, useTransform, type Variants } from "framer-motion";
 import { openContactModal } from "@/app/utils/contactModal";
+
+const footerHeadingVariants: Variants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.12, delayChildren: 0.1 } },
+};
+const footerWordVariants: Variants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: "easeOut" },
+  },
+};
 
 const menuLinks = [
   { label: "Projetos", href: "#projetos" },
@@ -9,53 +23,74 @@ const menuLinks = [
 ];
 
 export default function Footer() {
+  const { scrollYProgress } = useScroll();
+
+  const footerTextX = useTransform(scrollYProgress, [0.7, 1], ["0%", "-8%"]);
+  const footerY = useTransform(scrollYProgress, [0.7, 1], ["30px", "0px"]);
+
   return (
     <footer id="contato" className="bg-black px-6 py-20 text-white lg:px-8 lg:py-28">
-      <div className="mx-auto max-w-[1160px]">
+      <motion.div className="mx-auto max-w-[1160px]" style={{ y: footerY }}>
         {/* Big heading */}
-        <h2 className="text-5xl leading-[1.05] tracking-tight md:text-7xl">
-          <span className="font-bold text-white">Vamos</span>
-          <br />
-          <span className="text-gray-600">criar</span>
-          <br />
-          <span className="text-gray-600">resultados incríveis juntos.</span>
-        </h2>
+        <motion.h2
+          className="text-5xl leading-[1.05] tracking-tight md:text-7xl overflow-hidden"
+          variants={footerHeadingVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+        >
+          <motion.span variants={footerWordVariants} className="block font-bold text-white">Vamos</motion.span>
+          <motion.span variants={footerWordVariants} className="block text-gray-600">criar</motion.span>
+          <motion.span variants={footerWordVariants} className="block text-gray-600">resultados incríveis juntos.</motion.span>
+        </motion.h2>
 
         {/* Contact info — 4 columns */}
         <div className="mt-16 grid gap-8 md:grid-cols-4">
-          <div>
-            <p className="text-sm text-gray-500">E-mail</p>
-            <a
-              href="mailto:thalesmiguel.tech@gmail.com"
-              className="mt-1 text-white transition-opacity hover:opacity-70"
+          {[
+            <div key="email">
+              <p className="text-sm text-gray-500">E-mail</p>
+              <a
+                href="mailto:thalesmiguel.tech@gmail.com"
+                className="mt-1 text-white transition-opacity hover:opacity-70"
+              >
+                thalesmiguel.tech@gmail.com
+              </a>
+            </div>,
+            <div key="whatsapp">
+              <p className="text-sm text-gray-500">WhatsApp</p>
+              <button
+                onClick={() => openContactModal()}
+                className="mt-1 text-white transition-opacity hover:opacity-70"
+              >
+                Fale agora
+              </button>
+            </div>,
+            <div key="meeting">
+              <p className="text-sm text-gray-500">Agendar reunião</p>
+              <a
+                href="https://calendar.app.google/v7s5H975BGwnriuZA"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-1 text-white transition-opacity hover:opacity-70"
+              >
+                Marcar horário
+              </a>
+            </div>,
+            <div key="response">
+              <p className="text-sm text-gray-500">Resposta rápida</p>
+              <p className="mt-1 text-gray-400 text-sm">Geralmente em menos de 1h</p>
+            </div>,
+          ].map((child, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
             >
-              thalesmiguel.tech@gmail.com
-            </a>
-          </div>
-          <div>
-            <p className="text-sm text-gray-500">WhatsApp</p>
-            <button
-              onClick={() => openContactModal()}
-              className="mt-1 text-white transition-opacity hover:opacity-70"
-            >
-              Fale agora
-            </button>
-          </div>
-          <div>
-            <p className="text-sm text-gray-500">Agendar reunião</p>
-            <a
-              href="https://calendar.app.google/v7s5H975BGwnriuZA"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-1 text-white transition-opacity hover:opacity-70"
-            >
-              Marcar horário
-            </a>
-          </div>
-          <div>
-            <p className="text-sm text-gray-500">Resposta rápida</p>
-            <p className="mt-1 text-gray-400 text-sm">Geralmente em menos de 1h</p>
-          </div>
+              {child}
+            </motion.div>
+          ))}
         </div>
 
         {/* Divider */}
@@ -86,16 +121,16 @@ export default function Footer() {
 
         {/* Giant name — only top half visible, fading out */}
         <div className="relative mt-16 overflow-hidden" style={{ height: "clamp(70px, 11vw, 160px)" }}>
-          <p
+          <motion.p
             className="text-center font-black leading-none tracking-tighter text-gray-800 select-none whitespace-nowrap"
-            style={{ fontSize: "clamp(80px, 18vw, 280px)" }}
+            style={{ fontSize: "clamp(80px, 18vw, 280px)", x: footerTextX }}
           >
             THALES
-          </p>
+          </motion.p>
           {/* blur fade from middle down */}
           <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black via-black/40 to-transparent" />
         </div>
-      </div>
+      </motion.div>
     </footer>
   );
 }

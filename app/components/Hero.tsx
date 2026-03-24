@@ -16,6 +16,7 @@ const wordVariants = {
   }),
 };
 
+
 export default function Hero() {
   return (
     <section className="px-6 pt-28 pb-20 lg:px-8 lg:pt-36 lg:pb-28">
@@ -61,37 +62,48 @@ export default function Hero() {
               </span>
             </h1>
 
-            <AnimateIn variant="fadeUp" delay={0.5} trigger="mount">
-              <p className="mt-8 max-w-xl text-lg leading-relaxed">
-                <span className="font-semibold text-black">
-                  Landing pages, tráfego pago e IA personalizada para o seu negócio. Tudo conectado
-                  para transformar clique em lead qualificado.
-                </span>{" "}
-                <span className="text-gray-500">
-                  Monto a operação digital completa que sua marca precisa para
-                  atrair, qualificar e converter.
-                </span>
-              </p>
-            </AnimateIn>
+            <motion.p
+              className="mt-8 max-w-xl text-lg leading-relaxed"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 1.2, ease: [0.25, 0.4, 0.25, 1] }}
+            >
+              <span className="font-semibold text-black">
+                Landing pages, tráfego pago e IA personalizada para o seu negócio. Tudo conectado
+                para transformar clique em lead qualificado.
+              </span>{" "}
+              <span className="text-gray-500">
+                Monto a operação digital completa que sua marca precisa para
+                atrair, qualificar e converter.
+              </span>
+            </motion.p>
 
             {/* Stats bar */}
-            <AnimateIn variant="slideLeft" delay={0.6} trigger="mount">
-              <div className="mt-10 flex flex-wrap gap-6 text-sm">
-                <div>
-                  <p className="font-bold text-black">+R$ <AnimatedCounter target={18} className="tabular-nums" />M</p>
-                  <p className="text-gray-400">em mídia gerenciada</p>
-                </div>
-                <div className="h-10 w-px bg-black/10" />
-                <div>
-                  <p className="text-gray-400"><span className="font-bold text-black">mais</span> resultado com</p>
-                  <p className="text-gray-400"><span className="font-bold text-black">menor</span> custo possível</p>
-                </div>
+            <motion.div
+              className="mt-10 flex flex-wrap gap-6 text-sm"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 1.7, ease: [0.25, 0.4, 0.25, 1] }}
+            >
+              <div>
+                <p className="font-bold text-black">+R$ <AnimatedCounter target={18} className="tabular-nums" />M</p>
+                <p className="text-gray-400">em mídia gerenciada</p>
               </div>
-            </AnimateIn>
+              <div className="h-10 w-px bg-black/10" />
+              <div>
+                <p className="text-gray-400"><span className="font-bold text-black">mais</span> resultado com</p>
+                <p className="text-gray-400"><span className="font-bold text-black">menor</span> custo possível</p>
+              </div>
+            </motion.div>
 
             {/* CTAs */}
-            <AnimateIn variant="fadeUp" delay={0.7} trigger="mount">
-              <div className="mt-10 flex flex-wrap gap-4">
+            <motion.div
+              className="mt-10 flex flex-wrap gap-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 1.5, ease: [0.25, 0.4, 0.25, 1] }}
+            >
+              <div className="cta-pulse-wrapper">
                 <MagneticButton>
                   <button
                     onClick={() => openContactModal()}
@@ -103,21 +115,21 @@ export default function Hero() {
                     <span>Fale comigo no WhatsApp</span>
                   </button>
                 </MagneticButton>
-                <MagneticButton>
-                  <a
-                    href="https://calendar.app.google/v7s5H975BGwnriuZA"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-3 rounded-full border border-black/15 px-6 py-4 text-sm font-medium text-black transition-all hover:bg-gray-50 hover:border-black/30 active:scale-95"
-                  >
-                    <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
-                    </svg>
-                    <span>Agendar reunião</span>
-                  </a>
-                </MagneticButton>
               </div>
-            </AnimateIn>
+              <MagneticButton>
+                <a
+                  href="https://calendar.app.google/v7s5H975BGwnriuZA"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-3 rounded-full border border-black/15 px-6 py-4 text-sm font-medium text-black transition-all hover:bg-gray-50 hover:border-black/30 active:scale-95"
+                >
+                  <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+                  </svg>
+                  <span>Agendar reunião</span>
+                </a>
+              </MagneticButton>
+            </motion.div>
           </div>
 
           {/* Right — Screenshot-style mini hero cards (scaled from 1920px) */}

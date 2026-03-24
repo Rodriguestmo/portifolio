@@ -85,18 +85,50 @@ export default function Projects() {
 
                   {project.preview ? (
                     <>
-                      <Image
-                        src={project.preview}
-                        alt={project.name}
-                        width={640}
-                        height={400}
-                        className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                      />
+                      <motion.div
+                        initial={{ clipPath: "inset(0 100% 0 0)" }}
+                        whileInView={{ clipPath: "inset(0 0% 0 0)" }}
+                        viewport={{ once: true, amount: 0.3 }}
+                        transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
+                        className="h-full w-full"
+                      >
+                        <Image
+                          src={project.preview}
+                          alt={project.name}
+                          width={640}
+                          height={400}
+                          className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                        />
+                      </motion.div>
                       <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/55 via-black/15 to-transparent p-6">
                         <span className="text-4xl font-black tracking-tight text-white/25 uppercase">
                           {project.name.split(" ")[0]}
                         </span>
                       </div>
+                      <motion.div
+                        className="absolute inset-0 flex flex-col items-center justify-center gap-3"
+                        initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
+                        whileHover={{ opacity: 1, backdropFilter: "blur(4px)" }}
+                        transition={{ duration: 0.3, ease: "easeOut" }}
+                        style={{ borderRadius: "inherit", backgroundColor: "rgba(0,0,0,0.60)" }}
+                      >
+                        <motion.span
+                          className="text-white text-sm font-semibold tracking-widest uppercase"
+                          initial={{ y: 10, opacity: 0 }}
+                          whileHover={{ y: 0, opacity: 1 }}
+                          transition={{ duration: 0.25, delay: 0.05 }}
+                        >
+                          {project.name}
+                        </motion.span>
+                        <motion.span
+                          className="text-green-400 text-xs tracking-wider"
+                          initial={{ y: 10, opacity: 0 }}
+                          whileHover={{ y: 0, opacity: 1 }}
+                          transition={{ duration: 0.25, delay: 0.1 }}
+                        >
+                          Ver projeto →
+                        </motion.span>
+                      </motion.div>
                     </>
                   ) : (
                     <div className="flex h-full flex-col justify-between p-8 text-white">

@@ -15,10 +15,14 @@ import ContactBar from "./components/ContactBar";
 import ContactModal from "./components/ContactModal";
 import SmoothScroll from "./components/SmoothScroll";
 import CustomCursor from "./components/CustomCursor";
+import PreloaderWrapper from "./components/PreloaderWrapper";
+import ScrollProgressBar from "./components/ScrollProgressBar";
 
 export default function Home() {
   return (
     <>
+      <PreloaderWrapper />
+      <ScrollProgressBar />
       <SmoothScroll />
       <CustomCursor />
       <ContactModal />

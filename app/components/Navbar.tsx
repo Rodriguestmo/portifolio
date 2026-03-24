@@ -49,13 +49,24 @@ export default function Navbar() {
 
       <div className="hidden items-center gap-6 md:flex">
         {links.map((link) => (
-          <a
+          <motion.a
             key={link.href}
             href={link.href}
             className="text-sm text-gray-500 transition-colors hover:text-black"
+            whileHover={{ y: -2 }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
           >
-            {link.label}
-          </a>
+            <span className="relative">
+              {link.label}
+              <motion.span
+                className="absolute bottom-0 left-0 h-px bg-green-400 w-full"
+                initial={{ scaleX: 0 }}
+                whileHover={{ scaleX: 1 }}
+                transition={{ duration: 0.25, ease: [0.25, 0.4, 0.25, 1] }}
+                style={{ transformOrigin: "left" }}
+              />
+            </span>
+          </motion.a>
         ))}
         <a
           href="#contato"

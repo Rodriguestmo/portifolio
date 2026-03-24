@@ -3,6 +3,71 @@
 import Image from "next/image";
 import AnimateIn from "./AnimateIn";
 import AnimatedCounter from "./AnimatedCounter";
+import { useState, useEffect, useRef } from "react";
+
+function useTextScramble(finalText: string, isActive: boolean) {
+  const [display, setDisplay] = useState(finalText);
+  const chars = "0123456789";
+
+  useEffect(() => {
+    if (!isActive) return;
+    let iteration = 0;
+    const total = 15;
+    const interval = setInterval(() => {
+      setDisplay(
+        finalText
+          .split("")
+          .map((char, i) => {
+            if (i < Math.floor((iteration / total) * finalText.length))
+              return char;
+            if (!/[0-9+]/.test(char)) return char;
+            return chars[Math.floor(Math.random() * chars.length)];
+          })
+          .join(""),
+      );
+      iteration++;
+      if (iteration > total) clearInterval(interval);
+    }, 50);
+    return () => clearInterval(interval);
+  }, [isActive, finalText]);
+
+  return display;
+}
+
+function ScrambleLabel({
+  text,
+  className,
+}: {
+  text: string;
+  className?: string;
+}) {
+  const [isActive, setIsActive] = useState(false);
+  const ref = useRef<HTMLSpanElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsActive(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.5 },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  const display = useTextScramble(text, isActive);
+
+  return (
+    <span ref={ref} className={className}>
+      {display}
+    </span>
+  );
+}
 
 const avatars = [
   "/images/pessoas/1.jpeg",
@@ -47,7 +112,10 @@ export default function SocialProof() {
               prefix="+"
               className="font-bold text-base"
             />{" "}
-            <span className="text-gray-500">projetos entregues com resultado</span>
+            <ScrambleLabel
+              text="projetos entregues com resultado"
+              className="text-gray-500"
+            />
           </p>
         </div>
       </AnimateIn>
