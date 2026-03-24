@@ -31,8 +31,8 @@ export default function Footer() {
 
   return (
     <footer id="contato" className="relative bg-black px-6 py-20 text-white lg:px-8 lg:py-28 overflow-hidden">
-      <Aurora intensity={0.55} dark />
-      <motion.div className="mx-auto max-w-[1160px]" style={{ y: footerY }}>
+      <Aurora intensity={0.55} dark className="z-0" />
+      <motion.div className="relative z-10 mx-auto max-w-[1160px]" style={{ y: footerY }}>
         {/* Big heading */}
         <motion.h2
           className="text-5xl leading-[1.05] tracking-tight md:text-7xl overflow-hidden"
