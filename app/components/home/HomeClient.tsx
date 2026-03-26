@@ -51,6 +51,14 @@ export default function HomeClient() {
     setSpot({ x: e.clientX - rect.left, y: e.clientY - rect.top, visible: true });
   }, []);
 
+  // Spotlight state for services card
+  const servicesRef = useRef<HTMLAnchorElement>(null);
+  const [servSpot, setServSpot] = useState({ x: 0, y: 0, visible: false });
+  const handleServicesMove = useCallback((e: React.MouseEvent<HTMLAnchorElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setServSpot({ x: e.clientX - rect.left, y: e.clientY - rect.top, visible: true });
+  }, []);
+
   // ─── Experience Data (from ALL CVs)
   const experience = [
     {
@@ -325,13 +333,22 @@ export default function HomeClient() {
 
             <motion.a
               href="/marketing"
+              ref={servicesRef as React.Ref<HTMLAnchorElement>}
+              onMouseMove={(e: React.MouseEvent) => { const rect = e.currentTarget.getBoundingClientRect(); setServSpot({ x: e.clientX - rect.left, y: e.clientY - rect.top, visible: true }); }}
+              onMouseLeave={() => setServSpot(s => ({ ...s, visible: false }))}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, type: "spring", stiffness: 100 }}
               className="group relative block bg-white border border-black/[0.06] rounded-[24px] p-10 md:p-14 hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.08)] transition-all duration-500 cursor-pointer overflow-hidden"
             >
-              <div className="absolute inset-0 bg-neutral-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
+              <div
+                className="pointer-events-none absolute -inset-px transition-opacity duration-300 z-0"
+                style={{
+                  opacity: servSpot.visible ? 1 : 0,
+                  background: `radial-gradient(400px circle at ${servSpot.x}px ${servSpot.y}px, rgba(0,0,0,0.06) 0%, transparent 60%)`,
+                }}
+              />
 
               <p className="text-lg md:text-xl text-neutral-600 leading-relaxed mb-8 max-w-2xl">
                 {isEn
