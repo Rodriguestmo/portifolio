@@ -58,7 +58,7 @@ export default function CustomCursor() {
       pos.current.x = lerp(pos.current.x, target.current.x, 0.15);
       pos.current.y = lerp(pos.current.y, target.current.y, 0.15);
       if (cursorRef.current) {
-        cursorRef.current.style.transform = `translate(${pos.current.x - 20}px, ${pos.current.y - 20}px)`;
+        cursorRef.current.style.transform = `translate(${pos.current.x - 28}px, ${pos.current.y - 28}px)`;
       }
       raf = requestAnimationFrame(animate);
     };
@@ -76,23 +76,24 @@ export default function CustomCursor() {
 
   return (
     <>
-      {/* Outer ring — smooth follow, mix-blend-mode inverts on dark bg */}
+      {/* Outer ring — gravitational distortion */}
       <div
         ref={cursorRef}
         className="pointer-events-none fixed top-0 left-0 z-[9999] hidden lg:block"
         style={{
-          width: 40,
-          height: 40,
+          width: 56,
+          height: 56,
           opacity: hidden ? 0 : 1,
           transition: "width 0.3s, height 0.3s, opacity 0.3s",
-          mixBlendMode: "difference",
         }}
       >
         <div
-          className="h-full w-full rounded-full border border-white transition-all duration-300"
+          className="h-full w-full rounded-full transition-all duration-300 pointer-events-none border border-black/5"
           style={{
-            transform: hovering ? "scale(1.8)" : "scale(1)",
-            backgroundColor: hovering ? "rgba(255,255,255,0.08)" : "transparent",
+            transform: hovering ? "scale(1.5)" : "scale(1)",
+            backgroundColor: hovering ? "rgba(0,0,0,0.03)" : "transparent",
+            backdropFilter: "blur(6px) brightness(1.05) contrast(1.1)",
+            WebkitBackdropFilter: "blur(6px) brightness(1.05)",
           }}
         />
       </div>

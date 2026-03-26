@@ -11,6 +11,7 @@ import PreloaderWrapper from "../PreloaderWrapper";
 import MagneticButton from "../MagneticButton";
 import TiltCard from "../TiltCard";
 import LanguageToggle from "../LanguageToggle";
+import SpotlightCard from "../SpotlightCard";
 import { useLanguage } from "../../context/LanguageContext";
 
 // ─── Animations
@@ -211,9 +212,14 @@ export default function HomeClient() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-              className="relative h-20 w-20 md:h-24 md:w-24 overflow-hidden rounded-full ring-2 ring-black/5 mb-10 shadow-xl shadow-black/5"
+              className="relative h-20 w-20 md:h-24 md:w-24 mb-10 flex items-center justify-center p-[4px]"
             >
-              <Image src="/images/perfil.png" alt="Thales Miguel" fill sizes="96px" className="object-cover object-[center_20%]" />
+              <div className="absolute inset-0 rounded-full border-[1.5px] border-dotted border-black/30 animate-[spin_20s_linear_infinite]" />
+              <div className="absolute inset-[-4px] rounded-full border border-dashed border-black/15 animate-[spin_30s_linear_infinite_reverse]" />
+              
+              <div className="relative h-full w-full overflow-hidden rounded-full ring-2 ring-black/5 shadow-xl shadow-black/5">
+                <Image src="/images/perfil.png" alt="Thales Miguel" fill sizes="96px" className="object-cover object-[center_20%]" />
+              </div>
             </motion.div>
 
             <h1 className="text-4xl md:text-[52px] lg:text-[56px] leading-[0.95] tracking-tighter overflow-hidden flex flex-wrap gap-x-3 md:gap-x-4 max-w-5xl">
@@ -301,19 +307,7 @@ export default function HomeClient() {
               className="mt-20"
             >
               <h3 className="text-sm uppercase tracking-widest font-bold mb-8 text-black/40">{isEn ? "Technical Skills" : "Habilidades Técnicas"}</h3>
-              <div
-                ref={skillsRef}
-                onMouseMove={handleSkillsMove}
-                onMouseLeave={() => setSpot(s => ({ ...s, visible: false }))}
-                className="relative grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 p-8 rounded-[24px] border border-black/[0.04] bg-neutral-50/50 overflow-hidden"
-              >
-                <div
-                  className="pointer-events-none absolute -inset-px transition-opacity duration-300"
-                  style={{
-                    opacity: spot.visible ? 1 : 0,
-                    background: `radial-gradient(400px circle at ${spot.x}px ${spot.y}px, rgba(0,0,0,0.12) 0%, transparent 60%)`,
-                  }}
-                />
+              <SpotlightCard className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 p-8 rounded-[24px] border border-black/[0.04] bg-neutral-50/50">
                 {skills.map((s) => (
                   <div key={s.category} className="relative z-10">
                     <span className="text-xs font-bold uppercase tracking-wider text-neutral-400 block mb-2">{s.category}</span>
@@ -324,7 +318,7 @@ export default function HomeClient() {
                     </div>
                   </div>
                 ))}
-              </div>
+              </SpotlightCard>
             </motion.div>
           </section>
 
@@ -339,42 +333,37 @@ export default function HomeClient() {
               <span className="font-black text-black">{isEn ? "Services." : "Serviços."}</span>
             </motion.h2>
 
-            <motion.a
-              href="/marketing"
-              ref={servicesRef as React.Ref<HTMLAnchorElement>}
-              onMouseMove={(e: React.MouseEvent) => { const rect = e.currentTarget.getBoundingClientRect(); setServSpot({ x: e.clientX - rect.left, y: e.clientY - rect.top, visible: true }); }}
-              onMouseLeave={() => setServSpot(s => ({ ...s, visible: false }))}
+            <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, type: "spring", stiffness: 100 }}
-              className="group relative block bg-white border border-black/[0.06] rounded-[24px] p-10 md:p-14 transition-all duration-500 cursor-pointer overflow-hidden"
             >
-              <div
-                className="pointer-events-none absolute -inset-px transition-opacity duration-300 z-0"
-                style={{
-                  opacity: servSpot.visible ? 1 : 0,
-                  background: `radial-gradient(400px circle at ${servSpot.x}px ${servSpot.y}px, rgba(0,0,0,0.06) 0%, transparent 60%)`,
-                }}
-              />
+              <SpotlightCard
+                isLink
+                href="/marketing"
+                className="group block bg-white border border-black/[0.06] rounded-[24px] p-10 md:p-14 transition-all duration-500 cursor-pointer"
+              >
+                <div className="absolute inset-0 bg-neutral-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
 
-              <p className="text-lg md:text-xl text-neutral-600 leading-relaxed mb-8 max-w-2xl">
-                {isEn
-                  ? "I design high-conversion landing pages, manage paid traffic campaigns across Google, Meta, LinkedIn & TikTok, and build AI-powered automations to scale operations."
-                  : "Crio landing pages de alta conversão, gerencio campanhas de tráfego pago em Google, Meta, LinkedIn e TikTok, e construo automações com IA para escalar operações."}
-              </p>
+                <p className="text-lg md:text-xl text-neutral-600 leading-relaxed mb-8 max-w-2xl relative z-10">
+                  {isEn
+                    ? "I design high-conversion landing pages, manage paid traffic campaigns across Google, Meta, LinkedIn & TikTok, and build AI-powered automations to scale operations."
+                    : "Crio landing pages de alta conversão, gerencio campanhas de tráfego pago em Google, Meta, LinkedIn e TikTok, e construo automações com IA para escalar operações."}
+                </p>
 
-              <div className="flex flex-wrap gap-2 mb-8">
-                {["Landing Pages", isEn ? "Paid Traffic" : "Tráfego Pago", isEn ? "Automation & AI" : "Automação & IA", "UI/UX", "CRO"].map(tag => (
-                  <span key={tag} className="px-4 py-1.5 border border-black/10 bg-white rounded-full text-[10px] font-bold uppercase tracking-widest text-neutral-500">{tag}</span>
-                ))}
-              </div>
+                <div className="flex flex-wrap gap-2 mb-8 relative z-10">
+                  {["Landing Pages", isEn ? "Paid Traffic" : "Tráfego Pago", isEn ? "Automation & AI" : "Automação & IA", "UI/UX", "CRO"].map(tag => (
+                    <span key={tag} className="px-4 py-1.5 border border-black/10 bg-white rounded-full text-[10px] font-bold uppercase tracking-widest text-neutral-500">{tag}</span>
+                  ))}
+                </div>
 
-              <span className="text-sm font-bold uppercase tracking-widest text-black/30 group-hover:text-black transition-colors duration-300 flex items-center gap-3">
-                {isEn ? "See my marketing portfolio" : "Ver meu portfólio de marketing"}
-                <span className="h-10 w-10 rounded-full border border-black/10 bg-white flex items-center justify-center group-hover:bg-black group-hover:text-white group-hover:border-black transition-all duration-500">↗</span>
-              </span>
-            </motion.a>
+                <span className="text-sm font-bold uppercase tracking-widest text-black/30 group-hover:text-black transition-colors duration-300 flex items-center gap-3 relative z-10">
+                  {isEn ? "See my marketing portfolio" : "Ver meu portfólio de marketing"}
+                  <span className="h-10 w-10 rounded-full border border-black/10 bg-white flex items-center justify-center group-hover:bg-black group-hover:text-white group-hover:border-black transition-all duration-500">↗</span>
+                </span>
+              </SpotlightCard>
+            </motion.div>
           </section>
 
           {/* ── 3. EXPERIÊNCIA ── */}
@@ -389,19 +378,7 @@ export default function HomeClient() {
             </motion.h2>
 
             {/* Professional */}
-            <div
-              ref={expRef}
-              onMouseMove={handleExpMove}
-              onMouseLeave={() => setExpSpot(s => ({ ...s, visible: false }))}
-              className="relative mb-16 p-8 rounded-[24px] border border-black/[0.04] bg-neutral-50/50 overflow-hidden"
-            >
-              <div
-                className="pointer-events-none absolute -inset-px transition-opacity duration-300 z-0"
-                style={{
-                  opacity: expSpot.visible ? 1 : 0,
-                  background: `radial-gradient(400px circle at ${expSpot.x}px ${expSpot.y}px, rgba(0,0,0,0.08) 0%, transparent 60%)`,
-                }}
-              />
+            <SpotlightCard className="mb-16 p-8 bg-neutral-50/50">
               <h3 className="text-sm uppercase tracking-widest font-bold mb-10 text-black/40 relative z-10">{isEn ? "Professional" : "Profissional"}</h3>
               <div className="flex flex-col border-t border-black/10 relative z-10">
                 {experience.map((exp, i) => (
@@ -424,10 +401,10 @@ export default function HomeClient() {
                   </motion.div>
                 ))}
               </div>
-            </div>
+            </SpotlightCard>
 
             {/* Academic */}
-            <div>
+            <SpotlightCard className="p-8 bg-neutral-50/50">
               <h3 className="text-sm uppercase tracking-widest font-bold mb-10 text-black/40">{isEn ? "Academic & Research" : "Acadêmico & Pesquisa"}</h3>
               <div className="flex flex-col border-t border-black/10">
                 {academicExp.map((exp, i) => (
@@ -450,7 +427,7 @@ export default function HomeClient() {
                   </motion.div>
                 ))}
               </div>
-            </div>
+            </SpotlightCard>
           </section>
 
           {/* ── 4. PROJETOS ── */}
@@ -464,32 +441,38 @@ export default function HomeClient() {
               <span className="font-black text-black">{isEn ? "Projects." : "Abertos."}</span>
             </motion.h2>
 
-            <div className="flex flex-col border-t border-black/10">
+            <div className="flex flex-col gap-6">
               {projects.map((p, i) => (
-                <motion.a
+                <motion.div
                   key={p.num}
-                  href={p.href}
-                  target={p.href.startsWith("http") ? "_blank" : undefined}
                   initial={{ opacity: 0, x: -30 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ delay: i * 0.1, duration: 0.6, type: "spring", stiffness: 100 }}
-                  className="group flex flex-col md:flex-row md:items-center justify-between py-10 md:py-12 border-b border-black/10 hover:px-8 transition-all duration-500 cursor-pointer relative overflow-hidden"
                 >
-                  <div className="absolute inset-0 bg-neutral-50 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] -z-10" />
-                  <div className="flex items-center gap-6 mb-6 md:mb-0">
-                    <span className="text-neutral-300 font-bold font-mono text-sm tracking-widest">{p.num}</span>
-                    <h3 className="text-2xl md:text-3xl font-bold tracking-tight group-hover:translate-x-4 transition-transform duration-500 ease-out">{p.title}</h3>
-                  </div>
-                  <div className="flex flex-wrap items-center gap-4 md:gap-8">
-                    <div className="flex flex-wrap gap-1 md:gap-2">
-                      {p.tags.map(tag => (
-                        <span key={tag} className="px-3 md:px-4 py-1.5 border border-black/10 bg-white rounded-full text-[10px] font-bold uppercase tracking-widest text-neutral-500 shadow-sm">{tag}</span>
-                      ))}
+                  <SpotlightCard
+                    isLink
+                    href={p.href}
+                    target={p.href.startsWith("http") ? "_blank" : undefined}
+                    className="group block bg-white border border-black/[0.06] rounded-[24px] p-8 md:p-12 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] transition-all duration-500 cursor-pointer"
+                  >
+                    <div className="absolute inset-0 bg-neutral-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
+                    <div className="flex flex-col md:flex-row md:items-center justify-between relative z-10">
+                      <div className="flex items-center gap-6 mb-6 md:mb-0">
+                        <span className="text-neutral-300 font-bold font-mono text-sm tracking-widest">{p.num}</span>
+                        <h3 className="text-2xl md:text-3xl font-bold tracking-tight group-hover:translate-x-4 transition-transform duration-500 ease-out">{p.title}</h3>
+                      </div>
+                      <div className="flex flex-wrap items-center gap-4 md:gap-8">
+                        <div className="flex flex-wrap gap-1 md:gap-2">
+                          {p.tags.map(tag => (
+                            <span key={tag} className="px-3 md:px-4 py-1.5 border border-black/10 bg-white rounded-full text-[10px] font-bold uppercase tracking-widest text-neutral-500 shadow-sm">{tag}</span>
+                          ))}
+                        </div>
+                        <span className="h-12 w-12 md:h-14 md:w-14 rounded-full border border-black/10 bg-white shadow-sm flex items-center justify-center shrink-0 group-hover:bg-black group-hover:text-white group-hover:border-black transition-all duration-500">↗</span>
+                      </div>
                     </div>
-                    <span className="h-12 w-12 md:h-14 md:w-14 rounded-full border border-black/10 bg-white shadow-sm flex items-center justify-center shrink-0 group-hover:bg-black group-hover:text-white group-hover:border-black group-hover:scale-110 transition-all duration-500">↗</span>
-                  </div>
-                </motion.a>
+                  </SpotlightCard>
+                </motion.div>
               ))}
             </div>
           </section>
@@ -507,27 +490,32 @@ export default function HomeClient() {
 
             <div className="grid md:grid-cols-2 gap-8">
               {articles.map((art, i) => (
-                <motion.a
+                <motion.div
                   key={art.title}
-                  href={art.href}
                   initial={{ opacity: 0, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ delay: i * 0.15, duration: 0.8, type: "spring", stiffness: 80 }}
-                  className="group h-full"
+                  className="h-full"
                 >
-                  <TiltCard intensity={8} className="h-full bg-white border border-black/[0.06] rounded-[32px] p-8 md:p-10 hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.08)] transition-all duration-500 flex flex-col">
-                    <div className="flex justify-between items-start mb-12">
-                      <div className="flex items-center gap-4 text-xs md:text-sm font-mono tracking-tighter text-neutral-400">
-                        <span>{art.date}</span>
-                        <span className="w-1 h-1 rounded-full bg-black/20" />
-                        <span>{art.readTime} reading</span>
+                  <SpotlightCard
+                    isLink
+                    href={art.href}
+                    className="group block h-full bg-white border border-black/[0.06] rounded-[32px] p-8 md:p-10 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] transition-all duration-500"
+                  >
+                    <div className="flex flex-col h-full relative z-10">
+                      <div className="flex justify-between items-start mb-12">
+                        <div className="flex items-center gap-4 text-xs md:text-sm font-mono tracking-tighter text-neutral-400">
+                          <span>{art.date}</span>
+                          <span className="w-1 h-1 rounded-full bg-black/20" />
+                          <span>{art.readTime} reading</span>
+                        </div>
+                        <span className="text-xl opacity-0 group-hover:opacity-100 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300">↗</span>
                       </div>
-                      <span className="text-xl opacity-0 group-hover:opacity-100 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300">↗</span>
+                      <h3 className="text-2xl md:text-3xl font-bold tracking-tight mb-4 group-hover:text-neutral-600 transition-colors duration-300">{art.title}</h3>
                     </div>
-                    <h3 className="text-2xl md:text-3xl font-bold tracking-tight mb-4 group-hover:text-neutral-600 transition-colors duration-300">{art.title}</h3>
-                  </TiltCard>
-                </motion.a>
+                  </SpotlightCard>
+                </motion.div>
               ))}
             </div>
           </section>
