@@ -112,7 +112,7 @@ export default function HomeClient() {
   const socials = [
     { label: "LinkedIn", href: "https://www.linkedin.com/in/thales-oliveira-rodrigues/", handle: "in/thales-oliveira-rodrigues" },
     { label: "GitHub", href: "https://github.com/Rodriguestmo", handle: "github.com/Rodriguestmo" },
-    { label: "Instagram", href: "#", handle: "@thalesmiguel" },
+    { label: "Instagram", href: "#", handle: "@thalesmiguelor" },
   ];
 
   const usefulLinks = [
@@ -191,7 +191,7 @@ export default function HomeClient() {
               <Image src="/images/perfil.png" alt="Thales Miguel" fill sizes="96px" className="object-cover object-[center_20%]" />
             </motion.div>
 
-            <h1 className="text-5xl md:text-[64px] lg:text-[72px] leading-[0.95] tracking-tighter overflow-hidden flex flex-wrap gap-x-3 md:gap-x-5 max-w-5xl">
+            <h1 className="text-4xl md:text-[52px] lg:text-[56px] leading-[0.95] tracking-tighter overflow-hidden flex flex-wrap gap-x-3 md:gap-x-4 max-w-5xl">
               <span className="block overflow-hidden pb-2">
                 <motion.span custom={0} initial="hidden" animate="visible" variants={wordVariants} className="inline-block text-[#cccccc] font-normal">Thales</motion.span>
               </span>
@@ -230,7 +230,7 @@ export default function HomeClient() {
             <motion.h2
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8 }}
-              className="text-4xl md:text-6xl tracking-tight mb-16 flex flex-wrap gap-x-3 gap-y-1"
+              className="text-3xl md:text-5xl tracking-tight mb-16 flex flex-wrap gap-x-3 gap-y-1"
             >
               <span className="font-normal text-[#cccccc]">{isEn ? "About" : "Sobre"}</span>
               <span className="font-black text-black">{isEn ? "me." : "mim."}</span>
@@ -296,56 +296,39 @@ export default function HomeClient() {
             <motion.h2
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8 }}
-              className="text-4xl md:text-6xl tracking-tight mb-16 flex flex-wrap gap-x-3 gap-y-1"
+              className="text-3xl md:text-5xl tracking-tight mb-16 flex flex-wrap gap-x-3 gap-y-1"
             >
               <span className="font-normal text-[#cccccc]">{isEn ? "My" : "Meus"}</span>
               <span className="font-black text-black">{isEn ? "Services." : "Serviços."}</span>
             </motion.h2>
 
-            <div className="grid md:grid-cols-3 gap-6">
-              {[
-                {
-                  titlePT: "Landing Pages",
-                  titleEN: "Landing Pages",
-                  descPT: "Páginas de alta conversão com design premium, animações fluidas e foco total em resultado.",
-                  descEN: "High-conversion pages with premium design, fluid animations, and total focus on results.",
-                  icon: "↗",
-                },
-                {
-                  titlePT: "Tráfego Pago",
-                  titleEN: "Paid Traffic",
-                  descPT: "Campanhas otimizadas em Google, Meta, LinkedIn e TikTok Ads com foco em ROI e escala.",
-                  descEN: "Optimized campaigns on Google, Meta, LinkedIn and TikTok Ads focused on ROI and scale.",
-                  icon: "←",
-                },
-                {
-                  titlePT: "Automação & IA",
-                  titleEN: "Automation & AI",
-                  descPT: "Bots inteligentes, automações de WhatsApp e ferramentas com inteligência artificial para escalar operações.",
-                  descEN: "Smart bots, WhatsApp automations, and AI-powered tools to scale operations.",
-                  icon: "↗",
-                },
-              ].map((service, i) => (
-                <motion.a
-                  key={service.titleEN}
-                  href="/marketing"
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{ delay: i * 0.1, duration: 0.6, type: "spring", stiffness: 100 }}
-                  className="group relative bg-white border border-black/[0.06] rounded-[24px] p-8 md:p-10 hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.08)] transition-all duration-500 cursor-pointer overflow-hidden"
-                >
-                  <div className="absolute inset-0 bg-neutral-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
-                  <span className="text-3xl mb-6 block">{service.icon}</span>
-                  <h3 className="text-xl font-bold tracking-tight mb-3 group-hover:translate-x-1 transition-transform duration-300">{isEn ? service.titleEN : service.titlePT}</h3>
-                  <p className="text-neutral-500 text-sm leading-relaxed mb-6">{isEn ? service.descEN : service.descPT}</p>
-                  <span className="text-xs font-bold uppercase tracking-widest text-black/30 group-hover:text-black transition-colors duration-300 flex items-center gap-2">
-                    {isEn ? "Learn more" : "Saiba mais"}
-                    <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
-                  </span>
-                </motion.a>
-              ))}
-            </div>
+            <motion.a
+              href="/marketing"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, type: "spring", stiffness: 100 }}
+              className="group relative block bg-white border border-black/[0.06] rounded-[24px] p-10 md:p-14 hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.08)] transition-all duration-500 cursor-pointer overflow-hidden"
+            >
+              <div className="absolute inset-0 bg-neutral-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
+
+              <p className="text-lg md:text-xl text-neutral-600 leading-relaxed mb-8 max-w-2xl">
+                {isEn
+                  ? "I design high-conversion landing pages, manage paid traffic campaigns across Google, Meta, LinkedIn & TikTok, and build AI-powered automations to scale operations."
+                  : "Crio landing pages de alta conversão, gerencio campanhas de tráfego pago em Google, Meta, LinkedIn e TikTok, e construo automações com IA para escalar operações."}
+              </p>
+
+              <div className="flex flex-wrap gap-2 mb-8">
+                {["Landing Pages", isEn ? "Paid Traffic" : "Tráfego Pago", isEn ? "Automation & AI" : "Automação & IA", "UI/UX", "CRO"].map(tag => (
+                  <span key={tag} className="px-4 py-1.5 border border-black/10 bg-white rounded-full text-[10px] font-bold uppercase tracking-widest text-neutral-500">{tag}</span>
+                ))}
+              </div>
+
+              <span className="text-sm font-bold uppercase tracking-widest text-black/30 group-hover:text-black transition-colors duration-300 flex items-center gap-3">
+                {isEn ? "See my marketing portfolio" : "Ver meu portfólio de marketing"}
+                <span className="h-10 w-10 rounded-full border border-black/10 bg-white flex items-center justify-center group-hover:bg-black group-hover:text-white group-hover:border-black group-hover:scale-110 transition-all duration-500">↗</span>
+              </span>
+            </motion.a>
           </section>
 
           {/* ── 3. EXPERIÊNCIA ── */}
@@ -353,7 +336,7 @@ export default function HomeClient() {
             <motion.h2
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8 }}
-              className="text-4xl md:text-6xl tracking-tight mb-16 flex flex-wrap gap-x-3 gap-y-1"
+              className="text-3xl md:text-5xl tracking-tight mb-16 flex flex-wrap gap-x-3 gap-y-1"
             >
               <span className="font-normal text-[#cccccc]">{isEn ? "My" : "Minha"}</span>
               <span className="font-black text-black">{isEn ? "Experience." : "Experiência."}</span>
@@ -417,7 +400,7 @@ export default function HomeClient() {
             <motion.h2
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8 }}
-              className="text-4xl md:text-6xl tracking-tight mb-16 flex flex-wrap gap-x-3 gap-y-1"
+              className="text-3xl md:text-5xl tracking-tight mb-16 flex flex-wrap gap-x-3 gap-y-1"
             >
               <span className="font-normal text-[#cccccc]">{isEn ? "Open" : "Projetos"}</span>
               <span className="font-black text-black">{isEn ? "Projects." : "Abertos."}</span>
@@ -441,7 +424,7 @@ export default function HomeClient() {
                     <h3 className="text-2xl md:text-3xl font-bold tracking-tight group-hover:translate-x-4 transition-transform duration-500 ease-out">{p.title}</h3>
                   </div>
                   <div className="flex flex-wrap items-center gap-4 md:gap-8">
-                    <div className="flex flex-wrap gap-1 md:gap-2 opacity-100 md:opacity-0 md:-translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 delay-100">
+                    <div className="flex flex-wrap gap-1 md:gap-2">
                       {p.tags.map(tag => (
                         <span key={tag} className="px-3 md:px-4 py-1.5 border border-black/10 bg-white rounded-full text-[10px] font-bold uppercase tracking-widest text-neutral-500 shadow-sm">{tag}</span>
                       ))}
@@ -458,7 +441,7 @@ export default function HomeClient() {
             <motion.h2
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8 }}
-              className="text-4xl md:text-6xl tracking-tight mb-16 flex flex-wrap gap-x-3 gap-y-1"
+              className="text-3xl md:text-5xl tracking-tight mb-16 flex flex-wrap gap-x-3 gap-y-1"
             >
               <span className="font-normal text-[#cccccc]">{isEn ? "My" : "Meus"}</span>
               <span className="font-black text-black">{isEn ? "Articles." : "Artigos."}</span>
