@@ -76,24 +76,23 @@ export default function CustomCursor() {
 
   return (
     <>
-      {/* Outer ring — gravitational distortion */}
+      {/* Outer ring — smooth follow, mix-blend-mode inverts on dark bg */}
       <div
         ref={cursorRef}
         className="pointer-events-none fixed top-0 left-0 z-[9999] hidden lg:block"
         style={{
-          width: 56,
-          height: 56,
+          width: 40,
+          height: 40,
           opacity: hidden ? 0 : 1,
           transition: "width 0.3s, height 0.3s, opacity 0.3s",
+          mixBlendMode: "difference",
         }}
       >
         <div
-          className="h-full w-full rounded-full transition-all duration-300 pointer-events-none border border-black/5"
+          className="h-full w-full rounded-full border border-white transition-all duration-300"
           style={{
-            transform: hovering ? "scale(1.5)" : "scale(1)",
-            backgroundColor: hovering ? "rgba(0,0,0,0.03)" : "transparent",
-            backdropFilter: "blur(6px) brightness(1.05) contrast(1.1)",
-            WebkitBackdropFilter: "blur(6px) brightness(1.05)",
+            transform: hovering ? "scale(1.8)" : "scale(1)",
+            backgroundColor: hovering ? "rgba(255,255,255,0.08)" : "transparent",
           }}
         />
       </div>
