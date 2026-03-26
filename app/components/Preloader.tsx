@@ -38,23 +38,6 @@ export default function Preloader({ onComplete }: { onComplete: () => void }) {
             gap: "1.5rem",
           }}
         >
-          {/* Thin horizontal line that draws in */}
-          <motion.div
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{ duration: 0.7, ease: [0.76, 0, 0.24, 1], delay: 0.1 }}
-            style={{
-              position: "absolute",
-              bottom: "50%",
-              left: "10%",
-              right: "10%",
-              height: "1px",
-              background: "rgba(255,255,255,0.08)",
-              transformOrigin: "left center",
-              marginBottom: "3.5rem",
-            }}
-          />
-
           {/* "Thales Miguel" — word by word slide up */}
           <div
             style={{
@@ -102,7 +85,7 @@ export default function Preloader({ onComplete }: { onComplete: () => void }) {
               userSelect: "none",
             }}
           >
-            Marketing · Tecnologia · Design
+            Engenharia · Estratégia · Tecnologia
           </motion.p>
         </motion.div>
       )}
