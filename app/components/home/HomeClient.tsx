@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef, useState, useCallback } from "react";
 import FrameBorder from "../FrameBorder";
 import CustomCursor from "../CustomCursor";
 import SmoothScroll from "../SmoothScroll";
@@ -41,6 +42,14 @@ export default function HomeClient() {
 
   const { lang } = useLanguage();
   const isEn = lang === "en";
+
+  // Spotlight state for skills section
+  const skillsRef = useRef<HTMLDivElement>(null);
+  const [spot, setSpot] = useState({ x: 0, y: 0, visible: false });
+  const handleSkillsMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setSpot({ x: e.clientX - rect.left, y: e.clientY - rect.top, visible: true });
+  }, []);
 
   // ─── Experience Data (from ALL CVs)
   const experience = [
@@ -219,7 +228,7 @@ export default function HomeClient() {
               {isEn ? (
                 <><strong className="text-black font-semibold">Product Manager · Aeronautical Mechanical Engineering Student at UNIFEI.</strong><br />I apply an engineer&apos;s mindset to solve real problems.</>
               ) : (
-                <><strong className="text-black font-semibold">Product Manager · Estudante de Eng. Mecânica Aeronáutica na UNIFEI.</strong><br />Aplico pensamento de engenheiro para resolver problemas reais.</>
+                <><strong className="text-black font-semibold">Product Manager · Estudante de Engenharia Mec. Aeronáutica na UNIFEI.</strong><br />Aplico pensamento de engenheiro para resolver problemas reais.</>
               )}
             </motion.p>
 
@@ -276,13 +285,25 @@ export default function HomeClient() {
               className="mt-20"
             >
               <h3 className="text-sm uppercase tracking-widest font-bold mb-8 text-black/40">{isEn ? "Technical Skills" : "Habilidades Técnicas"}</h3>
-              <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+              <div
+                ref={skillsRef}
+                onMouseMove={handleSkillsMove}
+                onMouseLeave={() => setSpot(s => ({ ...s, visible: false }))}
+                className="relative grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 p-8 rounded-[24px] border border-black/[0.04] bg-neutral-50/50 overflow-hidden"
+              >
+                <div
+                  className="pointer-events-none absolute -inset-px transition-opacity duration-300"
+                  style={{
+                    opacity: spot.visible ? 1 : 0,
+                    background: `radial-gradient(300px circle at ${spot.x}px ${spot.y}px, rgba(0,0,0,0.04) 0%, transparent 70%)`,
+                  }}
+                />
                 {skills.map((s) => (
-                  <div key={s.category}>
+                  <div key={s.category} className="relative z-10">
                     <span className="text-xs font-bold uppercase tracking-wider text-neutral-400 block mb-2">{s.category}</span>
                     <div className="flex flex-wrap gap-2">
                       {s.items.map((item) => (
-                        <span key={item} className="px-4 py-1.5 bg-neutral-100/80 border border-black/5 text-neutral-700 rounded-full text-[11px] font-semibold">{item}</span>
+                        <span key={item} className="px-4 py-1.5 bg-white border border-black/5 text-neutral-700 rounded-full text-[11px] font-semibold">{item}</span>
                       ))}
                     </div>
                   </div>
