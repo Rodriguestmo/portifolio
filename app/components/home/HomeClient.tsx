@@ -243,27 +243,27 @@ export default function HomeClient() {
               {isEn ? (
                 <>
                   <p>
-                    I&apos;m a <strong className="text-black">Product Manager</strong> and <strong className="text-black">Aeronautical Mechanical Engineering student at UNIFEI</strong>. My journey was never a straight line — and honestly, I think that&apos;s the best part of it.
+                    I&apos;m a <strong className="text-black">Product Manager</strong> and <strong className="text-black">Aeronautical Mechanical Engineering student at UNIFEI</strong>. My journey was never a straight line, and honestly, I think that&apos;s the best part of it.
                     <br /><br />
                     I started with engineering, moved through technology, dove deep into product strategy and marketing. At every turn, I carried the same thing with me: <strong className="text-black">an obsession with solving real problems</strong>. This winding path turned me into a 360° professional who can move between code, design, strategy, and execution without asking permission.
                   </p>
                   <p>
                     Outside of work, I&apos;m a self-declared nerd and space exploration enthusiast (yes, I watch rocket launches like some people watch championship finals). I believe the same curiosity that makes me want to understand how a jet engine works is the one that drives me to build products people actually use.
                     <br /><br />
-                    <strong className="text-black">If you&apos;re looking for someone who thinks like an engineer, executes like a builder, and understands the business side — let&apos;s talk.</strong>
+                    <strong className="text-black">If you&apos;re looking for someone who thinks like an engineer, executes like a builder, and understands the business side, let&apos;s talk.</strong>
                   </p>
                 </>
               ) : (
                 <>
                   <p>
-                    Sou <strong className="text-black">Product Manager</strong> e estudante de <strong className="text-black">Engenharia Mecânica Aeronáutica na UNIFEI</strong>. Minha trajetória nunca foi uma linha reta — e honestamente, acho que isso é o melhor dela.
+                    Sou <strong className="text-black">Product Manager</strong> e estudante de <strong className="text-black">Engenharia Mecânica Aeronáutica na UNIFEI</strong>. Minha trajetória nunca foi uma linha reta, e honestamente, acho que isso é o melhor dela.
                     <br /><br />
                     Comecei pela engenharia, passei por tecnologia, mergulhei em estratégia de produto e marketing. Em cada curva, levei comigo a mesma coisa: <strong className="text-black">a obsessão por resolver problemas reais</strong>. Esse caminho meio torto me transformou num profissional 360°, que consegue transitar entre código, design, estratégia e execução sem pedir licença.
                   </p>
                   <p>
                     Fora do trabalho, sou fã declarado do universo nerd e entusiasta da exploração espacial (sim, eu acompanho lançamento de foguete como quem assiste final de campeonato). Acredito que a mesma curiosidade que me faz querer entender como um motor a jato funciona é a que me faz querer construir produtos que as pessoas realmente usam.
                     <br /><br />
-                    <strong className="text-black">Se você está procurando alguém que pensa como engenheiro, executa como builder e entende o lado do negócio — vamos conversar.</strong>
+                    <strong className="text-black">Se você está procurando alguém que pensa como engenheiro, executa como builder e entende o lado do negócio, vamos conversar.</strong>
                   </p>
                 </>
               )}
