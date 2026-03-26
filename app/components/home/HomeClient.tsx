@@ -355,7 +355,7 @@ export default function HomeClient() {
                 </p>
 
                 <div className="flex flex-wrap gap-2 mb-8 relative z-10">
-                  {[isEn ? "Product Management" : "Gestão de Produto", isEn ? "Growth Engineering" : "Engenharia de Growth", isEn ? "Automation & AI" : "Automação & IA", "Data Analysis", "CRO"].map(tag => (
+                  {["Product Management", "Landing Pages", isEn ? "Paid Traffic" : "Gestão de Tráfego", isEn ? "Growth Engineering" : "Engenharia de Growth", isEn ? "Automation & AI" : "Automação & IA", "Data Analysis", "CRO"].map(tag => (
                     <span key={tag} className="px-4 py-1.5 border border-black/10 bg-white rounded-full text-[10px] font-bold uppercase tracking-widest text-neutral-500">{tag}</span>
                   ))}
                 </div>
