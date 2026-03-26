@@ -295,7 +295,7 @@ export default function HomeClient() {
                   className="pointer-events-none absolute -inset-px transition-opacity duration-300"
                   style={{
                     opacity: spot.visible ? 1 : 0,
-                    background: `radial-gradient(300px circle at ${spot.x}px ${spot.y}px, rgba(0,0,0,0.04) 0%, transparent 70%)`,
+                    background: `radial-gradient(400px circle at ${spot.x}px ${spot.y}px, rgba(0,0,0,0.12) 0%, transparent 60%)`,
                   }}
                 />
                 {skills.map((s) => (
