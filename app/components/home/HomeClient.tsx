@@ -27,6 +27,7 @@ const wordVariants = {
 const navLinks = [
   { labelPT: "Início", labelEN: "Home", href: "#inicio" },
   { labelPT: "Sobre", labelEN: "About", href: "#sobre" },
+  { labelPT: "Serviços", labelEN: "Services", href: "#servicos" },
   { labelPT: "Experiência", labelEN: "Experience", href: "#experiencia" },
   { labelPT: "Projetos", labelEN: "Projects", href: "#projetos" },
   { labelPT: "Artigos", labelEN: "Articles", href: "#artigos" },
@@ -45,28 +46,28 @@ export default function HomeClient() {
   const experience = [
     {
       role: isEn ? "Marketing & Product Consultant" : "Consultor de Marketing e Produto",
-      company: "Escola DNC",
+      company: isEn ? "Education startup" : "Startup de educação",
       period: "2023 – " + (isEn ? "present" : "atual"),
       descPT: "Treinamento em gestão ágil de projetos, princípios de UX e branding. Apoio direto a equipes em organização de processos, interpretação de dados e gestão ágil de tarefas com frameworks Scrum e Kanban.",
       descEN: "Training in agile project management, UX principles, and branding. Direct support to teams in process organization, data interpretation, and agile task management with Scrum and Kanban frameworks.",
     },
     {
       role: "Product Marketing Manager",
-      company: "Escola DNC",
+      company: isEn ? "Education startup" : "Startup de educação",
       period: "2023 – 2024",
-      descPT: "Defini roadmaps de produto e gerenciei backlogs alinhados com viabilidade técnica. Liderei projetos estratégicos otimizando tráfego pago (Google, Meta, LinkedIn, TikTok), aumentando CTR de 0,30% para 0,68%. Contribuí diretamente para um crescimento de receita superior a R$200 mil.",
-      descEN: "Defined product roadmaps and managed backlogs aligned with technical feasibility. Led strategic projects optimizing paid traffic (Google, Meta, LinkedIn, TikTok), increasing CTR from 0.30% to 0.68%. Directly contributed to revenue growth exceeding R$200k.",
+      descPT: "Defini roadmaps de produto e gerenciei backlogs alinhados com viabilidade técnica. Liderei projetos estratégicos otimizando tráfego pago (Google, Meta, LinkedIn, TikTok) com crescimento expressivo em CTR e receita.",
+      descEN: "Defined product roadmaps and managed backlogs aligned with technical feasibility. Led strategic projects optimizing paid traffic (Google, Meta, LinkedIn, TikTok) with significant CTR and revenue growth.",
     },
     {
       role: isEn ? "Designer & Paid Media Manager" : "Designer e Gestor de Mídia Paga",
-      company: "Escola DNC",
+      company: isEn ? "Education startup" : "Startup de educação",
       period: "2022 – 2023",
       descPT: "Gerenciei campanhas de marketing digital data-driven focadas em métricas de performance. Otimizei estratégias usando ferramentas de analytics, testes A/B e CRO (Conversion Rate Optimization).",
       descEN: "Managed data-driven digital marketing campaigns focused on performance metrics. Optimized strategies using analytics tools, A/B testing, and CRO (Conversion Rate Optimization).",
     },
     {
       role: isEn ? "Co-founder & Brand Designer" : "Co-fundador & Brand Designer",
-      company: "Ajeita Fácil",
+      company: isEn ? "Services startup" : "Startup de serviços",
       period: "2021 – 2022",
       descPT: "Co-fundei a empresa. Desenvolvi identidade visual completa e estratégias de growth marketing. Trabalhei diretamente com desenvolvedores e clientes para alinhar marca, comunicação e posicionamento.",
       descEN: "Co-founded the company. Developed complete visual identity and growth marketing strategies. Worked directly with developers and clients to align brand, communication, and positioning.",
@@ -83,7 +84,7 @@ export default function HomeClient() {
   const academicExp = [
     {
       role: isEn ? "Marketing & Product Director" : "Diretor de Marketing e Produto",
-      company: "CAERO – UNIFEI",
+      company: isEn ? "Aeronautics Academic Center – UNIFEI" : "Centro Acadêmico de Aeronáutica – UNIFEI",
       period: "2022",
       descPT: "Liderei estratégias de comunicação e branding para eventos acadêmicos e de engenharia aeronáutica. Gerenciei identidade de marca para produtos aeronáuticos e visibilidade do centro acadêmico.",
       descEN: "Led communication and branding strategies for academic and aeronautical engineering events. Managed brand identity for aeronautical products and academic center visibility.",
@@ -242,59 +243,100 @@ export default function HomeClient() {
               {isEn ? (
                 <>
                   <p>
-                    Currently pursuing a <strong className="text-black">Bachelor&apos;s in Aeronautical Mechanical Engineering at UNIFEI (2022–2027)</strong>, with certifications in <strong className="text-black">Product Management</strong>, <strong className="text-black">Marketing</strong> from Escola DNC, and a <strong className="text-black">Lean Six Sigma Green Belt</strong>. Previously served as an Engineering Corporal in the <strong className="text-black">Brazilian Army (2016–2018)</strong>, specializing in multimedia production and IT.
+                    Currently pursuing a <strong className="text-black">Bachelor&apos;s in Aeronautical Mechanical Engineering at UNIFEI (2022–2027)</strong>, with certifications in <strong className="text-black">Product Management</strong>, <strong className="text-black">Marketing</strong>, and a <strong className="text-black">Lean Six Sigma Green Belt</strong>. Previously served as a combat engineering soldier in the <strong className="text-black">Brazilian Army (2016–2018)</strong>, specializing in information systems.
                   </p>
                   <p>
-                    I work at the intersection of engineering, design, and technology. From leading paid traffic strategies that generated R$200k+ in revenue at Escola DNC, to co-founding Ajeita Fácil, to researching metallic welding behavior in microgravity — I thrive on building solutions that bridge analytical rigor with creative execution.
+                    I work at the intersection of engineering, design, and technology. From leading paid traffic strategies at an education startup, to co-founding a services company, to researching metallic welding behavior in microgravity — I thrive on building solutions that bridge analytical rigor with creative execution.
                   </p>
                 </>
               ) : (
                 <>
                   <p>
-                    Cursando <strong className="text-black">Engenharia Mecânica Aeronáutica na UNIFEI (2022–2027)</strong>, com certificações em <strong className="text-black">Product Management</strong>, <strong className="text-black">Marketing</strong> pela Escola DNC e <strong className="text-black">Lean Six Sigma Green Belt</strong>. Anteriormente, servi como Cabo de Engenharia no <strong className="text-black">Exército Brasileiro (2016–2018)</strong>, especializado em produção multimídia e TI.
+                    Cursando <strong className="text-black">Engenharia Mecânica Aeronáutica na UNIFEI (2022–2027)</strong>, com certificações em <strong className="text-black">Product Management</strong>, <strong className="text-black">Marketing</strong> e <strong className="text-black">Lean Six Sigma Green Belt</strong>. Anteriormente, servi como soldado de engenharia de combate no <strong className="text-black">Exército Brasileiro (2016–2018)</strong>, especializado em sistemas de informação.
                   </p>
                   <p>
-                    Atuo na interseção entre engenharia, design e tecnologia. De liderar estratégias de tráfego pago que geraram R$200 mil+ em receita na Escola DNC, a co-fundar a Ajeita Fácil, a pesquisar comportamento de soldas metálicas em microgravidade — eu prospero construindo soluções que unem rigor analítico com execução criativa.
+                    Atuo na interseção entre engenharia, design e tecnologia. De liderar estratégias de tráfego pago em uma startup de educação, a co-fundar uma empresa de serviços, a pesquisar comportamento de soldas metálicas em microgravidade — eu prospero construindo soluções que unem rigor analítico com execução criativa.
                   </p>
                 </>
               )}
             </motion.div>
 
-            {/* Skills + Certifications Grid */}
-            <div className="mt-20 grid md:grid-cols-2 gap-12">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.8 }}
-              >
-                <h3 className="text-sm uppercase tracking-widest font-bold mb-8 text-black/40">{isEn ? "Technical Skills" : "Habilidades Técnicas"}</h3>
-                <div className="space-y-6">
-                  {skills.map((s) => (
-                    <div key={s.category}>
-                      <span className="text-xs font-bold uppercase tracking-wider text-neutral-400 block mb-2">{s.category}</span>
-                      <div className="flex flex-wrap gap-2">
-                        {s.items.map((item) => (
-                          <span key={item} className="px-4 py-1.5 bg-neutral-100/80 border border-black/5 text-neutral-700 rounded-full text-[11px] font-semibold">{item}</span>
-                        ))}
-                      </div>
+            {/* Skills */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.8 }}
+              className="mt-20"
+            >
+              <h3 className="text-sm uppercase tracking-widest font-bold mb-8 text-black/40">{isEn ? "Technical Skills" : "Habilidades Técnicas"}</h3>
+              <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                {skills.map((s) => (
+                  <div key={s.category}>
+                    <span className="text-xs font-bold uppercase tracking-wider text-neutral-400 block mb-2">{s.category}</span>
+                    <div className="flex flex-wrap gap-2">
+                      {s.items.map((item) => (
+                        <span key={item} className="px-4 py-1.5 bg-neutral-100/80 border border-black/5 text-neutral-700 rounded-full text-[11px] font-semibold">{item}</span>
+                      ))}
                     </div>
-                  ))}
-                </div>
-              </motion.div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </section>
 
-              <motion.div
-                initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.8, delay: 0.1 }}
-              >
-                <h3 className="text-sm uppercase tracking-widest font-bold mb-8 text-black/40">{isEn ? "Certifications" : "Certificações"}</h3>
-                <div className="flex flex-col gap-3">
-                  {certifications.map((cert) => (
-                    <div key={cert} className="flex items-start gap-3">
-                      <span className="w-1.5 h-1.5 rounded-full bg-black/20 mt-2 shrink-0" />
-                      <span className="text-base text-neutral-600">{cert}</span>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
+          {/* ── SERVIÇOS ── */}
+          <section className="mb-48" id="servicos">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8 }}
+              className="text-4xl md:text-6xl tracking-tight mb-16 flex flex-wrap gap-x-3 gap-y-1"
+            >
+              <span className="font-normal text-[#cccccc]">{isEn ? "My" : "Meus"}</span>
+              <span className="font-black text-black">{isEn ? "Services." : "Serviços."}</span>
+            </motion.h2>
+
+            <div className="grid md:grid-cols-3 gap-6">
+              {[
+                {
+                  titlePT: "Landing Pages",
+                  titleEN: "Landing Pages",
+                  descPT: "Páginas de alta conversão com design premium, animações fluidas e foco total em resultado.",
+                  descEN: "High-conversion pages with premium design, fluid animations, and total focus on results.",
+                  icon: "→",
+                },
+                {
+                  titlePT: "Tráfego Pago",
+                  titleEN: "Paid Traffic",
+                  descPT: "Campanhas otimizadas em Google, Meta, LinkedIn e TikTok Ads com foco em ROI e escala.",
+                  descEN: "Optimized campaigns on Google, Meta, LinkedIn and TikTok Ads focused on ROI and scale.",
+                  icon: "↑",
+                },
+                {
+                  titlePT: "Automação & IA",
+                  titleEN: "Automation & AI",
+                  descPT: "Bots inteligentes, automações de WhatsApp e ferramentas com inteligência artificial para escalar operações.",
+                  descEN: "Smart bots, WhatsApp automations, and AI-powered tools to scale operations.",
+                  icon: "⚡",
+                },
+              ].map((service, i) => (
+                <motion.a
+                  key={service.titleEN}
+                  href="/marketing"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ delay: i * 0.1, duration: 0.6, type: "spring", stiffness: 100 }}
+                  className="group relative bg-white border border-black/[0.06] rounded-[24px] p-8 md:p-10 hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.08)] transition-all duration-500 cursor-pointer overflow-hidden"
+                >
+                  <div className="absolute inset-0 bg-neutral-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
+                  <span className="text-3xl mb-6 block">{service.icon}</span>
+                  <h3 className="text-xl font-bold tracking-tight mb-3 group-hover:translate-x-1 transition-transform duration-300">{isEn ? service.titleEN : service.titlePT}</h3>
+                  <p className="text-neutral-500 text-sm leading-relaxed mb-6">{isEn ? service.descEN : service.descPT}</p>
+                  <span className="text-xs font-bold uppercase tracking-widest text-black/30 group-hover:text-black transition-colors duration-300 flex items-center gap-2">
+                    {isEn ? "Learn more" : "Saiba mais"}
+                    <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
+                  </span>
+                </motion.a>
+              ))}
             </div>
           </section>
 
@@ -388,7 +430,7 @@ export default function HomeClient() {
                   <div className="absolute inset-0 bg-neutral-50 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] -z-10" />
                   <div className="flex items-center gap-6 mb-6 md:mb-0">
                     <span className="text-neutral-300 font-bold font-mono text-sm tracking-widest">{p.num}</span>
-                    <h3 className="text-3xl md:text-5xl font-bold tracking-tight group-hover:translate-x-4 transition-transform duration-500 ease-out">{p.title}</h3>
+                    <h3 className="text-2xl md:text-3xl font-bold tracking-tight group-hover:translate-x-4 transition-transform duration-500 ease-out">{p.title}</h3>
                   </div>
                   <div className="flex flex-wrap items-center gap-4 md:gap-8">
                     <div className="flex flex-wrap gap-1 md:gap-2 opacity-100 md:opacity-0 md:-translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 delay-100">
@@ -441,59 +483,38 @@ export default function HomeClient() {
             </div>
           </section>
 
-          {/* ── 6. ESTE SITE / LINKS / ONDE ENCONTRAR ── */}
+          {/* ── 6. LINKS / ONDE ENCONTRAR ── */}
           <section className="mb-48" id="links">
-            <div className="grid lg:grid-cols-[1fr_1fr] gap-16 border-t border-black/10 pt-20">
+            <div className="grid sm:grid-cols-2 gap-16 border-t border-black/10 pt-20">
               <motion.div
-                initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-100px" }}
+                initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.8 }}
               >
-                <h3 className="text-3xl font-black mb-6">{isEn ? "About This Site" : "Sobre Este Site"}</h3>
-                <p className="text-neutral-500 text-lg leading-relaxed mb-8">
-                  {isEn ? (
-                    <>Built with Next.js (App Router), React, Tailwind CSS and Framer Motion for super fluid animations. Hosted on Vercel with CI/CD integration. <br /><br />Uses clean accessibility practices, modular components, and a design system that perfectly reflects my skills with high-end frontend.</>
-                  ) : (
-                    <>Construído com Next.js (App Router), React, Tailwind CSS e Framer Motion para animações super fluidas. Hospedado na Vercel com integração contínua (CI/CD). <br /><br />Utiliza práticas limpas de acessibilidade, componentes modulares e um design system que reflete perfeitamente as minhas habilidades com frontend de alto nível.</>
-                  )}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  <span className="px-4 py-1.5 bg-neutral-100 text-neutral-600 rounded-full text-xs font-semibold uppercase tracking-wider">Next.js 16</span>
-                  <span className="px-4 py-1.5 bg-neutral-100 text-neutral-600 rounded-full text-xs font-semibold uppercase tracking-wider">Tailwind CSS</span>
-                  <span className="px-4 py-1.5 bg-neutral-100 text-neutral-600 rounded-full text-xs font-semibold uppercase tracking-wider">Framer Motion</span>
+                <h3 className="text-sm uppercase tracking-widest font-bold mb-8 text-black/40">{isEn ? "Where to find me" : "Onde me encontrar"}</h3>
+                <div className="flex flex-col gap-5">
+                  {socials.map(s => (
+                    <a key={s.label} href={s.href} target="_blank" rel="noreferrer" className="group flex flex-col border-b border-black/5 pb-3">
+                      <span className="text-lg font-bold text-black group-hover:text-black/60 transition-colors mb-1">{s.label}</span>
+                      <span className="text-sm font-medium text-neutral-400 group-hover:text-neutral-600 transition-colors">{s.handle}</span>
+                    </a>
+                  ))}
                 </div>
               </motion.div>
 
-              <div className="grid sm:grid-cols-2 gap-12 pt-2">
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.8, delay: 0.2 }}
-                >
-                  <h3 className="text-sm uppercase tracking-widest font-bold mb-8 text-black/40">{isEn ? "Where to find me" : "Onde me encontrar"}</h3>
-                  <div className="flex flex-col gap-5">
-                    {socials.map(s => (
-                      <a key={s.label} href={s.href} target="_blank" rel="noreferrer" className="group flex flex-col border-b border-black/5 pb-3">
-                        <span className="text-lg font-bold text-black group-hover:text-black/60 transition-colors mb-1">{s.label}</span>
-                        <span className="text-sm font-medium text-neutral-400 group-hover:text-neutral-600 transition-colors">{s.handle}</span>
-                      </a>
-                    ))}
-                  </div>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.8, delay: 0.3 }}
-                >
-                  <h3 className="text-sm uppercase tracking-widest font-bold mb-8 text-black/40">{isEn ? "Useful Links" : "Links Úteis"}</h3>
-                  <div className="flex flex-col gap-5">
-                    {usefulLinks.map(s => (
-                      <a key={s.label} href={s.href} target={s.href.startsWith("http") ? "_blank" : "_self"} rel="noreferrer" className="group flex items-center justify-between border-b border-black/5 pb-4 pt-1">
-                        <span className="text-base font-bold text-black group-hover:text-black/60 transition-colors pr-2">{s.label}</span>
-                        <span className="opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all text-sm font-bold">↗</span>
-                      </a>
-                    ))}
-                  </div>
-                </motion.div>
-              </div>
+              <motion.div
+                initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+              >
+                <h3 className="text-sm uppercase tracking-widest font-bold mb-8 text-black/40">{isEn ? "Useful Links" : "Links Úteis"}</h3>
+                <div className="flex flex-col gap-5">
+                  {usefulLinks.map(s => (
+                    <a key={s.label} href={s.href} target={s.href.startsWith("http") ? "_blank" : "_self"} rel="noreferrer" className="group flex items-center justify-between border-b border-black/5 pb-4 pt-1">
+                      <span className="text-base font-bold text-black group-hover:text-black/60 transition-colors pr-2">{s.label}</span>
+                      <span className="opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all text-sm font-bold">↗</span>
+                    </a>
+                  ))}
+                </div>
+              </motion.div>
             </div>
           </section>
 
