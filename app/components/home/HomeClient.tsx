@@ -589,7 +589,7 @@ export default function HomeClient() {
           </section>
 
           <div className="text-center pb-20">
-            <p className="text-neutral-400 font-medium tracking-tight">© 2026 Thales Miguel — {isEn ? "Where design and code meet." : "O design e o código se encontram aqui."}</p>
+            <p className="text-neutral-400 font-medium tracking-tight">© 2026 Thales Miguel — {isEn ? "Where design and technology meet." : "O design e a tecnologia se encontram aqui."}</p>
           </div>
 
         </div>
