@@ -131,7 +131,7 @@ export default function HomeClient() {
 
   const skills = [
     { category: isEn ? "Engineering" : "Engenharia", items: ["AutoCAD", "SolidWorks", "MATLAB", "ANSYS"] },
-    { category: isEn ? "Development" : "Desenvolvimento", items: ["Next.js", "React", "Python", "SQL", "Power BI", "Excel VBA"] },
+    { category: isEn ? "Development" : "Desenvolvimento", items: ["Next.js", "React", "Python", "Power BI", "Excel VBA", "SQL"] },
     { category: isEn ? "Marketing" : "Marketing", items: ["Google Ads", "Meta Ads", "LinkedIn Ads", "TikTok Ads", "CRO", "A/B Testing"] },
     { category: isEn ? "Methods" : "Métodos", items: ["Scrum", "Kanban", "Lean Six Sigma", "UI/UX"] },
     { category: isEn ? "Languages" : "Idiomas", items: [isEn ? "English (Advanced)" : "Inglês (Avançado)", isEn ? "Spanish (Intermediate)" : "Espanhol (Intermediário)", isEn ? "French (Basic)" : "Francês (Básico)"] },
