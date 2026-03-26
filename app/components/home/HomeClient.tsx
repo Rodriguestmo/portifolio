@@ -203,7 +203,8 @@ export default function HomeClient() {
 
       <main className="min-h-screen bg-white text-black font-sans selection:bg-black/10 relative overflow-hidden pb-32 pt-16 lg:pt-0" id="inicio">
         {/* Background Grid */}
-        <GravityGrid />
+        <div className="absolute inset-0 z-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none fixed" />
+        {/* <GravityGrid /> */}
 
         <div className="relative z-10 mx-auto max-w-[1000px] px-6 pt-24 lg:pt-40 ml-auto lg:mr-auto lg:pl-32">
 
