@@ -29,7 +29,7 @@ const navLinks = [
   { labelPT: "Início", labelEN: "Home", href: "#inicio" },
   { labelPT: "Sobre", labelEN: "About", href: "#sobre" },
   { labelPT: "Serviços", labelEN: "Services", href: "#servicos" },
-  { labelPT: "Experiência", labelEN: "Experience", href: "#experiencia" },
+  { labelPT: "Jornada", labelEN: "Journey", href: "#experiencia" },
   { labelPT: "Projetos", labelEN: "Projects", href: "#projetos" },
   { labelPT: "Artigos", labelEN: "Articles", href: "#artigos" },
   { labelPT: "Links", labelEN: "Links", href: "#links" },
@@ -57,6 +57,14 @@ export default function HomeClient() {
   const handleServicesMove = useCallback((e: React.MouseEvent<HTMLAnchorElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
     setServSpot({ x: e.clientX - rect.left, y: e.clientY - rect.top, visible: true });
+  }, []);
+
+  // Spotlight state for experience section
+  const expRef = useRef<HTMLDivElement>(null);
+  const [expSpot, setExpSpot] = useState({ x: 0, y: 0, visible: false });
+  const handleExpMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setExpSpot({ x: e.clientX - rect.left, y: e.clientY - rect.top, visible: true });
   }, []);
 
   // ─── Experience Data (from ALL CVs)
@@ -340,7 +348,7 @@ export default function HomeClient() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, type: "spring", stiffness: 100 }}
-              className="group relative block bg-white border border-black/[0.06] rounded-[24px] p-10 md:p-14 hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.08)] transition-all duration-500 cursor-pointer overflow-hidden"
+              className="group relative block bg-white border border-black/[0.06] rounded-[24px] p-10 md:p-14 transition-all duration-500 cursor-pointer overflow-hidden"
             >
               <div
                 className="pointer-events-none absolute -inset-px transition-opacity duration-300 z-0"
@@ -364,7 +372,7 @@ export default function HomeClient() {
 
               <span className="text-sm font-bold uppercase tracking-widest text-black/30 group-hover:text-black transition-colors duration-300 flex items-center gap-3">
                 {isEn ? "See my marketing portfolio" : "Ver meu portfólio de marketing"}
-                <span className="h-10 w-10 rounded-full border border-black/10 bg-white flex items-center justify-center group-hover:bg-black group-hover:text-white group-hover:border-black group-hover:scale-110 transition-all duration-500">↗</span>
+                <span className="h-10 w-10 rounded-full border border-black/10 bg-white flex items-center justify-center group-hover:bg-black group-hover:text-white group-hover:border-black transition-all duration-500">↗</span>
               </span>
             </motion.a>
           </section>
@@ -377,13 +385,25 @@ export default function HomeClient() {
               className="text-3xl md:text-5xl tracking-tight mb-16 flex flex-wrap gap-x-3 gap-y-1"
             >
               <span className="font-normal text-[#cccccc]">{isEn ? "My" : "Minha"}</span>
-              <span className="font-black text-black">{isEn ? "Experience." : "Experiência."}</span>
+              <span className="font-black text-black">{isEn ? "Journey." : "Jornada."}</span>
             </motion.h2>
 
             {/* Professional */}
-            <div className="mb-16">
-              <h3 className="text-sm uppercase tracking-widest font-bold mb-10 text-black/40">{isEn ? "Professional" : "Profissional"}</h3>
-              <div className="flex flex-col border-t border-black/10">
+            <div
+              ref={expRef}
+              onMouseMove={handleExpMove}
+              onMouseLeave={() => setExpSpot(s => ({ ...s, visible: false }))}
+              className="relative mb-16 p-8 rounded-[24px] border border-black/[0.04] bg-neutral-50/50 overflow-hidden"
+            >
+              <div
+                className="pointer-events-none absolute -inset-px transition-opacity duration-300 z-0"
+                style={{
+                  opacity: expSpot.visible ? 1 : 0,
+                  background: `radial-gradient(400px circle at ${expSpot.x}px ${expSpot.y}px, rgba(0,0,0,0.08) 0%, transparent 60%)`,
+                }}
+              />
+              <h3 className="text-sm uppercase tracking-widest font-bold mb-10 text-black/40 relative z-10">{isEn ? "Professional" : "Profissional"}</h3>
+              <div className="flex flex-col border-t border-black/10 relative z-10">
                 {experience.map((exp, i) => (
                   <motion.div
                     key={exp.role + exp.period}
