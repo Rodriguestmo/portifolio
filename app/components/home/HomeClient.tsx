@@ -23,10 +23,11 @@ const wordVariants = {
   }),
 };
 
-// ─── Data Arrays
+// ─── Nav Links
 const navLinks = [
   { labelPT: "Início", labelEN: "Home", href: "#inicio" },
   { labelPT: "Sobre", labelEN: "About", href: "#sobre" },
+  { labelPT: "Experiência", labelEN: "Experience", href: "#experiencia" },
   { labelPT: "Projetos", labelEN: "Projects", href: "#projetos" },
   { labelPT: "Artigos", labelEN: "Articles", href: "#artigos" },
   { labelPT: "Links", labelEN: "Links", href: "#links" },
@@ -36,9 +37,65 @@ const navLinks = [
 export default function HomeClient() {
   const { scrollYProgress } = useScroll();
   const yBg = useTransform(scrollYProgress, [0, 1], [0, -100]);
-  
+
   const { lang } = useLanguage();
   const isEn = lang === "en";
+
+  // ─── Experience Data (from ALL CVs)
+  const experience = [
+    {
+      role: isEn ? "Marketing & Product Consultant" : "Consultor de Marketing e Produto",
+      company: "Escola DNC",
+      period: "2023 – " + (isEn ? "present" : "atual"),
+      descPT: "Treinamento em gestão ágil de projetos, princípios de UX e branding. Apoio direto a equipes em organização de processos, interpretação de dados e gestão ágil de tarefas com frameworks Scrum e Kanban.",
+      descEN: "Training in agile project management, UX principles, and branding. Direct support to teams in process organization, data interpretation, and agile task management with Scrum and Kanban frameworks.",
+    },
+    {
+      role: "Product Marketing Manager",
+      company: "Escola DNC",
+      period: "2023 – 2024",
+      descPT: "Defini roadmaps de produto e gerenciei backlogs alinhados com viabilidade técnica. Liderei projetos estratégicos otimizando tráfego pago (Google, Meta, LinkedIn, TikTok), aumentando CTR de 0,30% para 0,68%. Contribuí diretamente para um crescimento de receita superior a R$200 mil.",
+      descEN: "Defined product roadmaps and managed backlogs aligned with technical feasibility. Led strategic projects optimizing paid traffic (Google, Meta, LinkedIn, TikTok), increasing CTR from 0.30% to 0.68%. Directly contributed to revenue growth exceeding R$200k.",
+    },
+    {
+      role: isEn ? "Designer & Paid Media Manager" : "Designer e Gestor de Mídia Paga",
+      company: "Escola DNC",
+      period: "2022 – 2023",
+      descPT: "Gerenciei campanhas de marketing digital data-driven focadas em métricas de performance. Otimizei estratégias usando ferramentas de analytics, testes A/B e CRO (Conversion Rate Optimization).",
+      descEN: "Managed data-driven digital marketing campaigns focused on performance metrics. Optimized strategies using analytics tools, A/B testing, and CRO (Conversion Rate Optimization).",
+    },
+    {
+      role: isEn ? "Co-founder & Brand Designer" : "Co-fundador & Brand Designer",
+      company: "Ajeita Fácil",
+      period: "2021 – 2022",
+      descPT: "Co-fundei a empresa. Desenvolvi identidade visual completa e estratégias de growth marketing. Trabalhei diretamente com desenvolvedores e clientes para alinhar marca, comunicação e posicionamento.",
+      descEN: "Co-founded the company. Developed complete visual identity and growth marketing strategies. Worked directly with developers and clients to align brand, communication, and positioning.",
+    },
+    {
+      role: isEn ? "Combat Engineering Soldier – Information Systems Specialist" : "Soldado de Engenharia de Combate – Especialista em Sistemas de Informação",
+      company: isEn ? "Brazilian Army" : "Exército Brasileiro",
+      period: "2016 – 2018",
+      descPT: "Soldado de engenharia de combate especializado em sistemas de informação. Experiência com disciplina operacional, liderança de equipes e resolução de problemas em ambientes de alta pressão.",
+      descEN: "Combat engineering soldier specialized in information systems. Experience with operational discipline, team leadership, and problem-solving in high-pressure environments.",
+    },
+  ];
+
+  const academicExp = [
+    {
+      role: isEn ? "Marketing & Product Director" : "Diretor de Marketing e Produto",
+      company: "CAERO – UNIFEI",
+      period: "2022",
+      descPT: "Liderei estratégias de comunicação e branding para eventos acadêmicos e de engenharia aeronáutica. Gerenciei identidade de marca para produtos aeronáuticos e visibilidade do centro acadêmico.",
+      descEN: "Led communication and branding strategies for academic and aeronautical engineering events. Managed brand identity for aeronautical products and academic center visibility.",
+    },
+    {
+      role: isEn ? "Microgravity Research" : "Pesquisa em Microgravidade",
+      company: "FEPI",
+      period: "2021",
+      descPT: "Pesquisei o comportamento de soldas metálicas em ambientes de microgravidade, investigando por que soldas feitas em microgravidade apresentam maior integridade estrutural versus as realizadas sob gravidade terrestre. Contribuí para design experimental, interpretação de dados e análise de propriedades metalúrgicas.",
+      descEN: "Researched the behavior of metallic welding in microgravity environments, investigating why welds performed in microgravity exhibit greater structural integrity compared to those made under Earth's gravity. Contributed to experimental design, data interpretation, and analysis of metallurgical properties.",
+    },
+  ];
 
   const projects = [
     { num: "001", title: "Dra. Camila Sutilo", tags: ["landing", isEn ? "traffic" : "tráfego", "whatsapp"], href: "https://camilasutilo.com", year: "2025" },
@@ -47,12 +104,12 @@ export default function HomeClient() {
   ];
 
   const articles = [
-    { title: isEn ? "Building the Prospector Bot: AI on WhatsApp" : "Construindo o Prospector Bot: IA no WhatsApp", date: isEn ? "Mar 2026" : "Mar 2026", readTime: "5 min", href: "#" },
+    { title: isEn ? "Building the Prospector Bot: AI on WhatsApp" : "Construindo o Prospector Bot: IA no WhatsApp", date: "Mar 2026", readTime: "5 min", href: "#" },
     { title: isEn ? "Conversion Design and Data Engineering" : "Design de Conversão e a Engenharia dos Dados", date: isEn ? "Feb 2026" : "Fev 2026", readTime: "8 min", href: "#" },
   ];
 
   const socials = [
-    { label: "LinkedIn", href: "#", handle: "in/thalesmiguel" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/thales-oliveira-rodrigues/", handle: "in/thales-oliveira-rodrigues" },
     { label: "GitHub", href: "https://github.com/Rodriguestmo", handle: "github.com/Rodriguestmo" },
     { label: "Instagram", href: "#", handle: "@thalesmiguel" },
   ];
@@ -62,37 +119,56 @@ export default function HomeClient() {
     { label: isEn ? "Schedule a Meeting" : "Agendar Reunião", href: "https://calendar.app.google/v7s5H975BGwnriuZA" },
   ];
 
+  const skills = [
+    { category: isEn ? "Engineering" : "Engenharia", items: ["AutoCAD", "SolidWorks", "MATLAB", "ANSYS"] },
+    { category: isEn ? "Development" : "Desenvolvimento", items: ["Next.js", "React", "Python", "SQL", "Power BI", "Excel VBA"] },
+    { category: isEn ? "Marketing" : "Marketing", items: ["Google Ads", "Meta Ads", "LinkedIn Ads", "TikTok Ads", "CRO", "A/B Testing"] },
+    { category: isEn ? "Methods" : "Métodos", items: ["Scrum", "Kanban", "Lean Six Sigma", "UI/UX"] },
+    { category: isEn ? "Languages" : "Idiomas", items: [isEn ? "English (Advanced)" : "Inglês (Avançado)", isEn ? "Spanish (Intermediate)" : "Espanhol (Intermediário)", isEn ? "French (Basic)" : "Francês (Básico)"] },
+  ];
+
+  const certifications = [
+    "Lean Six Sigma – Green Belt",
+    "Power BI – Escola DNC",
+    "SQL – Alura",
+    "Python – Alura",
+    "Aviation Safety & Reliability – Hong Kong PolyU",
+    "Product Management – Escola DNC",
+    "Marketing Manager – Escola DNC",
+  ];
+
   return (
     <>
       <FrameBorder />
       <PreloaderWrapper />
       <SmoothScroll />
       <CustomCursor />
-      
+
       {/* ── Desktop Vertical Menu ── */}
-      <nav className="hidden lg:flex flex-col fixed left-10 top-1/2 -translate-y-1/2 z-40 gap-6">
-        {navLinks.map((n) => (
+      <nav className="hidden lg:flex flex-col fixed left-8 top-1/2 -translate-y-1/2 z-40 gap-5">
+        {navLinks.map((n, i) => (
           <a
             key={n.href}
             href={n.href}
-            className="text-[10px] font-bold uppercase tracking-[0.2em] text-black/30 hover:text-black transition-colors"
-            style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
+            className="group flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.15em] text-black/60 hover:text-black transition-all duration-300"
+            style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
           >
+            <span className="w-4 h-[1.5px] bg-black/20 group-hover:w-8 group-hover:bg-black transition-all duration-300 inline-block" />
             {isEn ? n.labelEN : n.labelPT}
           </a>
         ))}
       </nav>
 
       {/* ── Mobile Top Menu ── */}
-      <nav className="fixed top-0 left-0 w-full z-40 bg-white/90 backdrop-blur-md border-b border-black/5 p-4 flex justify-start items-center gap-6 overflow-x-auto lg:hidden pr-24">
+      <nav className="fixed top-0 left-0 w-full z-40 bg-white/95 backdrop-blur-lg border-b border-black/8 px-4 py-3.5 flex justify-start items-center gap-5 overflow-x-auto lg:hidden pr-24 shadow-sm shadow-black/[0.02]">
         {navLinks.map((n) => (
-          <a key={n.href} href={n.href} className="text-[10px] font-bold uppercase tracking-[0.1em] whitespace-nowrap text-black/40 hover:text-black transition-colors">
+          <a key={n.href} href={n.href} className="text-[11px] font-bold uppercase tracking-[0.08em] whitespace-nowrap text-black/50 hover:text-black transition-colors">
             {isEn ? n.labelEN : n.labelPT}
           </a>
         ))}
       </nav>
 
-      {/* ── Floating Language Toggle (Global) ── */}
+      {/* ── Floating Language Toggle ── */}
       <div className="fixed top-3 right-4 lg:top-8 lg:right-10 z-50">
         <LanguageToggle />
       </div>
@@ -102,8 +178,8 @@ export default function HomeClient() {
         <div className="absolute inset-0 z-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none fixed" />
 
         <div className="relative z-10 mx-auto max-w-[1000px] px-6 pt-24 lg:pt-40 ml-auto lg:mr-auto lg:pl-32">
-          
-          {/* 1. Hero */}
+
+          {/* ── 1. HERO ── */}
           <section className="mb-48">
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
@@ -115,31 +191,21 @@ export default function HomeClient() {
             </motion.div>
 
             <h1 className="text-6xl md:text-[90px] lg:text-[100px] leading-[0.95] tracking-tighter overflow-hidden flex flex-wrap gap-x-3 md:gap-x-5 max-w-5xl">
-               <span className="block overflow-hidden pb-2">
-                <motion.span custom={0} initial="hidden" animate="visible" variants={wordVariants} className="inline-block text-[#cccccc] font-normal">
-                  Thales
-                </motion.span>
+              <span className="block overflow-hidden pb-2">
+                <motion.span custom={0} initial="hidden" animate="visible" variants={wordVariants} className="inline-block text-[#cccccc] font-normal">Thales</motion.span>
               </span>
               <span className="block overflow-hidden pb-2">
-                <motion.span custom={1} initial="hidden" animate="visible" variants={wordVariants} className="inline-block font-black text-black">
-                  Miguel.
-                </motion.span>
+                <motion.span custom={1} initial="hidden" animate="visible" variants={wordVariants} className="inline-block font-black text-black">Miguel.</motion.span>
               </span>
               <br className="hidden md:block w-full" />
               <span className="block overflow-hidden pb-4">
-                <motion.span custom={2} initial="hidden" animate="visible" variants={wordVariants} className="inline-block text-[#cccccc] font-normal">
-                  {isEn ? "Engineering," : "Engenharia,"}
-                </motion.span>
+                <motion.span custom={2} initial="hidden" animate="visible" variants={wordVariants} className="inline-block text-[#cccccc] font-normal">{isEn ? "Engineering," : "Engenharia,"}</motion.span>
               </span>
               <span className="block overflow-hidden pb-4">
-                <motion.span custom={3} initial="hidden" animate="visible" variants={wordVariants} className="inline-block font-black text-black">
-                  {isEn ? "technology &" : "tecnologia e"}
-                </motion.span>
+                <motion.span custom={3} initial="hidden" animate="visible" variants={wordVariants} className="inline-block font-black text-black">{isEn ? "technology &" : "tecnologia e"}</motion.span>
               </span>
               <span className="block overflow-hidden pb-4">
-                <motion.span custom={4} initial="hidden" animate="visible" variants={wordVariants} className="inline-block font-black text-black">
-                  marketing.
-                </motion.span>
+                <motion.span custom={4} initial="hidden" animate="visible" variants={wordVariants} className="inline-block font-black text-black">marketing.</motion.span>
               </span>
             </h1>
 
@@ -150,16 +216,35 @@ export default function HomeClient() {
               className="mt-10 text-xl md:text-2xl text-neutral-500 max-w-2xl leading-relaxed tracking-tight"
             >
               {isEn ? (
-                <><strong className="text-black font-semibold">Aeronautical Mechanical Engineering student at UNIFEI.</strong> I work developing advanced systems, high-performing funnels and uniting commercial technology with high-end design.</>
+                <><strong className="text-black font-semibold">Aeronautical Mechanical Engineering student at UNIFEI.</strong> Ex-Product Marketing Manager at Escola DNC. Co-founder of Ajeita Fácil. Building systems where engineering precision meets design excellence and marketing performance.</>
               ) : (
-                <><strong className="text-black font-semibold">Estudante de Engenharia Mecânica Aeronáutica na UNIFEI.</strong> Atuo desenvolvendo sistemas avançados, portfólios impactantes e unindo tecnologia comercial com alto design.</>
+                <><strong className="text-black font-semibold">Estudante de Engenharia Mecânica Aeronáutica na UNIFEI.</strong> Ex-Product Marketing Manager na Escola DNC. Co-fundador da Ajeita Fácil. Construindo sistemas onde a precisão da engenharia encontra excelência em design e performance em marketing.</>
               )}
             </motion.p>
+
+            {/* Quick Stats */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.9, duration: 0.8 }}
+              className="mt-12 flex flex-wrap gap-8"
+            >
+              {[
+                { num: "R$200k+", labelPT: "em receita gerada", labelEN: "revenue generated" },
+                { num: "0.68%", labelPT: "CTR otimizado", labelEN: "optimized CTR" },
+                { num: "6+", labelPT: "certificações", labelEN: "certifications" },
+              ].map((stat) => (
+                <div key={stat.num} className="flex flex-col">
+                  <span className="text-3xl md:text-4xl font-black tracking-tight">{stat.num}</span>
+                  <span className="text-xs text-neutral-400 font-medium uppercase tracking-wider mt-1">{isEn ? stat.labelEN : stat.labelPT}</span>
+                </div>
+              ))}
+            </motion.div>
           </section>
 
-          {/* 2. Sobre */}
+          {/* ── 2. SOBRE ── */}
           <section className="mb-48" id="sobre">
-             <motion.h2 
+            <motion.h2
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8 }}
               className="text-4xl md:text-6xl tracking-tight mb-16 flex flex-wrap gap-x-3 gap-y-1"
@@ -167,7 +252,7 @@ export default function HomeClient() {
               <span className="font-normal text-[#cccccc]">{isEn ? "About" : "Sobre"}</span>
               <span className="font-black text-black">{isEn ? "me." : "mim."}</span>
             </motion.h2>
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8 }}
               className="grid md:grid-cols-[1fr_1fr] gap-12 md:gap-16 text-lg md:text-xl text-neutral-600 leading-relaxed"
@@ -175,28 +260,129 @@ export default function HomeClient() {
               {isEn ? (
                 <>
                   <p>
-                    Graduating in <strong className="text-black">Aeronautical Mechanical Engineering at the Federal University of Itajubá (UNIFEI)</strong> provided me with a deep mathematical and analytical foundation. Digital design and software development emerged from my desire to build iterative and tangible solutions that generate immediate impact.
+                    Currently pursuing a <strong className="text-black">Bachelor&apos;s in Aeronautical Mechanical Engineering at UNIFEI (2022–2027)</strong>, with certifications in <strong className="text-black">Product Management</strong>, <strong className="text-black">Marketing</strong> from Escola DNC, and a <strong className="text-black">Lean Six Sigma Green Belt</strong>. Previously served as an Engineering Corporal in the <strong className="text-black">Brazilian Army (2016–2018)</strong>, specializing in multimedia production and IT.
                   </p>
                   <p>
-                    This space is my personal laboratory. The place where I document conversion experiments, elaborate interfaces with Next.js and Framer Motion, and Artificial Intelligence tools I create to solve real commercial bottlenecks for businesses.
+                    I work at the intersection of engineering, design, and technology. From leading paid traffic strategies that generated R$200k+ in revenue at Escola DNC, to co-founding Ajeita Fácil, to researching metallic welding behavior in microgravity — I thrive on building solutions that bridge analytical rigor with creative execution.
                   </p>
                 </>
               ) : (
                 <>
                   <p>
-                    A graduação em <strong className="text-black">Engenharia Mecânica Aeronáutica na Universidade Federal de Itajubá (UNIFEI)</strong> me deu uma base matemática e analítica profunda. O design digital e o desenvolvimento de software surgiram da vontade de construir soluções iterativas e tangíveis que gerassem impacto imediato.
+                    Cursando <strong className="text-black">Engenharia Mecânica Aeronáutica na UNIFEI (2022–2027)</strong>, com certificações em <strong className="text-black">Product Management</strong>, <strong className="text-black">Marketing</strong> pela Escola DNC e <strong className="text-black">Lean Six Sigma Green Belt</strong>. Anteriormente, servi como Cabo de Engenharia no <strong className="text-black">Exército Brasileiro (2016–2018)</strong>, especializado em produção multimídia e TI.
                   </p>
                   <p>
-                    Este espaço é o meu laboratório pessoal. O lugar onde documento experimentos com conversão, interfaces elaboradas com Next.js e Framer Motion, e ferramentas de Inteligência Artificial que crio para solucionar gargalos comerciais reais de negócios.
+                    Atuo na interseção entre engenharia, design e tecnologia. De liderar estratégias de tráfego pago que geraram R$200 mil+ em receita na Escola DNC, a co-fundar a Ajeita Fácil, a pesquisar comportamento de soldas metálicas em microgravidade — eu prospero construindo soluções que unem rigor analítico com execução criativa.
                   </p>
                 </>
               )}
             </motion.div>
+
+            {/* Skills + Certifications Grid */}
+            <div className="mt-20 grid md:grid-cols-2 gap-12">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.8 }}
+              >
+                <h3 className="text-sm uppercase tracking-widest font-bold mb-8 text-black/40">{isEn ? "Technical Skills" : "Habilidades Técnicas"}</h3>
+                <div className="space-y-6">
+                  {skills.map((s) => (
+                    <div key={s.category}>
+                      <span className="text-xs font-bold uppercase tracking-wider text-neutral-400 block mb-2">{s.category}</span>
+                      <div className="flex flex-wrap gap-2">
+                        {s.items.map((item) => (
+                          <span key={item} className="px-4 py-1.5 bg-neutral-100/80 border border-black/5 text-neutral-700 rounded-full text-[11px] font-semibold">{item}</span>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.8, delay: 0.1 }}
+              >
+                <h3 className="text-sm uppercase tracking-widest font-bold mb-8 text-black/40">{isEn ? "Certifications" : "Certificações"}</h3>
+                <div className="flex flex-col gap-3">
+                  {certifications.map((cert) => (
+                    <div key={cert} className="flex items-start gap-3">
+                      <span className="w-1.5 h-1.5 rounded-full bg-black/20 mt-2 shrink-0" />
+                      <span className="text-base text-neutral-600">{cert}</span>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            </div>
           </section>
 
-          {/* 3. Projetos */}
+          {/* ── 3. EXPERIÊNCIA ── */}
+          <section className="mb-48" id="experiencia">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8 }}
+              className="text-4xl md:text-6xl tracking-tight mb-16 flex flex-wrap gap-x-3 gap-y-1"
+            >
+              <span className="font-normal text-[#cccccc]">{isEn ? "My" : "Minha"}</span>
+              <span className="font-black text-black">{isEn ? "Experience." : "Experiência."}</span>
+            </motion.h2>
+
+            {/* Professional */}
+            <div className="mb-16">
+              <h3 className="text-sm uppercase tracking-widest font-bold mb-10 text-black/40">{isEn ? "Professional" : "Profissional"}</h3>
+              <div className="flex flex-col border-t border-black/10">
+                {experience.map((exp, i) => (
+                  <motion.div
+                    key={exp.role + exp.period}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{ delay: i * 0.08, duration: 0.6, type: "spring", stiffness: 100 }}
+                    className="group py-8 md:py-10 border-b border-black/10 grid md:grid-cols-[200px_1fr] gap-4 md:gap-12"
+                  >
+                    <div className="flex flex-col gap-1">
+                      <span className="text-sm font-bold text-black">{exp.company}</span>
+                      <span className="text-xs text-neutral-400 font-mono">{exp.period}</span>
+                    </div>
+                    <div>
+                      <h4 className="text-xl md:text-2xl font-bold tracking-tight mb-3 group-hover:translate-x-2 transition-transform duration-300">{exp.role}</h4>
+                      <p className="text-neutral-500 leading-relaxed text-[15px]">{isEn ? exp.descEN : exp.descPT}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* Academic */}
+            <div>
+              <h3 className="text-sm uppercase tracking-widest font-bold mb-10 text-black/40">{isEn ? "Academic & Research" : "Acadêmico & Pesquisa"}</h3>
+              <div className="flex flex-col border-t border-black/10">
+                {academicExp.map((exp, i) => (
+                  <motion.div
+                    key={exp.role + exp.period}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{ delay: i * 0.08, duration: 0.6, type: "spring", stiffness: 100 }}
+                    className="group py-8 md:py-10 border-b border-black/10 grid md:grid-cols-[200px_1fr] gap-4 md:gap-12"
+                  >
+                    <div className="flex flex-col gap-1">
+                      <span className="text-sm font-bold text-black">{exp.company}</span>
+                      <span className="text-xs text-neutral-400 font-mono">{exp.period}</span>
+                    </div>
+                    <div>
+                      <h4 className="text-xl md:text-2xl font-bold tracking-tight mb-3 group-hover:translate-x-2 transition-transform duration-300">{exp.role}</h4>
+                      <p className="text-neutral-500 leading-relaxed text-[15px]">{isEn ? exp.descEN : exp.descPT}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* ── 4. PROJETOS ── */}
           <section className="mb-48" id="projetos">
-            <motion.h2 
+            <motion.h2
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8 }}
               className="text-4xl md:text-6xl tracking-tight mb-16 flex flex-wrap gap-x-3 gap-y-1"
@@ -218,32 +404,26 @@ export default function HomeClient() {
                   className="group flex flex-col md:flex-row md:items-center justify-between py-10 md:py-12 border-b border-black/10 hover:px-8 transition-all duration-500 cursor-pointer relative overflow-hidden"
                 >
                   <div className="absolute inset-0 bg-neutral-50 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] -z-10" />
-                  
                   <div className="flex items-center gap-6 mb-6 md:mb-0">
                     <span className="text-neutral-300 font-bold font-mono text-sm tracking-widest">{p.num}</span>
                     <h3 className="text-3xl md:text-5xl font-bold tracking-tight group-hover:translate-x-4 transition-transform duration-500 ease-out">{p.title}</h3>
                   </div>
-                  
                   <div className="flex flex-wrap items-center gap-4 md:gap-8">
                     <div className="flex flex-wrap gap-1 md:gap-2 opacity-100 md:opacity-0 md:-translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 delay-100">
-                       {p.tags.map(tag => (
-                        <span key={tag} className="px-3 md:px-4 py-1.5 border border-black/10 bg-white rounded-full text-[10px] font-bold uppercase tracking-widest text-neutral-500 shadow-sm">
-                          {tag}
-                        </span>
+                      {p.tags.map(tag => (
+                        <span key={tag} className="px-3 md:px-4 py-1.5 border border-black/10 bg-white rounded-full text-[10px] font-bold uppercase tracking-widest text-neutral-500 shadow-sm">{tag}</span>
                       ))}
                     </div>
-                    <span className="h-12 w-12 md:h-14 md:w-14 rounded-full border border-black/10 bg-white shadow-sm flex items-center justify-center shrink-0 group-hover:bg-black group-hover:text-white group-hover:border-black group-hover:scale-110 transition-all duration-500">
-                      ↗
-                    </span>
+                    <span className="h-12 w-12 md:h-14 md:w-14 rounded-full border border-black/10 bg-white shadow-sm flex items-center justify-center shrink-0 group-hover:bg-black group-hover:text-white group-hover:border-black group-hover:scale-110 transition-all duration-500">↗</span>
                   </div>
                 </motion.a>
               ))}
             </div>
           </section>
 
-          {/* 4. Artigos */}
-           <section className="mb-48" id="artigos">
-            <motion.h2 
+          {/* ── 5. ARTIGOS ── */}
+          <section className="mb-48" id="artigos">
+            <motion.h2
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8 }}
               className="text-4xl md:text-6xl tracking-tight mb-16 flex flex-wrap gap-x-3 gap-y-1"
@@ -279,11 +459,9 @@ export default function HomeClient() {
             </div>
           </section>
 
-           {/* 5. Este Site / Links / Onde Encontrar */}
+          {/* ── 6. ESTE SITE / LINKS / ONDE ENCONTRAR ── */}
           <section className="mb-48" id="links">
             <div className="grid lg:grid-cols-[1fr_1fr] gap-16 border-t border-black/10 pt-20">
-              
-              {/* Este Site */}
               <motion.div
                 initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.8 }}
@@ -291,9 +469,9 @@ export default function HomeClient() {
                 <h3 className="text-3xl font-black mb-6">{isEn ? "About This Site" : "Sobre Este Site"}</h3>
                 <p className="text-neutral-500 text-lg leading-relaxed mb-8">
                   {isEn ? (
-                    <>Built with Next.js (App Router), React, Tailwind CSS and Framer Motion for super fluid animations. Hosted on Vercel with CI/CD integration. <br/><br/>Uses clean accessibility practices, modular components, and a design system that perfectly reflects my skills with high-end frontend.</>
+                    <>Built with Next.js (App Router), React, Tailwind CSS and Framer Motion for super fluid animations. Hosted on Vercel with CI/CD integration. <br /><br />Uses clean accessibility practices, modular components, and a design system that perfectly reflects my skills with high-end frontend.</>
                   ) : (
-                    <>Construído com Next.js (App Router), React, Tailwind CSS e Framer Motion para animações super fluidas. Hospedado na Vercel com integração contínua (CI/CD). <br/><br/>Utiliza práticas limpas de acessibilidade, componentes modulares e um design system que reflete perfeitamente as minhas habilidades com frontend de alto nível.</>
+                    <>Construído com Next.js (App Router), React, Tailwind CSS e Framer Motion para animações super fluidas. Hospedado na Vercel com integração contínua (CI/CD). <br /><br />Utiliza práticas limpas de acessibilidade, componentes modulares e um design system que reflete perfeitamente as minhas habilidades com frontend de alto nível.</>
                   )}
                 </p>
                 <div className="flex flex-wrap gap-2">
@@ -304,7 +482,6 @@ export default function HomeClient() {
               </motion.div>
 
               <div className="grid sm:grid-cols-2 gap-12 pt-2">
-                {/* Onde me encontrar */}
                 <motion.div
                   initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }}
                   transition={{ duration: 0.8, delay: 0.2 }}
@@ -312,15 +489,14 @@ export default function HomeClient() {
                   <h3 className="text-sm uppercase tracking-widest font-bold mb-8 text-black/40">{isEn ? "Where to find me" : "Onde me encontrar"}</h3>
                   <div className="flex flex-col gap-5">
                     {socials.map(s => (
-                       <a key={s.label} href={s.href} target="_blank" rel="noreferrer" className="group flex flex-col border-b border-black/5 pb-3">
-                          <span className="text-lg font-bold text-black group-hover:text-black/60 transition-colors mb-1">{s.label}</span>
-                          <span className="text-sm font-medium text-neutral-400 group-hover:text-neutral-600 transition-colors">{s.handle}</span>
-                       </a>
+                      <a key={s.label} href={s.href} target="_blank" rel="noreferrer" className="group flex flex-col border-b border-black/5 pb-3">
+                        <span className="text-lg font-bold text-black group-hover:text-black/60 transition-colors mb-1">{s.label}</span>
+                        <span className="text-sm font-medium text-neutral-400 group-hover:text-neutral-600 transition-colors">{s.handle}</span>
+                      </a>
                     ))}
                   </div>
                 </motion.div>
 
-                {/* Links Uteis */}
                 <motion.div
                   initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }}
                   transition={{ duration: 0.8, delay: 0.3 }}
@@ -328,10 +504,10 @@ export default function HomeClient() {
                   <h3 className="text-sm uppercase tracking-widest font-bold mb-8 text-black/40">{isEn ? "Useful Links" : "Links Úteis"}</h3>
                   <div className="flex flex-col gap-5">
                     {usefulLinks.map(s => (
-                       <a key={s.label} href={s.href} target={s.href.startsWith("http") ? "_blank" : "_self"} rel="noreferrer" className="group flex items-center justify-between border-b border-black/5 pb-4 pt-1">
-                          <span className="text-base font-bold text-black group-hover:text-black/60 transition-colors pr-2">{s.label}</span>
-                          <span className="opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all text-sm font-bold">↗</span>
-                       </a>
+                      <a key={s.label} href={s.href} target={s.href.startsWith("http") ? "_blank" : "_self"} rel="noreferrer" className="group flex items-center justify-between border-b border-black/5 pb-4 pt-1">
+                        <span className="text-base font-bold text-black group-hover:text-black/60 transition-colors pr-2">{s.label}</span>
+                        <span className="opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all text-sm font-bold">↗</span>
+                      </a>
                     ))}
                   </div>
                 </motion.div>
@@ -339,11 +515,11 @@ export default function HomeClient() {
             </div>
           </section>
 
-          {/* 6. Contato */}
+          {/* ── 7. CONTATO ── */}
           <section className="mb-20" id="contato">
-            <motion.div 
-             initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.8 }}
-             className="bg-[#050505] rounded-[2rem] md:rounded-[4rem] text-white px-8 py-20 md:p-32 text-center flex flex-col items-center relative overflow-hidden shadow-2xl"
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.8 }}
+              className="bg-[#050505] rounded-[2rem] md:rounded-[4rem] text-white px-8 py-20 md:p-32 text-center flex flex-col items-center relative overflow-hidden shadow-2xl"
             >
               <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 blur-[120px] rounded-full pointer-events-none" />
               <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/5 blur-[120px] rounded-full pointer-events-none" />
@@ -352,9 +528,9 @@ export default function HomeClient() {
                 {isEn ? "Got a project or challenge on the radar?" : "Tem um projeto ou desafio no radar?"}
               </h2>
               <p className="text-white/50 text-xl md:text-2xl mb-16 max-w-2xl z-10 leading-relaxed font-light">
-                {isEn ? "Send a message and let's talk about data engineering, design, or traffic. I usually respond within an hour." : "Mande uma mensagem e vamos conversar sobre engenharia de dados, design ou tráfego. Geralmente respondo em menos de 1h."}
+                {isEn ? "Send a message and let's talk about engineering, design, or traffic. I usually respond within an hour." : "Mande uma mensagem e vamos conversar sobre engenharia, design ou tráfego. Geralmente respondo em menos de 1h."}
               </p>
-              
+
               <div className="flex flex-wrap justify-center gap-6 z-10">
                 <MagneticButton>
                   <a href="https://wa.me/5535984128420" target="_blank" rel="noreferrer" className="relative flex items-center gap-4 rounded-full bg-white px-10 py-5 text-base font-bold text-black transition-transform hover:scale-105 shadow-[0_20px_40px_-15px_rgba(255,255,255,0.2)] active:scale-95">
@@ -370,11 +546,11 @@ export default function HomeClient() {
               </div>
             </motion.div>
           </section>
-          
+
           <div className="text-center pb-20">
             <p className="text-neutral-400 font-medium tracking-tight">© 2026 Thales Miguel — {isEn ? "Where design and code meet." : "O design e o código se encontram aqui."}</p>
           </div>
-          
+
         </div>
       </main>
     </>
