@@ -58,7 +58,7 @@ export default function CustomCursor() {
       pos.current.x = lerp(pos.current.x, target.current.x, 0.15);
       pos.current.y = lerp(pos.current.y, target.current.y, 0.15);
       if (cursorRef.current) {
-        cursorRef.current.style.transform = `translate(${pos.current.x - 28}px, ${pos.current.y - 28}px)`;
+        cursorRef.current.style.transform = `translate(${pos.current.x - 20}px, ${pos.current.y - 20}px)`;
       }
       raf = requestAnimationFrame(animate);
     };

@@ -33,9 +33,7 @@ export default function SpotlightCard({ children, className = "", as: Tag = "div
           background: `radial-gradient(400px circle at ${spot.x}px ${spot.y}px, rgba(0,0,0,0.08) 0%, transparent 60%)`,
         }}
       />
-      <div className="relative z-10 h-full w-full">
-        {children}
-      </div>
+      {children}
     </Tag>
   );
 }
