@@ -1,10 +1,9 @@
 "use client";
 
 /**
- * Aurora Borealis — vertical curtain-of-light beams.
- *
- * Each ribbon is a narrow vertical gradient strip that sways, leans
- * and pulses via the aurora-wave keyframe (defined in globals.css).
+ * Aurora Ribbon Lines — thin luminous glowing lines that undulate.
+ * Linear/Raycast-inspired aesthetic: sharp defined cores with soft glow halos.
+ * Uses aurora-line keyframes defined in globals.css.
  */
 
 interface AuroraProps {
@@ -13,13 +12,16 @@ interface AuroraProps {
   dark?: boolean;
 }
 
-const ribbons = [
-  { left: "8%",  w: "12%", dur: "9s",   del: "0s",    blur: 50, color: [0, 230, 120] },
-  { left: "20%", w: "15%", dur: "13s",  del: "-4s",   blur: 65, color: [0, 200, 180] },
-  { left: "38%", w: "10%", dur: "11s",  del: "-7s",   blur: 45, color: [0, 255, 140] },
-  { left: "52%", w: "18%", dur: "14s",  del: "-2.5s", blur: 70, color: [0, 180, 220] },
-  { left: "68%", w: "11%", dur: "10s",  del: "-9s",   blur: 50, color: [40, 255, 160] },
-  { left: "82%", w: "14%", dur: "12s",  del: "-5.5s", blur: 60, color: [0, 220, 200] },
+const lines = [
+  { left: "6%",   dur: "8s",   del: "0s",     color: [0, 230, 120],  glow: 18 },
+  { left: "15%",  dur: "11s",  del: "-3s",    color: [0, 200, 180],  glow: 22 },
+  { left: "25%",  dur: "14s",  del: "-7s",    color: [0, 255, 140],  glow: 16 },
+  { left: "35%",  dur: "9s",   del: "-1.5s",  color: [40, 255, 160], glow: 20 },
+  { left: "48%",  dur: "12s",  del: "-5s",    color: [0, 180, 220],  glow: 24 },
+  { left: "58%",  dur: "10s",  del: "-8.5s",  color: [0, 220, 200],  glow: 18 },
+  { left: "70%",  dur: "13s",  del: "-2s",    color: [0, 240, 160],  glow: 20 },
+  { left: "82%",  dur: "9.5s", del: "-6s",    color: [0, 200, 180],  glow: 16 },
+  { left: "92%",  dur: "11s",  del: "-4.5s",  color: [0, 230, 140],  glow: 14 },
 ];
 
 export default function Aurora({
@@ -33,9 +35,9 @@ export default function Aurora({
       style={{ mixBlendMode: dark ? "screen" : "normal", opacity: dark ? 1 : 0.7 }}
       aria-hidden="true"
     >
-      {ribbons.map((r, i) => {
-        const [red, green, blue] = r.color;
-        const peak = intensity;
+      {lines.map((l, i) => {
+        const [r, g, b] = l.color;
+        const alpha = intensity;
         return (
           <div
             key={i}
@@ -44,21 +46,25 @@ export default function Aurora({
               position: "absolute",
               top: 0,
               bottom: 0,
-              left: r.left,
-              width: r.w,
-              filter: `blur(${r.blur}px)`,
-              animation: `aurora-wave ${r.dur} ease-in-out ${r.del} infinite`,
+              left: l.left,
+              width: "2px",
+              borderRadius: "1px",
+              animation: `aurora-line ${l.dur} ease-in-out ${l.del} infinite`,
               willChange: "transform, opacity",
               background: `linear-gradient(
                 180deg,
                 transparent 0%,
-                rgba(${red},${green},${blue},${peak * 0.2}) 10%,
-                rgba(${red},${green},${blue},${peak * 0.7}) 30%,
-                rgba(${red},${green},${blue},${peak}) 50%,
-                rgba(${red},${green},${blue},${peak * 0.6}) 70%,
-                rgba(${red},${green},${blue},${peak * 0.15}) 90%,
+                rgba(${r},${g},${b},${alpha * 0.3}) 15%,
+                rgba(${r},${g},${b},${alpha}) 45%,
+                rgba(${r},${g},${b},${alpha * 0.8}) 65%,
+                rgba(${r},${g},${b},${alpha * 0.2}) 85%,
                 transparent 100%
               )`,
+              boxShadow: `
+                0 0 ${l.glow * 0.5}px rgba(${r},${g},${b},${alpha * 0.4}),
+                0 0 ${l.glow}px rgba(${r},${g},${b},${alpha * 0.25}),
+                0 0 ${l.glow * 2}px rgba(${r},${g},${b},${alpha * 0.1})
+              `,
             }}
           />
         );

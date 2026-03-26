@@ -4,6 +4,7 @@ import Image from "next/image";
 import AnimateIn from "./AnimateIn";
 import { openContactModal } from "@/app/utils/contactModal";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/app/context/LanguageContext";
 
 const cardVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -14,26 +15,10 @@ const cardVariants = {
   }),
 };
 
-const specialties = [
-  {
-    title: "Landing Pages",
-    description: "Estrutura, copy e design para conversão.",
-  },
-  {
-    title: "Tráfego Pago",
-    description: "Meta Ads e Google Ads com leitura de funil.",
-  },
-  {
-    title: "IA Personalizada",
-    description: "Treinada com os dados do seu negócio. Não é chatbot genérico.",
-  },
-  {
-    title: "WhatsApp + CRM",
-    description: "Atendimento, contexto e handoff bem amarrados.",
-  },
-] as const;
-
 export default function About() {
+  const { t } = useLanguage();
+  const a = t.about;
+
   return (
     <section className="section-border px-6 py-24 lg:px-8 lg:py-32">
       <div className="mx-auto max-w-[1160px]">
@@ -57,15 +42,13 @@ export default function About() {
               {/* Name & title */}
               <div className="mt-8">
                 <h3 className="text-xl font-bold text-black">Thales Miguel</h3>
-                <p className="text-gray-500">
-                  Design, Tecnologia & Marketing Digital
-                </p>
+                <p className="text-gray-500">{a.subtitle}</p>
               </div>
 
               {/* Specialties */}
               <div className="mt-8">
                 <p className="text-sm font-medium tracking-wide text-gray-400 uppercase">
-                  Especialidades
+                  {a.specialtiesLabel}
                 </p>
                 <motion.div
                   className="mt-4 grid gap-3 sm:grid-cols-2"
@@ -73,7 +56,7 @@ export default function About() {
                   whileInView="visible"
                   viewport={{ once: true, amount: 0.2 }}
                 >
-                  {specialties.map((item, i) => (
+                  {a.specialties.map((item, i) => (
                     <motion.div
                       key={item.title}
                       custom={i}
@@ -88,8 +71,7 @@ export default function About() {
                   ))}
                 </motion.div>
                 <p className="mt-4 max-w-md text-sm leading-relaxed text-gray-400">
-                  O foco é unir design, mídia e tecnologia numa operação que
-                  transforma clique em cliente.
+                  {a.focusText}
                 </p>
               </div>
             </div>
@@ -121,24 +103,14 @@ export default function About() {
             <AnimateIn variant="fadeUp" delay={0.3}>
               <div className="space-y-6 text-lg leading-relaxed text-gray-500">
                 <p>
-                  A maioria das empresas{" "}
-                  <span className="font-semibold text-black">
-                    trata marketing e tecnologia como coisas separadas.
-                  </span>{" "}
-                  Eu junto as duas. Porque uma landing page bonita que não converte
-                  é desperdício, e uma automação poderosa sem design é invisível.
+                  {a.bio[0].prefix}{" "}
+                  <span className="font-semibold text-black">{a.bio[0].bold}</span>
+                  {a.bio[0].suffix}
                 </p>
+                <p>{a.bio[1].plain}</p>
                 <p>
-                  Construo landing pages que vendem, campanhas que escalam e
-                  IA personalizada que trabalha enquanto você dorme. Tudo
-                  integrado, tudo mensurável.
-                </p>
-                <p>
-                  <span className="font-semibold text-black">
-                    Não entrego projeto pela metade.
-                  </span>{" "}
-                  Se o copy não convence, refaço. Se a automação trava, corrijo.
-                  O resultado final é o que importa, não o processo.
+                  <span className="font-semibold text-black">{a.bio[2].boldPart}</span>
+                  {a.bio[2].suffix}
                 </p>
               </div>
             </AnimateIn>

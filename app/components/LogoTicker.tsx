@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import AnimateIn from "./AnimateIn";
+import { useLanguage } from "@/app/context/LanguageContext";
 
 const logos = [
   "Meta Ads",
@@ -25,8 +26,8 @@ const logos = [
 
 export default function LogoTicker() {
   const [paused, setPaused] = useState(false);
+  const { t } = useLanguage();
 
-  // Triple for seamless infinite scroll
   const allLogos = [...logos, ...logos, ...logos];
   const allLogosReverse = [...logos, ...logos, ...logos];
 
@@ -35,22 +36,19 @@ export default function LogoTicker() {
       <AnimateIn variant="fadeIn" delay={0.1}>
         <div className="mx-auto max-w-[1160px]">
           <p className="text-sm text-gray-400">
-            Tecnologias de <span className="font-bold text-black">confiança</span>
+            {t.logoTicker.label} <span className="font-bold text-black">{t.logoTicker.labelBold}</span>
           </p>
         </div>
 
         <div
           className="mt-6 overflow-hidden"
           style={{
-            maskImage:
-              "linear-gradient(to right, transparent, black 15%, black 85%, transparent)",
-            WebkitMaskImage:
-              "linear-gradient(to right, transparent, black 15%, black 85%, transparent)",
+            maskImage: "linear-gradient(to right, transparent, black 15%, black 85%, transparent)",
+            WebkitMaskImage: "linear-gradient(to right, transparent, black 15%, black 85%, transparent)",
           }}
           onMouseEnter={() => setPaused(true)}
           onMouseLeave={() => setPaused(false)}
         >
-          {/* Forward track */}
           <div
             className="ticker-track flex w-max gap-8"
             style={{ animationPlayState: paused ? "paused" : "running" }}
@@ -65,7 +63,6 @@ export default function LogoTicker() {
             ))}
           </div>
 
-          {/* Reverse track — visible on md and above only */}
           <div
             className="ticker-track mt-4 hidden w-max gap-8 md:flex"
             style={{

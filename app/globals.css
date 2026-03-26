@@ -26,17 +26,7 @@ body {
   padding-bottom: env(safe-area-inset-bottom);
 }
 
-/* Frame border — coral/salmon around entire page */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  border: 3px solid #f0a090;
-  border-radius: 10px;
-  margin: 4px;
-  pointer-events: none;
-  z-index: 9999;
-}
+/* Frame border is applied per-page via FrameBorder component */
 
 @layer base {
   a {
@@ -88,14 +78,25 @@ body::before {
 }
 
 .ticker-track {
-  animation: ticker 27s linear infinite;
+  animation: ticker 45s linear infinite;
+}
+
+/* Skills marquee */
+@keyframes marqueeLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marqueeRight {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
 }
 
 .ticker-track:hover {
   animation-play-state: paused;
 }
 
-/* Aurora Borealis — curtain ribbons */
+/* Aurora Borealis — curtain ribbons (legacy) */
 @keyframes aurora-wave {
   0%, 100% {
     transform: translateX(0) skewX(0deg) scaleY(1);
@@ -116,6 +117,34 @@ body::before {
   80% {
     transform: translateX(35px) skewX(3deg) scaleY(0.97);
     opacity: 0.55;
+  }
+}
+
+/* Aurora Ribbon Lines — thin luminous lines */
+@keyframes aurora-line {
+  0%, 100% {
+    transform: translateX(0) scaleY(1);
+    opacity: 0.5;
+  }
+  15% {
+    transform: translateX(-30px) scaleY(1.03);
+    opacity: 0.9;
+  }
+  30% {
+    transform: translateX(20px) scaleY(0.97);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translateX(-15px) scaleY(1.05);
+    opacity: 1;
+  }
+  70% {
+    transform: translateX(25px) scaleY(0.98);
+    opacity: 0.6;
+  }
+  85% {
+    transform: translateX(-10px) scaleY(1.02);
+    opacity: 0.8;
   }
 }
 
@@ -178,4 +207,15 @@ main {
   .cta-pulse-wrapper > * {
     animation: none;
   }
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+html {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }

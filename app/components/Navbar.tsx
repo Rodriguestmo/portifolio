@@ -3,15 +3,12 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-
-const links = [
-  { label: "Projetos", href: "#projetos" },
-  { label: "Serviços", href: "#servicos" },
-  { label: "Soluções", href: "#solucoes" },
-];
+import { useLanguage } from "@/app/context/LanguageContext";
+import LanguageToggle from "./LanguageToggle";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -44,11 +41,11 @@ export default function Navbar() {
         href="#contato"
         className="rounded-full border border-black bg-black px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-gray-800 md:hidden"
       >
-        Contato
+        {t.nav.contact}
       </a>
 
       <div className="hidden items-center gap-6 md:flex">
-        {links.map((link) => (
+        {t.nav.links.map((link) => (
           <motion.a
             key={link.href}
             href={link.href}
@@ -68,11 +65,12 @@ export default function Navbar() {
             </span>
           </motion.a>
         ))}
+        <LanguageToggle />
         <a
           href="#contato"
           className="rounded-full border border-black bg-black px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-gray-800"
         >
-          Contato
+          {t.nav.contact}
         </a>
       </div>
     </motion.nav>

@@ -2,12 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import Aurora from "./Aurora";
-
-const text = "resolvendo problemas reais\nde pessoas reais.";
-
-// Bold these words
-const boldWords = new Set(["reais", "reais."]);
+import { useLanguage } from "@/app/context/LanguageContext";
 
 function Character({
   progress,
@@ -30,17 +25,20 @@ function Character({
 }
 
 export default function TextReveal() {
+  const { t } = useLanguage();
+  const { text, boldWords } = t.textReveal;
+  const boldSet = new Set(boldWords);
+
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start 0.85", "center center"],
   });
   const delayedProgress = useTransform(scrollYProgress, [0.1, 1], [0, 1]);
+  const textScale = useTransform(scrollYProgress, [0, 0.8], [0.92, 1]);
+  const textOpacity = useTransform(scrollYProgress, [0, 0.3], [0.4, 1]);
 
-  // Split into lines, then words, then characters
   const lines = text.split("\n");
-
-  // Count total characters (excluding whitespace/newlines for progress mapping)
   const allChars = text.replace(/[\n ]/g, "");
   const totalChars = allChars.length;
 
@@ -48,14 +46,13 @@ export default function TextReveal() {
 
   return (
     <section ref={containerRef} className="relative px-6 py-16 lg:px-8 lg:py-44 overflow-hidden">
-      <Aurora intensity={0.08} />
-      <div className="mx-auto max-w-[1120px] text-center">
+      <motion.div className="mx-auto max-w-[1120px] text-center" style={{ scale: textScale, opacity: textOpacity }}>
         <p className="text-4xl leading-[1.12] tracking-tight md:text-6xl lg:text-[5rem]">
           {lines.map((line, lineIdx) => (
             <span key={lineIdx}>
               {lineIdx > 0 && <br />}
               {line.split(" ").map((word, wordIdx) => {
-                const isBold = boldWords.has(word);
+                const isBold = boldSet.has(word);
                 const chars = word.split("");
 
                 const wordEl = (
@@ -87,7 +84,6 @@ export default function TextReveal() {
                   </span>
                 );
 
-                // Add space after word (except last word in line)
                 const wordsInLine = line.split(" ");
                 if (wordIdx < wordsInLine.length - 1) {
                   return (
@@ -103,7 +99,7 @@ export default function TextReveal() {
             </span>
           ))}
         </p>
-      </div>
+      </motion.div>
     </section>
   );
 }

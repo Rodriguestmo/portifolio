@@ -4,6 +4,7 @@ import Image from "next/image";
 import AnimateIn from "./AnimateIn";
 import AnimatedCounter from "./AnimatedCounter";
 import { useState, useEffect, useRef } from "react";
+import { useLanguage } from "@/app/context/LanguageContext";
 
 function useTextScramble(finalText: string, isActive: boolean) {
   const [display, setDisplay] = useState(finalText);
@@ -77,6 +78,8 @@ const avatars = [
 ];
 
 export default function SocialProof() {
+  const { t } = useLanguage();
+
   return (
     <div className="section-border px-6 py-6 lg:px-8">
       <AnimateIn variant="fadeIn" delay={0.1}>
@@ -113,7 +116,7 @@ export default function SocialProof() {
               className="font-bold text-base"
             />{" "}
             <ScrambleLabel
-              text="projetos entregues com resultado"
+              text={t.socialProof.label}
               className="text-gray-500"
             />
           </p>
