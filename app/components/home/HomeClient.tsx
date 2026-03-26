@@ -309,21 +309,21 @@ export default function HomeClient() {
                   titleEN: "Landing Pages",
                   descPT: "Páginas de alta conversão com design premium, animações fluidas e foco total em resultado.",
                   descEN: "High-conversion pages with premium design, fluid animations, and total focus on results.",
-                  icon: "→",
+                  icon: "↗",
                 },
                 {
                   titlePT: "Tráfego Pago",
                   titleEN: "Paid Traffic",
                   descPT: "Campanhas otimizadas em Google, Meta, LinkedIn e TikTok Ads com foco em ROI e escala.",
                   descEN: "Optimized campaigns on Google, Meta, LinkedIn and TikTok Ads focused on ROI and scale.",
-                  icon: "↑",
+                  icon: "←",
                 },
                 {
                   titlePT: "Automação & IA",
                   titleEN: "Automation & AI",
                   descPT: "Bots inteligentes, automações de WhatsApp e ferramentas com inteligência artificial para escalar operações.",
                   descEN: "Smart bots, WhatsApp automations, and AI-powered tools to scale operations.",
-                  icon: "⚡",
+                  icon: "↗",
                 },
               ].map((service, i) => (
                 <motion.a
