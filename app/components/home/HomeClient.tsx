@@ -190,7 +190,7 @@ export default function HomeClient() {
               <Image src="/images/perfil.png" alt="Thales Miguel" fill sizes="96px" className="object-cover object-[center_20%]" />
             </motion.div>
 
-            <h1 className="text-6xl md:text-[90px] lg:text-[100px] leading-[0.95] tracking-tighter overflow-hidden flex flex-wrap gap-x-3 md:gap-x-5 max-w-5xl">
+            <h1 className="text-5xl md:text-[64px] lg:text-[72px] leading-[0.95] tracking-tighter overflow-hidden flex flex-wrap gap-x-3 md:gap-x-5 max-w-5xl">
               <span className="block overflow-hidden pb-2">
                 <motion.span custom={0} initial="hidden" animate="visible" variants={wordVariants} className="inline-block text-[#cccccc] font-normal">Thales</motion.span>
               </span>
@@ -202,10 +202,10 @@ export default function HomeClient() {
                 <motion.span custom={2} initial="hidden" animate="visible" variants={wordVariants} className="inline-block text-[#cccccc] font-normal">{isEn ? "Engineering," : "Engenharia,"}</motion.span>
               </span>
               <span className="block overflow-hidden pb-4">
-                <motion.span custom={3} initial="hidden" animate="visible" variants={wordVariants} className="inline-block font-black text-black">{isEn ? "technology &" : "tecnologia e"}</motion.span>
+                <motion.span custom={3} initial="hidden" animate="visible" variants={wordVariants} className="inline-block font-black text-black">{isEn ? "strategy &" : "estratégia e"}</motion.span>
               </span>
               <span className="block overflow-hidden pb-4">
-                <motion.span custom={4} initial="hidden" animate="visible" variants={wordVariants} className="inline-block font-black text-black">marketing.</motion.span>
+                <motion.span custom={4} initial="hidden" animate="visible" variants={wordVariants} className="inline-block font-black text-black">{isEn ? "technology." : "tecnologia."}</motion.span>
               </span>
             </h1>
 
@@ -216,30 +216,12 @@ export default function HomeClient() {
               className="mt-10 text-xl md:text-2xl text-neutral-500 max-w-2xl leading-relaxed tracking-tight"
             >
               {isEn ? (
-                <><strong className="text-black font-semibold">Aeronautical Mechanical Engineering student at UNIFEI.</strong> Ex-Product Marketing Manager at Escola DNC. Co-founder of Ajeita Fácil. Building systems where engineering precision meets design excellence and marketing performance.</>
+                <><strong className="text-black font-semibold">Product Manager · Aeronautical Mechanical Engineering Student at UNIFEI.</strong><br />I apply an engineer&apos;s mindset to solve real problems.</>
               ) : (
-                <><strong className="text-black font-semibold">Estudante de Engenharia Mecânica Aeronáutica na UNIFEI.</strong> Ex-Product Marketing Manager na Escola DNC. Co-fundador da Ajeita Fácil. Construindo sistemas onde a precisão da engenharia encontra excelência em design e performance em marketing.</>
+                <><strong className="text-black font-semibold">Product Manager · Estudante de Eng. Mecânica Aeronáutica na UNIFEI.</strong><br />Aplico pensamento de engenheiro para resolver problemas reais.</>
               )}
             </motion.p>
 
-            {/* Quick Stats */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.9, duration: 0.8 }}
-              className="mt-12 flex flex-wrap gap-8"
-            >
-              {[
-                { num: "R$200k+", labelPT: "em receita gerada", labelEN: "revenue generated" },
-                { num: "0.68%", labelPT: "CTR otimizado", labelEN: "optimized CTR" },
-                { num: "6+", labelPT: "certificações", labelEN: "certifications" },
-              ].map((stat) => (
-                <div key={stat.num} className="flex flex-col">
-                  <span className="text-3xl md:text-4xl font-black tracking-tight">{stat.num}</span>
-                  <span className="text-xs text-neutral-400 font-medium uppercase tracking-wider mt-1">{isEn ? stat.labelEN : stat.labelPT}</span>
-                </div>
-              ))}
-            </motion.div>
           </section>
 
           {/* ── 2. SOBRE ── */}
