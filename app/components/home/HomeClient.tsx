@@ -350,18 +350,18 @@ export default function HomeClient() {
 
                 <p className="text-lg md:text-xl text-neutral-600 leading-relaxed mb-8 max-w-2xl relative z-10">
                   {isEn
-                    ? "I design high-conversion landing pages, manage paid traffic campaigns across Google, Meta, LinkedIn & TikTok, and build AI-powered automations to scale operations."
-                    : "Crio landing pages de alta conversão, gerencio campanhas de tráfego pago em Google, Meta, LinkedIn e TikTok, e construo automações com IA para escalar operações."}
+                    ? "I operate at the intersection of product strategy, technology, and growth engineering. I build scalable architectures, AI-powered automation ecosystems, and data-driven acquisition models to accelerate your business performance."
+                    : "Atuo na interseção entre estratégia de produto, tecnologia e engenharia de crescimento. Construo arquiteturas escaláveis, ecossistemas de automação com Inteligência Artificial e modelos de aquisição orientados a dados para alavancar a performance do seu negócio."}
                 </p>
 
                 <div className="flex flex-wrap gap-2 mb-8 relative z-10">
-                  {["Landing Pages", isEn ? "Paid Traffic" : "Tráfego Pago", isEn ? "Automation & AI" : "Automação & IA", "UI/UX", "CRO"].map(tag => (
+                  {[isEn ? "Product Management" : "Gestão de Produto", isEn ? "Growth Engineering" : "Engenharia de Growth", isEn ? "Automation & AI" : "Automação & IA", "Data Analysis", "CRO"].map(tag => (
                     <span key={tag} className="px-4 py-1.5 border border-black/10 bg-white rounded-full text-[10px] font-bold uppercase tracking-widest text-neutral-500">{tag}</span>
                   ))}
                 </div>
 
                 <span className="text-sm font-bold uppercase tracking-widest text-black/30 group-hover:text-black transition-colors duration-300 flex items-center gap-3 relative z-10">
-                  {isEn ? "See my marketing portfolio" : "Ver meu portfólio de marketing"}
+                  {isEn ? "Explore my solutions" : "Conhecer minhas soluções"}
                   <span className="h-10 w-10 rounded-full border border-black/10 bg-white flex items-center justify-center group-hover:bg-black group-hover:text-white group-hover:border-black transition-all duration-500">↗</span>
                 </span>
               </SpotlightCard>
