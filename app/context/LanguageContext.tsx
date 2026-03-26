@@ -459,6 +459,7 @@ const translations = {
       ],
       bio: [
         {
+          muted: "Most companies treat marketing and technology as separate things.",
           prefix: "Most companies",
           bold: "treat marketing and technology as separate things.",
           suffix:
