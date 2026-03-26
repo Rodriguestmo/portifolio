@@ -226,9 +226,9 @@ export default function HomeClient() {
               className="mt-10 text-xl md:text-2xl text-neutral-500 max-w-2xl leading-relaxed tracking-tight"
             >
               {isEn ? (
-                <><strong className="text-black font-semibold">Product Manager · Aeronautical Mechanical Engineering Student at UNIFEI.</strong><br />I apply an engineer&apos;s mindset to solve real problems.</>
+                <><strong className="text-black font-semibold">Product Manager · Aeronautical Mech. Engineering Student at UNIFEI.</strong><br />Engineer by training, builder by obsession. I build products with an engineer&apos;s logic and a market vision.</>
               ) : (
-                <><strong className="text-black font-semibold">Product Manager · Estudante de Engenharia Mec. Aeronáutica na UNIFEI.</strong><br />Aplico pensamento de engenheiro para resolver problemas reais.</>
+                <><strong className="text-black font-semibold">Product Manager · Estudante de Engenharia Mec. Aeronáutica na UNIFEI.</strong><br />Engenheiro de formação, builder por obsessão. Construo produtos com lógica de engenheiro e visão de mercado.</>
               )}
             </motion.p>
 
