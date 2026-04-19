@@ -31,7 +31,7 @@ export default function GradientBlobs() {
           width: "600px",
           height: "600px",
           borderRadius: "50%",
-          background: "#22c55e",
+          background: "#3b3b3b",
           filter: "blur(80px)",
           opacity: 0.12,
           pointerEvents: "none",

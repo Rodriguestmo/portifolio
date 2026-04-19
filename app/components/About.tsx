@@ -82,7 +82,7 @@ export default function About() {
             <AnimateIn variant="slideRight" delay={0.2}>
               {/* Photo */}
               <motion.div
-                className="mb-8 h-[320px] w-full max-w-[400px] overflow-hidden rounded-2xl"
+                className="mb-8 h-[260px] sm:h-[320px] w-full max-w-[400px] overflow-hidden rounded-2xl"
                 initial={{ clipPath: "inset(0 100% 0 0)" }}
                 whileInView={{ clipPath: "inset(0 0% 0 0)" }}
                 viewport={{ once: true, amount: 0.3 }}

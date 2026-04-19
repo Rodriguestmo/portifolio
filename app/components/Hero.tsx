@@ -39,15 +39,15 @@ export default function Hero() {
             <AnimateIn variant="fadeIn" delay={0.2} trigger="mount">
               <div className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-black/[0.04] px-4 py-2 text-xs font-medium text-black/70 backdrop-blur-sm">
                 <span className="relative flex h-2 w-2">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-60" />
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500" />
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-black opacity-30" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-black" />
                 </span>
                 <span className="text-black/50">{h.badgeMuted}</span>
                 <span className="text-black font-semibold">{h.badgeBold}</span>
               </div>
             </AnimateIn>
 
-            <h1 className="mt-8 text-5xl leading-[1.05] tracking-tight md:text-7xl overflow-hidden">
+            <h1 className="mt-8 text-4xl leading-[1.05] tracking-tight sm:text-5xl md:text-7xl overflow-hidden">
               <span className="block overflow-hidden">
                 {h.titleLine1.map((word, i) => (
                   <motion.span
@@ -156,6 +156,44 @@ export default function Hero() {
               </MagneticButton>
             </motion.div>
           </div>
+
+          {/* Mobile — single card preview (visible only below lg) */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 1.8, ease: [0.25, 0.4, 0.25, 1] }}
+            className="relative lg:hidden mt-10 overflow-hidden rounded-[1.6rem] border border-black/8 bg-[#131826] shadow-xl"
+          >
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(163,230,53,0.1),transparent_40%),radial-gradient(circle_at_80%_80%,rgba(45,212,191,0.12),transparent_40%)]" />
+            <div className="relative flex flex-col gap-4 p-6 text-white">
+              <div className="flex items-center justify-between text-[10px] font-semibold tracking-[0.18em] text-white/60 uppercase">
+                <span>Automação IA</span>
+                <span className="rounded-full border border-white/10 bg-white/6 px-3 py-1 text-[9px] text-white/70">fluxo ativo</span>
+              </div>
+              <p className="text-2xl font-semibold leading-[1.1] tracking-tight">
+                Atendimento sem travar a operação.
+              </p>
+              <p className="text-sm leading-relaxed text-white/60">
+                IA qualificando, respondendo e encaminhando o lead pra próxima etapa.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {["Qualifica", "Agenda", "Faz follow-up"].map((tag) => (
+                  <span key={tag} className="rounded-full border border-white/10 bg-white/8 px-3 py-1.5 text-[11px] text-white/80">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              <div className="mt-2 rounded-2xl border border-white/10 bg-black/20 p-4">
+                <div className="flex items-center gap-3">
+                  <div className="h-8 w-8 shrink-0 rounded-full bg-white/15" />
+                  <div className="flex-1 space-y-2">
+                    <div className="h-2 w-3/4 rounded-full bg-white/15" />
+                    <div className="h-2 w-1/2 rounded-full bg-white/10" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
 
           {/* Right — Screenshot-style mini hero cards (scaled from 1920px) */}
           <motion.div

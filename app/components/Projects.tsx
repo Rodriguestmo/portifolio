@@ -48,7 +48,7 @@ export default function Projects() {
             const cardContent = (
               <>
                 <div
-                  className={`relative h-[320px] overflow-hidden bg-gradient-to-br ${project.gradient}`}
+                  className={`relative h-[260px] sm:h-[320px] overflow-hidden bg-gradient-to-br ${project.gradient}`}
                 >
                   <div className="absolute top-5 left-5 z-10 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-[11px] font-medium tracking-wide text-white/80 uppercase backdrop-blur-sm">
                     {project.badge}
@@ -92,7 +92,7 @@ export default function Projects() {
                           {project.name}
                         </motion.span>
                         <motion.span
-                          className="text-green-400 text-xs tracking-wider"
+                          className="text-white/80 text-xs tracking-wider"
                           initial={{ y: 10, opacity: 0 }}
                           whileHover={{ y: 0, opacity: 1 }}
                           transition={{ duration: 0.25, delay: 0.1 }}

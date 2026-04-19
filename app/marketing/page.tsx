@@ -2,14 +2,15 @@ import FrameBorder from "../components/FrameBorder";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import SocialProof from "../components/SocialProof";
+import Services from "../components/Services";
 import Projects from "../components/Projects";
 import TestimonialQuote from "../components/TestimonialQuote";
-import Services from "../components/Services";
-import TextReveal from "../components/TextReveal";
-import About from "../components/About";
+import MidPageCTA from "../components/MidPageCTA";
 import Pricing from "../components/Pricing";
-import LogoTicker from "../components/LogoTicker";
+import About from "../components/About";
+import TextReveal from "../components/TextReveal";
 import TestimonialsGrid from "../components/TestimonialsGrid";
+import LogoTicker from "../components/LogoTicker";
 import FAQ from "../components/FAQ";
 import Footer from "../components/Footer";
 import ContactBar from "../components/ContactBar";
@@ -20,9 +21,9 @@ import PreloaderWrapper from "../components/PreloaderWrapper";
 import ScrollProgressBar from "../components/ScrollProgressBar";
 
 export const metadata = {
-  title: "Thales Miguel | Marketing Digital & Tecnologia",
+  title: "Thales Miguel | Landing Pages, Tráfego Pago e Automações com IA",
   description:
-    "Especialista em landing pages de alta conversão, tráfego pago e IA personalizada. Monto a operação digital completa para transformar cliques em clientes reais.",
+    "Especialista em landing pages de alta conversão, tráfego pago e automações com IA. Mais de R$ 18M gerenciados e +50 projetos entregues. Fale comigo.",
 };
 
 export default function MarketingPage() {
@@ -38,14 +39,15 @@ export default function MarketingPage() {
       <main>
         <Hero />
         <SocialProof />
+        <Services />
         <Projects />
         <TestimonialQuote />
-        <Services />
-        <TextReveal />
-        <About />
+        <MidPageCTA />
         <Pricing />
-        <LogoTicker />
+        <About />
+        <TextReveal />
         <TestimonialsGrid />
+        <LogoTicker />
         <FAQ />
       </main>
       <Footer />

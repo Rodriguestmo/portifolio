@@ -12,7 +12,7 @@ const posts = [
   {
     title: "IA no atendimento: por que automação não é robotização",
     date: "Mar 2026",
-    gradient: "from-emerald-100 to-green-50",
+    gradient: "from-gray-100 to-slate-50",
   },
 ];
 

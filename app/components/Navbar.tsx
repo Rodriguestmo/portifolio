@@ -56,7 +56,7 @@ export default function Navbar() {
             <span className="relative">
               {link.label}
               <motion.span
-                className="absolute bottom-0 left-0 h-px bg-green-400 w-full"
+                className="absolute bottom-0 left-0 h-px bg-black w-full"
                 initial={{ scaleX: 0 }}
                 whileHover={{ scaleX: 1 }}
                 transition={{ duration: 0.25, ease: [0.25, 0.4, 0.25, 1] }}
